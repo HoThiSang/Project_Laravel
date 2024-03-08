@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('banner')
 
+
 @endsection
 @section('content')
 <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
