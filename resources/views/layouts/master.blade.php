@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="MediaCenter, Template, eCommerce">
+    <meta name="robots" content="all">
+    <title>TỨ DIỆP THẢO</title>
+    <link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEUyxnH///8TwmUsxW4lxGuw5sQaw2fU8d8OwmPl9+zR8N2y5sUfw2nn9+3c9OXX8uGf4bg8yHf1/Pih4bmM26rs+fHA69CY37O56ctWzod11Zpdz4ur5MDJ7teT3a/w+vRq0pOA2KJGyn1RzYNbz4lu05Z815+G2qcuLcb+AAALkElEQVR4nN2d65biKhCFCSAdFbs13m+trW37/m84JPESExIKAgRn/zrrrDljvrOB4lIUKHKv5HO/GE6/Zz+by3H7uz1eNj/X72lvsf88ePh15PIvT76Gs+MJMcY5p5QURan4dxiT0/G6GyQuP8IVYfK120xizAUXapJg5SxGl+nAlZ9OCAffa4p5M1oJlDN+ui5cmGmdcNS7cEx16B6UlMfr6aftD7JL2B+fmJZ3VS/x5NsupEXC/vJkZl5JVEB+2fssW4SH4dkK3g2SnXa2Rh47hF8XvYFFLTH0bAZWvs0G4eKM7eLdINlkaOHr2hPuJswFX8bIybJ1AGlJmCy55eZZEsXXeYeEyZJyl3g5I7u2GnTaEI498GWMeNairZoTrpAfvoyR77wTfp2xN75UfLL3SphsnMSHJhG8NRtyjAiHlHrmyxjZ2BNhf8064EvFJwbTHH3CsfcG+hTBP84J52t/I6hMfKK7ttIkXDmboUFFsGZv1CPc+A0RcrG1VvzXIRyduhhCqyJEZ4GsQbh3O8fWUdxzQbiMu+YqiP3ZJ9x0FQTl4uDOCCRMzt0GiaoIGtkknE+C6YIPEQ4bb0CEn+GMMUXFC1uEgxCioEwxZKcKQLgPa4wpKgYsjNWEq5CiRFmAKZySMGhAgbhsS7gIG1AgTtsRBjvIPIUVM7hmwo/wAcVwszInHIU7ihYVN27DNREmKMhAXxXrGxKe3wRQGNEwDW8g3IQ22a4XOZsQLt+jE+biG33CfeiB8FWsdv5WRzh/nyaaK/7QJDy9yyjzEKkZbWoI/97NQkG41iFcvMNcpiwuX2dICQ/v52AqLN3WkBJu364TZiITKOH0nSJhUfQHRth/x06YC0vm4BLCt5mOSkQghL13baOp+ExNeAjjfMlUuHKAWiE8vnEbFSInFeEbbMw0qzIFLxO+33y0LJo0Er71MJOLzpoIk/ceZnLhUQPh7D0npK8ix3rCw7sPM7nir1rC2f/QSIWJ2zrCN100VcUGNYTX/8NCYeKvnPA/6YWp4k8p4TJMCymOOda8sEI2UsIgZzMcjT/FJGW+2mrlDLKRhHAY4jhTmGUOJhptrDCxeRIGmDKD2MtaaK2BiKuEIWZcsNLm2S8c8Xl94UEY4LqQV1azcMTnvtudcB6ehdXlehRtwYPFY/P0TjgNbpypOqiFSP9KhMGtfGUOaiHyV8LP0Bqp3MEMEdgX+eKFMLRVBWu4cwBEvC8Tb4SOP1hX5TBhhMiSAmFgmUHNgFBEvioQfgfVSFWAQMRbM0XhNVI1IBCRJw/Cz5AaaQxK34Yg5qNpRrgLKNxDHAQi5seJGWFAZ74wB1OtAR99J0zCCfesLitGInVeIe7fCMNZOGENwGivHD2yJVRKGEys0HEwAsyls3iREkJatA9pAkLWQzlhKMcxWk001UDZu9KOKAi/wuiGug5G0UjdEVcZYRjRsDa3sF5zJSG9ZoSbELohNNAXpZ6Kpaf6KIxtRHigL2ilbnxxRhhAMrB+H0x1UVsjVtIohA0M7VE0k7obZpNvBPHascwcBO3w0qUg7HxGYwg4hrQ9MatBnW92mzXRqAda04rBFHWdimjoYA84PpIEdbyDYRDo4Q4K4QPqdnFoEug1HEx/AHUaLFw7KMLFHu0NggWhjOkercvEzGo/wh1MF8FooU1I2Gn80R99rY4ty/FgQ0CdnUG6RNorC/qsnDa6tGniHhwUdlyRbo4JLWbjRFPznVZTQL1fJBukeer0CtgC0UcTRWmOG/rT6ktlQLF+NkP00kRTnZHWpK0KaOhi7MdBoYkWId3KftYA0fFU7VUaO/oyB40Q3Qf6ouCbpXIHDRC99cFcZ+gfrHNQG9HTKPrQCfjn6h1MNYb/vCmg8XYS0MNmQA1E3w4KQlA/VAGCEf0Dol8IoRoQiOh5kMkEiRZNg4wWor9AXxAg4kMcBCF24eAEqU8taM1V/qqWzYh+A/1NJzRTHqRK74AbIHbhICK/6vWh/B6/PmIHo2hKeEFTBWHpJpgxovdAf/v8K1IdW3BQ+UUlYjcOikHkW7nXxnRrvUsRuwJEdIpUp/h1ZV+0EDsZZDLxBTqoCPU/rILYSaDPxQYoUUSL8tVoA0SvK/qS8BypjvHrcubhiJ0E+rtoglSJiWavgxQQu+uDqSYRUt0crZZhgCHeu3dno2j+9b+CsKcKF2bPSn3jVoCWEkToTBB+qM4e6i93NCprqN06KL59KAgPyv9dvKm0ZL2Ei10DpiewCHA7lpi6aBoH7eUwxUlKqF4DE2rmotn/GHsOojTBFIHucJu6aARoMQstvdONYGnepi4aANp0MA3mCFgsghgON9qAVvMI09V7mgkNSr/046JVB/NJdUoIq4fhw0W7Dub1MVJCYDqGexctO4jo+Eaojvk3RMcu2gbMl23Z1SBo8p5bFy03UXS77JwRglNMCQU+7mKgofUrgvk2YUaovprxRHTl4tB+ujnvPQgjeE6NK0T7Dt63CXPCn64RHTh4L9SeE+rcz3OBaH0UTXXbf7ndx9dJG7KP6MLBdJutSKjRTO0j2g8T2VfeDgVvhHrXSO0GDTcOPjYJ77VN9P5rmy66cVCMpIdXQs00U3suuggT2RfeTwXvhLpPythy0VETLRS+ftSJAmWdFGQH0ZWDCD3AHv+gfcHLBqIzB9MrXWVCjZnbTYS0RXQS6HPFj4PdJ+FY/1pCy+HGnYPF7IMnoUH10nYN1VWYSFU48CpUhtSa1+Rq46JDB19eRyoQ9g1+0txFl4AIFxJIijVoATeHKzJ10WGYKKVxFQmNHrYwc9Gpg4gVX9N7qQVtYqKRi04dLGXivRCa9EQTF906iNhLGtdrTXazAhK6od+tg+XMg1dCdbUQ+d+p1VAdO1g+eC69jfBtVn5Ap6G6BiwnU5YIVRlStX8t2EXXgOWnESoveAwNb4VCXXQOWH7eovrOjGmpVpiLjgcZdC8l2ERoXGEQ4qJzB0uRQkpo/n6A2kX3DpLqxQnJm13GV9BVLrp3sLDwbSI0f/ywOfS7dxBxySPdsrfzNsYVa5pc9OCg9NFc6fuHLX6jFtEDYCUU1hO2eLirbrjxAcikr6zL3yE1nLylkrvoA5DK777UvCXbokS7zEUPg0xtzn0NYZsHj6suutxVe6iu3lTdi8dtHq0uIzrc+H2KSQJFI2Grh8cJLy7Rxj4cpLVPj9e/rQ6t0C8Vnt07Rf/XR8W7hkuS9YTtKkZSvtntB4vxGnsplkbr7581ELZ8kZRwzjj1UwwubkhhbiAMq1R7k3DTHckmwmgRQOFPgHDdMKomNC0g5Ffs2sjQTNim0pUv8Z9mBAVhq7DoRbw2EAIJo++wEflFBaAkjGYhI3L1XXo1oaoWRJdiqiYKI4ymoQYN/AP4eghhtAsTEVefijclbLH95lBxY6DXJIy+2hcrta14pf5sDcJoHkJt+oIIhZZcgRJGybrzyuYF0Qn4TBZMKAJjOJ2RKeO8EWG0allV15qaFxMtCKO+zoO1zkSo1gVqLcIo+um+peKjXi0STcJoQbu1kWDdOh26hFFy7HImzs/aCVjahGm+dFc2EuA0pi1hlGz8bBGWxba6NatMCaNogPyHf8qB0zQrhOnuht+mSuKrQTmnNoTR4c9jUyVsa5xRbkwo1hueduwF37OUv1fCKNqffTDyiVkHtEEoGE+OGYV/ZlWcbBGKYXXrcD5O2FmzbKMDwij6/IvdxA4ab82KFNkmFFOA8cR6YyWMzKzccbRCKLQ/Wnh35onH8bZ187zJFqEwsre2AynwTmOT+Zlc9giF5rs1awmZ4Vm9Km6VUGg+vFBmeLZNKObbqe3L/rYJU30sf4mul8I7uh5bGDorckGY6rP3h2JQpgKhnMX0svswnFmr5IowVfLRm/1OKBaglJRRCUnRMEPrn93g4PArXBLmSkaD1Xi2WZ8mBb7JaX2ZLVf7viPjCvoHJeWeh3r5juwAAAAASUVORK5CYII=" />
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="assets\css\bootstrap.min.css">
+
+    <!-- Customizable CSS -->
+    <link rel="stylesheet" href="assets\css\main.css">
+    <link rel="stylesheet" href="assets\css\blue.css">
+    <link rel="stylesheet" href="assets\css\owl.carousel.css">
+    <link rel="stylesheet" href="assets\css\owl.transitions.css">
+    <link rel="stylesheet" href="assets\css\animate.min.css">
+    <link rel="stylesheet" href="assets\css\rateit.css">
+    <link rel="stylesheet" href="assets\css\bootstrap-select.min.css">
+
+    <!-- Icons/Glyphs -->
+    <link rel="stylesheet" href="assets\css\font-awesome.css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    @yield('css');
+</head>
+
+<body class="cnt-home">
+    <!-- ============================================== HEADER ============================================== -->
+    <header class="header-style-1">
+
+        <!-- ============================================== TOP MENU ============================================== -->
+        <div class="top-bar animate-dropdown">
+            <div class="container">
+                <div class="header-top-inner">
+                    <div class="cnt-account">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
+                            <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+                            <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+                            <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+                            <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.cnt-account -->
+
+                    <div class="cnt-block">
+                        <ul class="list-unstyled list-inline">
+                            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">USD</a></li>
+                                    <li><a href="#">INR</a></li>
+                                    <li><a href="#">GBP</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">French</a></li>
+                                    <li><a href="#">German</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- /.list-unstyled -->
+                    </div>
+                    <!-- /.cnt-cart -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /.header-top-inner -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.header-top -->
+        <!-- ============================================== TOP MENU : END ============================================== -->
+        <div class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
+                        <!-- ============================================================= LOGO ============================================================= -->
+                        <div class="logo"> <a href="home.html"> <img src="assets\images\logo.png" alt="logo"> </a> </div>
+                        <!-- /.logo -->
+                        <!-- ============================================================= LOGO : END ============================================================= -->
+                    </div>
+                    <!-- /.logo-holder -->
+
+                    <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
+                        <!-- /.contact-row -->
+                        <!-- ============================================================= SEARCH AREA ============================================================= -->
+                        <div class="search-area">
+                            <form>
+                                <div class="control-group">
+                                    <ul class="categories-filter animate-dropdown">
+                                        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li class="menu-header">Computer</li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <input class="search-field" placeholder="Search here...">
+                                    <a class="search-button" href="#"></a>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.search-area -->
+                        <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+                    </div>
+                    <!-- /.top-search-holder -->
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
+                        <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+
+                        <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                                <div class="items-cart-inner">
+                                    <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
+                                    <div class="basket-item-count"><span class="count">2</span></div>
+                                    <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span> </div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="cart-item product-summary">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <div class="image"> <a href="detail.html"><img src="assets\images\cart.jpg" alt=""></a> </div>
+                                            </div>
+                                            <div class="col-xs-7">
+                                                <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
+                                                <div class="price">$600.00</div>
+                                            </div>
+                                            <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.cart-item -->
+                                    <div class="clearfix"></div>
+                                    <hr>
+                                    <div class="clearfix cart-total">
+                                        <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
+                                        <div class="clearfix"></div>
+                                        <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                                    </div>
+                                    <!-- /.cart-total-->
+
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-menu-->
+                        </div>
+                        <!-- /.dropdown-cart -->
+
+                        <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
+                    </div>
+                    <!-- /.top-cart-row -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.main-header -->
+
+        <!-- ============================================== NAVBAR ============================================== -->
+        <div class="header-nav animate-dropdown">
+            <div class="container">
+                <div class="yamm navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    </div>
+                    <div class="nav-bg-class">
+                        <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+                            <div class="nav-outer">
+                                <ul class="nav navbar-nav">
+                                    <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
+                                    <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                                        <ul class="dropdown-menu container">
+                                            <li>
+                                                <div class="yamm-content ">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                            <h2 class="title">Men</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Dresses</a></li>
+                                                                <li><a href="#">Shoes </a></li>
+                                                                <li><a href="#">Jackets</a></li>
+                                                                <li><a href="#">Sunglasses</a></li>
+                                                                <li><a href="#">Sport Wear</a></li>
+                                                                <li><a href="#">Blazers</a></li>
+                                                                <li><a href="#">Shirts</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+
+                                                        <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                            <h2 class="title">Women</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Handbags</a></li>
+                                                                <li><a href="#">Jwellery</a></li>
+                                                                <li><a href="#">Swimwear </a></li>
+                                                                <li><a href="#">Tops</a></li>
+                                                                <li><a href="#">Flats</a></li>
+                                                                <li><a href="#">Shoes</a></li>
+                                                                <li><a href="#">Winter Wear</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+
+                                                        <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                            <h2 class="title">Boys</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Toys & Games</a></li>
+                                                                <li><a href="#">Jeans</a></li>
+                                                                <li><a href="#">Shirts</a></li>
+                                                                <li><a href="#">Shoes</a></li>
+                                                                <li><a href="#">School Bags</a></li>
+                                                                <li><a href="#">Lunch Box</a></li>
+                                                                <li><a href="#">Footwear</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+
+                                                        <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                            <h2 class="title">Girls</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Sandals </a></li>
+                                                                <li><a href="#">Shorts</a></li>
+                                                                <li><a href="#">Dresses</a></li>
+                                                                <li><a href="#">Jwellery</a></li>
+                                                                <li><a href="#">Bags</a></li>
+                                                                <li><a href="#">Night Dress</a></li>
+                                                                <li><a href="#">Swim Wear</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+
+                                                        <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="assets\images\banners\top-menu-banner.jpg" alt=""> </div>
+                                                        <!-- /.yamm-content -->
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown mega-menu">
+                                        <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+                                        <ul class="dropdown-menu container">
+                                            <li>
+                                                <div class="yamm-content">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
+                                                            <h2 class="title">Laptops</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Gaming</a></li>
+                                                                <li><a href="#">Laptop Skins</a></li>
+                                                                <li><a href="#">Apple</a></li>
+                                                                <li><a href="#">Dell</a></li>
+                                                                <li><a href="#">Lenovo</a></li>
+                                                                <li><a href="#">Microsoft</a></li>
+                                                                <li><a href="#">Asus</a></li>
+                                                                <li><a href="#">Adapters</a></li>
+                                                                <li><a href="#">Batteries</a></li>
+                                                                <li><a href="#">Cooling Pads</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
+                                                            <h2 class="title">Desktops</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Routers & Modems</a></li>
+                                                                <li><a href="#">CPUs, Processors</a></li>
+                                                                <li><a href="#">PC Gaming Store</a></li>
+                                                                <li><a href="#">Graphics Cards</a></li>
+                                                                <li><a href="#">Components</a></li>
+                                                                <li><a href="#">Webcam</a></li>
+                                                                <li><a href="#">Memory (RAM)</a></li>
+                                                                <li><a href="#">Motherboards</a></li>
+                                                                <li><a href="#">Keyboards</a></li>
+                                                                <li><a href="#">Headphones</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
+                                                            <h2 class="title">Cameras</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Accessories</a></li>
+                                                                <li><a href="#">Binoculars</a></li>
+                                                                <li><a href="#">Telescopes</a></li>
+                                                                <li><a href="#">Camcorders</a></li>
+                                                                <li><a href="#">Digital</a></li>
+                                                                <li><a href="#">Film Cameras</a></li>
+                                                                <li><a href="#">Flashes</a></li>
+                                                                <li><a href="#">Lenses</a></li>
+                                                                <li><a href="#">Surveillance</a></li>
+                                                                <li><a href="#">Tripods</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- /.col -->
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
+                                                            <h2 class="title">Mobile Phones</h2>
+                                                            <ul class="links">
+                                                                <li><a href="#">Apple</a></li>
+                                                                <li><a href="#">Samsung</a></li>
+                                                                <li><a href="#">Lenovo</a></li>
+                                                                <li><a href="#">Motorola</a></li>
+                                                                <li><a href="#">LeEco</a></li>
+                                                                <li><a href="#">Asus</a></li>
+                                                                <li><a href="#">Acer</a></li>
+                                                                <li><a href="#">Accessories</a></li>
+                                                                <li><a href="#">Headphones</a></li>
+                                                                <li><a href="#">Memory Cards</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets\images\banners\banner-side.png"></a> </div>
+                                                    </div>
+                                                    <!-- /.row -->
+                                                </div>
+                                                <!-- /.yamm-content -->
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown hidden-sm"> <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
+                                    <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
+                                    <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
+                                    <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
+                                    <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
+                                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
+                                        <ul class="dropdown-menu pages">
+                                            <li>
+                                                <div class="yamm-content">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-menu">
+                                                            <ul class="links">
+                                                                <li><a href="home.html">Home</a></li>
+                                                                <li><a href="category.html">Category</a></li>
+                                                                <li><a href="detail.html">Detail</a></li>
+                                                                <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>
+                                                                <li><a href="checkout.html">Checkout</a></li>
+                                                                <li><a href="blog.html">Blog</a></li>
+                                                                <li><a href="blog-details.html">Blog Detail</a></li>
+                                                                <li><a href="contact.html">Contact</a></li>
+                                                                <li><a href="sign-in.html">Sign In</a></li>
+                                                                <li><a href="my-wishlist.html">Wishlist</a></li>
+                                                                <li><a href="terms-conditions.html">Terms and Condition</a></li>
+                                                                <li><a href="track-orders.html">Track Orders</a></li>
+                                                                <li><a href="product-comparison.html">Product-Comparison</a></li>
+                                                                <li><a href="faq.html">FAQ</a></li>
+                                                                <li><a href="404.html">404</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
+                                </ul>
+                                <!-- /.navbar-nav -->
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- /.nav-outer -->
+                        </div>
+                        <!-- /.navbar-collapse -->
+
+                    </div>
+                    <!-- /.nav-bg-class -->
+                </div>
+                <!-- /.navbar-default -->
+            </div>
+            <!-- /.container-class -->
+
+        </div>
+        <!-- /.header-nav -->
+        <!-- ============================================== NAVBAR : END ============================================== -->
+
+    </header>
+
+    <!-- ============================================== HEADER : END ============================================== -->
+
+    <div class="body-content outer-top-xs" id="top-banner-and-menu">
+        <div class="container">
+            <div class="row">
+                <!-- ============================================== SIDEBAR ============================================== -->
+                <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
+
+                    <!-- ================================== TOP NAVIGATION ================================== -->
+                    <div class="side-menu animate-dropdown outer-bottom-xs">
+                        <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+                        <nav class="yamm megamenu-horizontal">
+                            <ul class="nav">
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Clothing</a>
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shoes </a></li>
+                                                        <li><a href="#">Jackets</a></li>
+                                                        <li><a href="#">Sunglasses</a></li>
+                                                        <li><a href="#">Sport Wear</a></li>
+                                                        <li><a href="#">Blazers</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Handbags</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Swimwear </a></li>
+                                                        <li><a href="#">Tops</a></li>
+                                                        <li><a href="#">Flats</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">Winter Wear</a></li>
+                                                        <li><a href="#">Night Suits</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Toys &amp; Games</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">School Bags</a></li>
+                                                        <li><a href="#">Lunch Box</a></li>
+                                                        <li><a href="#">Footwear</a></li>
+                                                        <li><a href="#">Wipes</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Sandals </a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Bags</a></li>
+                                                        <li><a href="#">Night Dress</a></li>
+                                                        <li><a href="#">Swim Wear</a></li>
+                                                        <li><a href="#">Toys</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <!-- /.yamm-content -->
+                                    </ul>
+                                    <!-- /.dropdown-menu -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a>
+                                    <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <ul>
+                                                        <li><a href="#">Gaming</a></li>
+                                                        <li><a href="#">Laptop Skins</a></li>
+                                                        <li><a href="#">Apple</a></li>
+                                                        <li><a href="#">Dell</a></li>
+                                                        <li><a href="#">Lenovo</a></li>
+                                                        <li><a href="#">Microsoft</a></li>
+                                                        <li><a href="#">Asus</a></li>
+                                                        <li><a href="#">Adapters</a></li>
+                                                        <li><a href="#">Batteries</a></li>
+                                                        <li><a href="#">Cooling Pads</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <ul>
+                                                        <li><a href="#">Routers &amp; Modems</a></li>
+                                                        <li><a href="#">CPUs, Processors</a></li>
+                                                        <li><a href="#">PC Gaming Store</a></li>
+                                                        <li><a href="#">Graphics Cards</a></li>
+                                                        <li><a href="#">Components</a></li>
+                                                        <li><a href="#">Webcam</a></li>
+                                                        <li><a href="#">Memory (RAM)</a></li>
+                                                        <li><a href="#">Motherboards</a></li>
+                                                        <li><a href="#">Keyboards</a></li>
+                                                        <li><a href="#">Headphones</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets\images\banners\banner-side.png"></a> </div>
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <!-- /.yamm-content -->
+                                    </ul>
+                                    <!-- /.dropdown-menu -->
+                                    <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-paw" aria-hidden="true"></i>Shoes</a>
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shoes </a></li>
+                                                        <li><a href="#">Jackets</a></li>
+                                                        <li><a href="#">Sunglasses</a></li>
+                                                        <li><a href="#">Sport Wear</a></li>
+                                                        <li><a href="#">Blazers</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Handbags</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Swimwear </a></li>
+                                                        <li><a href="#">Tops</a></li>
+                                                        <li><a href="#">Flats</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">Winter Wear</a></li>
+                                                        <li><a href="#">Night Suits</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Toys &amp; Games</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">School Bags</a></li>
+                                                        <li><a href="#">Lunch Box</a></li>
+                                                        <li><a href="#">Footwear</a></li>
+                                                        <li><a href="#">Wipes</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Sandals </a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Bags</a></li>
+                                                        <li><a href="#">Night Dress</a></li>
+                                                        <li><a href="#">Swim Wear</a></li>
+                                                        <li><a href="#">Toys</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <!-- /.yamm-content -->
+                                    </ul>
+                                    <!-- /.dropdown-menu -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-clock-o"></i>Watches</a>
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <ul>
+                                                        <li><a href="#">Gaming</a></li>
+                                                        <li><a href="#">Laptop Skins</a></li>
+                                                        <li><a href="#">Apple</a></li>
+                                                        <li><a href="#">Dell</a></li>
+                                                        <li><a href="#">Lenovo</a></li>
+                                                        <li><a href="#">Microsoft</a></li>
+                                                        <li><a href="#">Asus</a></li>
+                                                        <li><a href="#">Adapters</a></li>
+                                                        <li><a href="#">Batteries</a></li>
+                                                        <li><a href="#">Cooling Pads</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <ul>
+                                                        <li><a href="#">Routers &amp; Modems</a></li>
+                                                        <li><a href="#">CPUs, Processors</a></li>
+                                                        <li><a href="#">PC Gaming Store</a></li>
+                                                        <li><a href="#">Graphics Cards</a></li>
+                                                        <li><a href="#">Components</a></li>
+                                                        <li><a href="#">Webcam</a></li>
+                                                        <li><a href="#">Memory (RAM)</a></li>
+                                                        <li><a href="#">Motherboards</a></li>
+                                                        <li><a href="#">Keyboards</a></li>
+                                                        <li><a href="#">Headphones</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets\images\banners\banner-side.png"></a> </div>
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <!-- /.yamm-content -->
+                                    </ul>
+                                    <!-- /.dropdown-menu -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-diamond"></i>Jewellery</a>
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shoes </a></li>
+                                                        <li><a href="#">Jackets</a></li>
+                                                        <li><a href="#">Sunglasses</a></li>
+                                                        <li><a href="#">Sport Wear</a></li>
+                                                        <li><a href="#">Blazers</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Handbags</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Swimwear </a></li>
+                                                        <li><a href="#">Tops</a></li>
+                                                        <li><a href="#">Flats</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">Winter Wear</a></li>
+                                                        <li><a href="#">Night Suits</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Toys &amp; Games</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">School Bags</a></li>
+                                                        <li><a href="#">Lunch Box</a></li>
+                                                        <li><a href="#">Footwear</a></li>
+                                                        <li><a href="#">Wipes</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Sandals </a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Bags</a></li>
+                                                        <li><a href="#">Night Dress</a></li>
+                                                        <li><a href="#">Swim Wear</a></li>
+                                                        <li><a href="#">Toys</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <!-- /.yamm-content -->
+                                    </ul>
+                                    <!-- /.dropdown-menu -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-heartbeat"></i>Health and Beauty</a>
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <ul>
+                                                        <li><a href="#">Gaming</a></li>
+                                                        <li><a href="#">Laptop Skins</a></li>
+                                                        <li><a href="#">Apple</a></li>
+                                                        <li><a href="#">Dell</a></li>
+                                                        <li><a href="#">Lenovo</a></li>
+                                                        <li><a href="#">Microsoft</a></li>
+                                                        <li><a href="#">Asus</a></li>
+                                                        <li><a href="#">Adapters</a></li>
+                                                        <li><a href="#">Batteries</a></li>
+                                                        <li><a href="#">Cooling Pads</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <ul>
+                                                        <li><a href="#">Routers &amp; Modems</a></li>
+                                                        <li><a href="#">CPUs, Processors</a></li>
+                                                        <li><a href="#">PC Gaming Store</a></li>
+                                                        <li><a href="#">Graphics Cards</a></li>
+                                                        <li><a href="#">Components</a></li>
+                                                        <li><a href="#">Webcam</a></li>
+                                                        <li><a href="#">Memory (RAM)</a></li>
+                                                        <li><a href="#">Motherboards</a></li>
+                                                        <li><a href="#">Keyboards</a></li>
+                                                        <li><a href="#">Headphones</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets\images\banners\banner-side.png"></a> </div>
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <!-- /.yamm-content -->
+                                    </ul>
+                                    <!-- /.dropdown-menu -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-paper-plane"></i>Kids and Babies</a>
+                                    <!-- /.dropdown-menu --> </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-futbol-o"></i>Sports</a>
+                                    <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                                    <!-- /.dropdown-menu -->
+                                    <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                                </li>
+                                <!-- /.menu-item -->
+
+                                <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-envira"></i>Home and Garden</a>
+                                    <!-- /.dropdown-menu --> </li>
+                                <!-- /.menu-item -->
+
+                            </ul>
+                            <!-- /.nav -->
+                        </nav>
+                        <!-- /.megamenu-horizontal -->
+                    </div>
+                    <!-- /.side-menu -->
+                    <!-- ================================== TOP NAVIGATION : END ================================== -->
+
+                    <!-- ============================================== HOT DEALS ============================================== -->
+                    <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
+                        <h3 class="section-title">hot deals</h3>
+                        <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+                            <div class="item">
+                                <div class="products">
+                                    <div class="hot-deal-wrapper">
+                                        <div class="image"> <img src="assets\images\hot-deals\p25.jpg" alt=""> </div>
+                                        <div class="sale-offer-tag"><span>49%<br>
+                                                off</span></div>
+                                        <div class="timing-wrapper">
+                                            <div class="box-wrapper">
+                                                <div class="date box"> <span class="key">120</span> <span class="value">DAYS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper">
+                                                <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper">
+                                                <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper hidden-md">
+                                                <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.hot-deal-wrapper -->
+
+                                    <div class="product-info text-left m-t-20">
+                                        <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <div class="add-cart-button btn-group">
+                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="products">
+                                    <div class="hot-deal-wrapper">
+                                        <div class="image"> <img src="assets\images\hot-deals\p5.jpg" alt=""> </div>
+                                        <div class="sale-offer-tag"><span>35%<br>
+                                                off</span></div>
+                                        <div class="timing-wrapper">
+                                            <div class="box-wrapper">
+                                                <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
+                                            </div>
+                                            <div class="box-wrapper">
+                                                <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper">
+                                                <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper hidden-md">
+                                                <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.hot-deal-wrapper -->
+
+                                    <div class="product-info text-left m-t-20">
+                                        <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <div class="add-cart-button btn-group">
+                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="products">
+                                    <div class="hot-deal-wrapper">
+                                        <div class="image"> <img src="assets\images\hot-deals\p10.jpg" alt=""> </div>
+                                        <div class="sale-offer-tag"><span>35%<br>
+                                                off</span></div>
+                                        <div class="timing-wrapper">
+                                            <div class="box-wrapper">
+                                                <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
+                                            </div>
+                                            <div class="box-wrapper">
+                                                <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper">
+                                                <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                                            </div>
+                                            <div class="box-wrapper hidden-md">
+                                                <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.hot-deal-wrapper -->
+
+                                    <div class="product-info text-left m-t-20">
+                                        <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <div class="add-cart-button btn-group">
+                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.sidebar-widget -->
+                    </div>
+                    <!-- ============================================== HOT DEALS: END ============================================== -->
+
+                    <!-- ============================================== SPECIAL OFFER ============================================== -->
+
+                    <div class="sidebar-widget outer-bottom-small wow fadeInUp">
+                        <h3 class="section-title">Special Offer</h3>
+                        <div class="sidebar-widget-body outer-top-xs">
+                            <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
+                                <div class="item">
+                                    <div class="products special-product">
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p30.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p29.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p28.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="products special-product">
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p27.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p26.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p25.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="products special-product">
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p24.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p23.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p22.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.sidebar-widget-body -->
+                    </div>
+                    <!-- /.sidebar-widget -->
+                    <!-- ============================================== SPECIAL OFFER : END ============================================== -->
+                    <!-- ============================================== PRODUCT TAGS ============================================== -->
+                    <div class="sidebar-widget product-tag wow fadeInUp">
+                        <h3 class="section-title">Product tags</h3>
+                        <div class="sidebar-widget-body outer-top-xs">
+                            <div class="tag-list"> <a class="item" title="Phone" href="category.html">Phone</a> <a class="item active" title="Vest" href="category.html">Vest</a> <a class="item" title="Smartphone" href="category.html">Smartphone</a> <a class="item" title="Furniture" href="category.html">Furniture</a> <a class="item" title="T-shirt" href="category.html">T-shirt</a> <a class="item" title="Sweatpants" href="category.html">Sweatpants</a> <a class="item" title="Sneaker" href="category.html">Sneaker</a> <a class="item" title="Toys" href="category.html">Toys</a> <a class="item" title="Rose" href="category.html">Rose</a> </div>
+                            <!-- /.tag-list -->
+                        </div>
+                        <!-- /.sidebar-widget-body -->
+                    </div>
+                    <!-- /.sidebar-widget -->
+                    <!-- ============================================== PRODUCT TAGS : END ============================================== -->
+                    <!-- ============================================== SPECIAL DEALS ============================================== -->
+
+                    <div class="sidebar-widget outer-bottom-small wow fadeInUp">
+                        <h3 class="section-title">Special Deals</h3>
+                        <div class="sidebar-widget-body outer-top-xs">
+                            <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
+                                <div class="item">
+                                    <div class="products special-product">
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p28.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p15.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p26.jpg" alt="image"> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="products special-product">
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p18.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p17.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p16.jpg" alt=""> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="products special-product">
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p15.jpg" alt="images">
+                                                                    <div class="zoom-overlay"></div>
+                                                                </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p14.jpg" alt="">
+                                                                    <div class="zoom-overlay"></div>
+                                                                </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                        <div class="product">
+                                            <div class="product-micro">
+                                                <div class="row product-micro-row">
+                                                    <div class="col col-xs-5">
+                                                        <div class="product-image">
+                                                            <div class="image"> <a href="#"> <img src="assets\images\products\p13.jpg" alt="image"> </a> </div>
+                                                            <!-- /.image -->
+
+                                                        </div>
+                                                        <!-- /.product-image -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col col-xs-7">
+                                                        <div class="product-info">
+                                                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                            <!-- /.product-price -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.product-micro-row -->
+                                            </div>
+                                            <!-- /.product-micro -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.sidebar-widget-body -->
+                    </div>
+                    <!-- /.sidebar-widget -->
+                    <!-- ============================================== SPECIAL DEALS : END ============================================== -->
+                    <!-- ============================================== NEWSLETTER ============================================== -->
+                    <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small">
+                        <h3 class="section-title">Newsletters</h3>
+                        <div class="sidebar-widget-body outer-top-xs">
+                            <p>Sign Up for Our Newsletter!</p>
+                            <form>
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">
+                                </div>
+                                <button class="btn btn-primary">Subscribe</button>
+                            </form>
+                        </div>
+                        <!-- /.sidebar-widget-body -->
+                    </div>
+                    <!-- /.sidebar-widget -->
+                    <!-- ============================================== NEWSLETTER: END ============================================== -->
+
+                    <!-- ============================================== Testimonials============================================== -->
+                    <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
+                        <div id="advertisement" class="advertisement">
+                            <div class="item">
+                                <div class="avatar"><img src="assets\images\testimonials\member1.png" alt="Image"></div>
+                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
+                                <div class="clients_author">John Doe <span>Abc Company</span> </div>
+                                <!-- /.container-fluid -->
+                            </div>
+                            <!-- /.item -->
+
+                            <div class="item">
+                                <div class="avatar"><img src="assets\images\testimonials\member3.png" alt="Image"></div>
+                                <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
+                                <div class="clients_author">Stephen Doe <span>Xperia Designs</span> </div>
+                            </div>
+                            <!-- /.item -->
+
+                            <div class="item">
+                                <div class="avatar"><img src="assets\images\testimonials\member2.png" alt="Image"></div>
+                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
+                                <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span> </div>
+                                <!-- /.container-fluid -->
+                            </div>
+                            <!-- /.item -->
+
+                        </div>
+                        <!-- /.owl-carousel -->
+                    </div>
+
+                    <!-- ============================================== Testimonials: END ============================================== -->
+
+                    <div class="home-banner"> <img src="assets\images\banners\LHS-banner.jpg" alt="Image"> </div>
+                </div>
+                <!-- /.sidemenu-holder -->
+                <!-- ============================================== SIDEBAR : END ============================================== -->
+
+                <!-- ============================================== CONTENT ============================================== -->
+                @yield('content')
+
+                <!-- /.homebanner-holder -->
+                <!-- ============================================== CONTENT : END ============================================== -->
+            </div>
+            <!-- /.row -->
+            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+            <div id="brands-carousel" class="logo-slider wow fadeInUp">
+                <div class="logo-slider-inner">
+                    <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
+                        <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand3.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand6.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+
+                        <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets\images\blank.gif" alt=""> </a> </div>
+                        <!--/.item-->
+                    </div>
+                    <!-- /.owl-carousel #logo-slider -->
+                </div>
+                <!-- /.logo-slider-inner -->
+
+            </div>
+            <!-- /.logo-slider -->
+            <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#top-banner-and-menu -->
+
+    <!-- ============================================================= FOOTER ============================================================= -->
+    <footer id="footer" class="footer color-bg">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="module-heading">
+                            <h4 class="module-title">Contact Us</h4>
+                        </div>
+                        <!-- /.module-heading -->
+
+                        <div class="module-body">
+                            <ul class="toggle-footer" style="">
+                                <li class="media">
+                                    <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
+                                    <div class="media-body">
+                                        <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
+                                    <div class="media-body">
+                                        <p>+(888) 123-4567<br>
+                                            +(888) 456-7890</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
+                                    <div class="media-body"> <span><a href="#">flipmart@themesground.com</a></span> </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.module-body -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="module-heading">
+                            <h4 class="module-title">Customer Service</h4>
+                        </div>
+                        <!-- /.module-heading -->
+
+                        <div class="module-body">
+                            <ul class='list-unstyled'>
+                                <li class="first"><a href="#" title="Contact us">My Account</a></li>
+                                <li><a href="#" title="About us">Order History</a></li>
+                                <li><a href="#" title="faq">FAQ</a></li>
+                                <li><a href="#" title="Popular Searches">Specials</a></li>
+                                <li class="last"><a href="#" title="Where is my order?">Help Center</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.module-body -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="module-heading">
+                            <h4 class="module-title">Corporation</h4>
+                        </div>
+                        <!-- /.module-heading -->
+
+                        <div class="module-body">
+                            <ul class='list-unstyled'>
+                                <li class="first"><a title="Your Account" href="#">About us</a></li>
+                                <li><a title="Information" href="#">Customer Service</a></li>
+                                <li><a title="Addresses" href="#">Company</a></li>
+                                <li><a title="Addresses" href="#">Investor Relations</a></li>
+                                <li class="last"><a title="Orders History" href="#">Advanced Search</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.module-body -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="module-heading">
+                            <h4 class="module-title">Why Choose Us</h4>
+                        </div>
+                        <!-- /.module-heading -->
+
+                        <div class="module-body">
+                            <ul class='list-unstyled'>
+                                <li class="first"><a href="#" title="About us">Shopping Guide</a></li>
+                                <li><a href="#" title="Blog">Blog</a></li>
+                                <li><a href="#" title="Company">Company</a></li>
+                                <li><a href="#" title="Investor Relations">Investor Relations</a></li>
+                                <li class=" last"><a href="contact-us.html" title="Suppliers">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.module-body -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <div class="container">
+                <div class="col-xs-12 col-sm-6 no-padding social">
+                    <ul class="link">
+                        <li class="fb pull-left"><a target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
+                        <li class="tw pull-left"><a target="_blank" rel="nofollow" href="#" title="Twitter"></a></li>
+                        <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li>
+                        <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>
+                        <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a></li>
+                        <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>
+                        <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 no-padding">
+                    <div class="clearfix payment-methods">
+                        <ul>
+                            <li><img src="assets\images\payments\1.png" alt=""></li>
+                            <li><img src="assets\images\payments\2.png" alt=""></li>
+                            <li><img src="assets\images\payments\3.png" alt=""></li>
+                            <li><img src="assets\images\payments\4.png" alt=""></li>
+                            <li><img src="assets\images\payments\5.png" alt=""></li>
+                        </ul>
+                    </div>
+                    <!-- /.payment-methods -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ============================================================= FOOTER : END============================================================= -->
+
+    <!-- For demo purposes – can be removed on production -->
+
+    <!-- For demo purposes – can be removed on production : End -->
+
+    <!-- JavaScripts placed at the end of the document so the pages load faster -->
+    <script src="assets\js\jquery-1.11.1.min.js"></script>
+    <script src="assets\js\bootstrap.min.js"></script>
+    <script src="assets\js\bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets\js\owl.carousel.min.js"></script>
+    <script src="assets\js\echo.min.js"></script>
+    <script src="assets\js\jquery.easing-1.3.min.js"></script>
+    <script src="assets\js\bootstrap-slider.min.js"></script>
+    <script src="assets\js\jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="assets\js\lightbox.min.js"></script>
+    <script src="assets\js\bootstrap-select.min.js"></script>
+    <script src="assets\js\wow.min.js"></script>
+    <script src="assets\js\scripts.js"></script>
+    @yield('jss');
+</body>
+
+</html>
