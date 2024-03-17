@@ -29,3 +29,12 @@ Route::get('/index', function () {
 Route::get('/category', function () {
     return view('users/category');
 });
+
+Route::get('/register', function () {
+    return view('users/register');
+})->name('register');
+
+
+Route::get('/login', function () {
+    return view('users/login');
+})->name('login');
