@@ -23,5 +23,9 @@ Route::get('/', function () {
 
 
 Route::get('/index', function () {
-    return view('pages/index');
+    return view('users/index');
+})->name('homepage');
+
+Route::get('/category', function () {
+    return view('users/category');
 });

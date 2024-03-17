@@ -1,10 +1,8 @@
 @extends('layouts.master')
-@section('banner')
 
-
-@endsection
 @section('content')
-<div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
+<div class="container" style="display: flex; justify-content: center; align-items: center; " >
+<div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder ">
     <!-- ========================================== SECTION – HERO ========================================= -->
 
     <div id="hero">
@@ -2091,5 +2089,6 @@
     <!-- /.section -->
     <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
 
+</div>
 </div>
 @endsection
