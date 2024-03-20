@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,7 @@ Route::get('/', function () {
 // });
 
 
-Route::get('/index', function () {
-    return view('users/index');
-})->name('homepage');
+Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 
 Route::get('/category', function () {
     return view('users/category');
