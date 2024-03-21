@@ -38,3 +38,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('users/login');
 })->name('login');
+
+Route::get('/contact', function(){
+    return view('users/contact');
+})->name('contatc');
