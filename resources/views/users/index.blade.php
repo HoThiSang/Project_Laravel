@@ -3,8 +3,7 @@
 @section('content')
 <div class="container" style="display: flex; justify-content: center; align-items: center; ">
     <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder ">
-        <!-- ========================================== SECTION – HERO ========================================= -->
-
+       
         <div id="hero">
             <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
                 <div class="item" style="background-image: url(assets/images/sliders/01.jpg);">
@@ -38,10 +37,6 @@
             </div>
             <!-- /.owl-carousel -->
         </div>
-
-        <!-- ========================================= SECTION – HERO : END ========================================= -->
-
-        <!-- ============================================== INFO BOXES ============================================== -->
         <div class="info-boxes wow fadeInUp">
             <div class="info-boxes-inner">
                 <div class="row">
@@ -86,8 +81,7 @@
             <!-- /.info-boxes-inner -->
 
         </div>
-        <!-- /.info-boxes -->
-        <!-- ============================================== ALL PRODUCTS ============================================== -->
+
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
             <div class="more-info-tab clearfix ">
                 <h3 class="new-product-title pull-left">All Products</h3>
@@ -946,9 +940,6 @@
             </div>
             <!-- /.tab-content -->
         </div>
-        <!-- /.scroll-tabs -->
-
-        <!-- ============================================== WIDE PRODUCTS ============================================== -->
         <div class="wide-banners wow fadeInUp outer-bottom-xs">
             <div class="row">
                 <div class="col-md-7 col-sm-7">
@@ -968,13 +959,10 @@
             </div>
             <!-- /.row -->
         </div>
-        <!-- /.wide-banners -->
 
-        <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
-        <!-- ============================================== DISCOUNT PRODUCTS ============================================== -->
         <section class="section featured-product wow fadeInUp">
             <h3 class="section-title">Promotional products</h3>
-            
+
             <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
                 @foreach($productsWithDiscount as $productdiscount)
                 <div class="item item-carousel">
@@ -1015,18 +1003,14 @@
                         <!-- /.product -->
 
                     </div>
-                
+
                     <!-- /.products -->
-                </div> 
-                <!-- /.item -->
+                </div>
                 @endforeach
 
             </div>
-            <!-- /.home-owl-carousel -->
         </section>
-        <!-- /.section -->
-        <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
-        <!-- ============================================== WIDE PRODUCTS ============================================== -->
+
         <div class="wide-banners wow fadeInUp outer-bottom-xs">
             <div class="row">
                 <div class="col-md-12">
@@ -1042,248 +1026,16 @@
                         <div class="new-label">
                             <div class="text">NEW</div>
                         </div>
-                        <!-- /.new-label -->
+
                     </div>
-                    <!-- /.wide-banner -->
+
                 </div>
-                <!-- /.col -->
+
 
             </div>
-            <!-- /.row -->
+
         </div>
-        <!-- /.wide-banners -->
-        <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
-        <!-- ============================================== BEST SELLER ============================================== -->
 
-        <div class="best-deal wow fadeInUp outer-bottom-xs">
-            <h3 class="section-title">Best seller</h3>
-            <div class="sidebar-widget-body outer-top-xs">
-                <div class="owl-carousel best-seller custom-carousel owl-theme outer-top-xs">
-                    <div class="item">
-                        <div class="products best-product">
-                        
-                            <div class="product">
-                                <div class="product-micro d-flex">
-                                @foreach($productsSuggesteds as $productsSuggested)
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="{{ $productsSuggested->image_url}}" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">{{ $productsSuggested->product_name}}</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price">{{ $productsSuggested->discounted_price}} </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    @endforeach
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                   
-                            
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="products best-product">
-                            <div class="product">
-                                <div class="product-micro">
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="assets\images\products\p22.jpg" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">Floral Print Buttoned</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                            <div class="product">
-                                <div class="product-micro">
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="assets\images\products\p23.jpg" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">Floral Print Buttoned</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="products best-product">
-                            <div class="product">
-                                <div class="product-micro">
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="assets\images\products\p24.jpg" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">Floral Print Buttoned</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                            <div class="product">
-                                <div class="product-micro">
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="assets\images\products\p25.jpg" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">Floral Print Buttoned</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="products best-product">
-                            <div class="product">
-                                <div class="product-micro">
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="assets\images\products\p26.jpg" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">Floral Print Buttoned</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                            <div class="product">
-                                <div class="product-micro">
-                                    <div class="row product-micro-row">
-                                        <div class="col col-xs-5">
-                                            <div class="product-image">
-                                                <div class="image"> <a href="#"> <img src="assets\images\products\p27.jpg" alt=""> </a> </div>
-                                                <!-- /.image -->
-
-                                            </div>
-                                            <!-- /.product-image -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col2 col-xs-7">
-                                            <div class="product-info">
-                                                <h3 class="name"><a href="#">Floral Print Buttoned</a></h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                <!-- /.product-price -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.product-micro-row -->
-                                </div>
-                                <!-- /.product-micro -->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.sidebar-widget-body -->
-        </div>
-        <!-- /.sidebar-widget -->
-        <!-- ============================================== BEST SELLER : END ============================================== -->
-
-        <!-- ============================================== BLOG SLIDER ============================================== -->
         <section class="section latest-blog outer-bottom-vs wow fadeInUp">
             <h3 class="section-title">BLOG FOR PRODUCT</h3>
             <div class="blog-slider-container outer-top-xs">
@@ -1395,14 +1147,10 @@
             </div>
             <!-- /.blog-slider-container -->
         </section>
-        <!-- /.section -->
-        <!-- ============================================== BLOG SLIDER : END ============================================== -->
-
-        <!-- ============================================== SUGGESTE PRODUCTS ============================================== -->
         <section class="section wow fadeInUp new-arriavls">
-            <h3 class="section-title">New Arrivals</h3>
+            <h3 class="section-title">Recomendation </h3>
             <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
-                   @foreach($productsSuggesteds as $productsSuggested)
+                @foreach($productsSuggesteds as $productsSuggested)
                 <div class="item item-carousel">
                     <div class="products">
                         <div class="product">
@@ -1444,13 +1192,11 @@
                     <!-- /.products -->
                 </div>
                 @endforeach
-                
-                <!-- /.item -->
+
+
             </div>
-            <!-- /.home-owl-carousel -->
+
         </section>
-        <!-- /.section -->
-        <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
 
     </div>
 </div>
