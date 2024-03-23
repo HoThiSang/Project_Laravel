@@ -11,46 +11,36 @@
                         <ul class="nav">
                             <li class=" menu-item"> <a href="?sort-by=Make up" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
                             </li>
-                            <li class=" menu-item"> <a href="?sort-by=Body" class="-toggle" data-toggle=""><i class="icon fa fa-laptop" aria-hidden="true">Body</a>
-                            </li>
-                            <li class=" menu-item"> <a href="?sort-by=Skincare" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
-                            </li>
-                            <li class=" menu-item"> <a href="?sort-by=Fragrance" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
-                            </li>
-                            <li class=" menu-item"> <a href="?sort-by=Hair" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
-                            </li>
-                            <li class=" menu-item"> <a href="?sort-by=Hair" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
-                            </li>
-
-                            <li class="dropdown menu-item"> <a href="?sort-by=Body" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-laptop" aria-hidden="true"></i>Body care</a>
+                           
+                            <li class="dropdown menu-item"> <a href="?sort-by=Body" class="dropdown-toggle" data-toggle=""><i class="icon fa fa-laptop" aria-hidden="true"></i>Body care</a>
 
                             </li>
 
-                            <li class="dropdown menu-item"> <a href="?sort-by=Skincare" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-paw" aria-hidden="true"></i>Skincare</a>
+                            <li class=" menu-item"> <a href="?sort-by=Skincare" class="-toggle" data-toggle=""><i class="icon fa fa-paw" aria-hidden="true"></i>Skincare</a>
 
                             </li>
 
-                            <li class="dropdown menu-item"> <a href="?sort-by=Fragrance" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-clock-o"></i>Fragrance</a>
+                            <li class=" menu-item"> <a href="?sort-by=Fragrance" class="-toggle" data-toggle=""><i class="icon fa fa-clock-o"></i>Fragrance</a>
 
                             </li>
 
-                            <li class="dropdown menu-item"> <a href="?sort-by=Hair" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-diamond"></i>Hair</a>
+                            <li class=" menu-item"> <a href="?sort-by=Hair" class="-toggle" data-toggle=""><i class="icon fa fa-diamond"></i>Hair</a>
 
                             </li>
 
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-heartbeat"></i>Health and Beauty</a>
+                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-heartbeat"></i>Health and Beauty</a>
 
                             </li>
 
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-paper-plane"></i>Kids and Babies</a>
+                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-paper-plane"></i>Kids and Babies</a>
                             </li>
 
 
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-futbol-o"></i>Sports</a>
+                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-futbol-o"></i>Sports</a>
 
                             </li>
 
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-envira"></i>Home and Garden</a>
+                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-envira"></i>Home and Garden</a>
                             </li>
                         </ul>
 
@@ -123,7 +113,7 @@
                                                                 <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                             </li>
                                                             <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                            <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                                            <li class="lnk"> <a class="add-to-cart" href="#" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
                                                         </ul>
                                                     </div>
                                                     <!-- /.action -->
