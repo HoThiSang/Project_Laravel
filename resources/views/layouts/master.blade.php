@@ -48,25 +48,16 @@
                             <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-                            <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>
                         </ul>
                     </div>
                     <!-- /.cnt-account -->
 
                     <div class="cnt-block">
                         <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
+                            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Login </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
+                                    <li><a href="#">Register</a></li>
+                                    <li><a href="#">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -92,20 +83,14 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
-                  
+
                         <!-- ============================================================= SEARCH AREA ============================================================= -->
                         <div class="search-area">
                             <form>
                                 <div class="control-group">
                                     <ul class="categories-filter animate-dropdown">
-                                        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li class="menu-header">Computer</li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
-                                            </ul>
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                                         </li>
                                     </ul>
                                     <input class="search-field" placeholder="Search here...">
@@ -113,7 +98,7 @@
                                 </div>
                             </form>
                         </div>
-                  
+
                         <!-- ============================================================= SEARCH AREA : END ============================================================= -->
                     </div>
                     <!-- /.top-search-holder -->
@@ -184,11 +169,11 @@
                                 <ul class="nav navbar-nav">
                                     <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
                                     <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
-                                        
+
                                     </li>
                                     <li class="dropdown mega-menu">
                                         <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
-                                        
+
                                     </li>
                                     <li class="dropdown hidden-sm"> <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
                                     <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
@@ -196,7 +181,7 @@
                                     <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
                                     <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
                                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
-                                        
+
                                     </li>
                                     <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
                                 </ul>
@@ -226,24 +211,24 @@
             <div class="row">
                 <!-- ============================================== SIDEBAR ============================================== -->
                 @yield('sidebar')
-       
+
                 <!-- ============================================== SIDEBAR : END ============================================== -->
 
                 <!-- ============================================== CONTENT ============================================== -->
                 @yield('content')
 
-      
+
                 <!-- ============================================== CONTENT : END ============================================== -->
             </div>
-      
+
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
             <div id="brands-carousel" class="logo-slider wow fadeInUp">
                 <div class="logo-slider-inner">
                     <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
                         <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                  
+
                         <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                   
+
                         <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand3.png" src="assets\images\blank.gif" alt=""> </a> </div>
 
                         <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets\images\blank.gif" alt=""> </a> </div>
@@ -259,11 +244,11 @@
                         <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets\images\blank.gif" alt=""> </a> </div>
 
                         <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets\images\blank.gif" alt=""> </a> </div>
-    
+
                     </div>
- 
+
                 </div>
-  
+
             </div>
 
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
@@ -280,7 +265,7 @@
                         </div>
 
                         <div class="module-body">
-                            <ul class="toggle-footer" style="">
+                            <ul class="toggle-footer">
                                 <li class="media">
                                     <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                                     <div class="media-body">
@@ -300,7 +285,7 @@
                                 </li>
                             </ul>
                         </div>
-    
+
                     </div>
 
                     <div class="col-xs-12 col-sm-6 col-md-3">
@@ -317,7 +302,7 @@
                                 <li class="last"><a href="#" title="Where is my order?">Help Center</a></li>
                             </ul>
                         </div>
-        
+
                     </div>
 
                     <div class="col-xs-12 col-sm-6 col-md-3">
