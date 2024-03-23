@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\ProductsController;
+use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +48,7 @@ Route::get('/registration', [CustomAuthController::class, 'registration'])->name
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
 Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
