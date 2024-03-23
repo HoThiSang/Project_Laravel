@@ -29,30 +29,53 @@
         <div class="col-md-6 form-register">
             <fieldset class="border border-primary rounded p-4">
                 <legend class="text-center mb-4 form-register-title">Register</legend>
-                <form class="mx-auto" action="" method="post">
+                <form class="mx-auto" action="{{route('register-user')}}" method="post">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+                    @csrf
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        <label for="username">Name</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{old('username')}}" placeholder="Name">
+                        <span class="text-danger">@error('username') {{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Email">
+                        <span class="text-danger">@error('email') {{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
+                        <input type="tel" class="form-control" id="phone" name="phone" value="{{old('phone')}}" placeholder="Phone">
+                        <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Address"></textarea>
+                        <textarea class="form-control" id="address" name="address" value="" rows="3" placeholder="Address">{{old('address')}}</textarea>
+                        <span class="text-danger">@error('address') {{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}" placeholder="Password">
+                        <span class="text-danger">@error('password') {{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="{{old('confirmPassword')}}" placeholder="Confirm Password">
+                        <span class="text-danger">@error('confirmPassword') {{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="role_id">Role</label>
+                        <select class="form-control" id="role_id" name="role_id">
+                            <option value="1" {{ old('role_id') == 1 ? 'selected' : '' }}>User</option>
+                            <option value="2" {{ old('role_id') == 2 ? 'selected' : '' }}>Admin</option>
+                            <option value="3" {{ old('role_id') == 3 ? 'selected' : '' }}>Deliverer</option>
+                            <!-- Thêm các lựa chọn khác tùy thuộc vào nguồn dữ liệu của bạn -->
+                        </select>
+                        <span class="text-danger">@error('role_id') {{$message}} @enderror</span>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-create-account">Create account</button>
@@ -60,7 +83,7 @@
                     @csrf
                 </form>
                 <div class="text-center">
-                    If you have an account <a href="/create-account">Sign in</a>
+                    If you have an account <a href="login">Sign in</a>
                 </div>
             </fieldset>
         </div>

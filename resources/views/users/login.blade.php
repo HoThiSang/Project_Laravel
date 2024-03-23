@@ -14,11 +14,10 @@
         margin-bottom: 20px;
     }
 
-  
-    .form-group
-    .form-control{
+
+    .form-group .form-control {
         width: 100%;
-        padding: 10px;  
+        padding: 10px;
         height: 40px;
     }
 
@@ -48,21 +47,29 @@
 <div class="container">
     <div class="login-form">
         <h2 class="login-form-title">Sign up</h2>
-        <form method="POST" action="/your-login-route">
+        <form method="POST" action="{{route('login-user')}}">
+            @if(Session::has('success'))
+            <div class="alert alert-success">{{Session::get('success')}}</div>
+            @endif
+            @if(Session::has('fail'))
+            <div class="alert alert-danger">{{Session::get('fail')}}</div>
+            @endif
             @csrf
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Enter email">
+                <span class="text-danger">@error('email') {{$message}} @enderror</span>
 
             </div>
             <div class="form-group">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                <span class="text-danger">@error('password') {{$message}} @enderror</span>
             </div>
             <button type="submit" class="btn btn-login">Sign up</button>
         </form>
         <div class="text-center">
-            Don't have an account? <a href="/create-account">Create account</a>
+            Don't have an account? <a href="registration">Create account</a>
         </div>
     </div>
 </div>
