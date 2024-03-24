@@ -25,8 +25,7 @@ class HomeController extends Controller
             ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
 
             ->get();
-        //   dd($products);
-        //   $productsWithDiscount = Product::where('discount', '>', 0)->get();
+
         $productsWithDiscount = DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discounted_price')
