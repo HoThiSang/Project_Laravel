@@ -52,3 +52,7 @@ Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
+
+Route::get('/checkout', function(){
+    return view('users/checkout');
+})->name('checkout');
