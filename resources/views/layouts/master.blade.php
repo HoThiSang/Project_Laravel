@@ -168,19 +168,19 @@
                             <div class="nav-outer">
                                 <ul class="nav navbar-nav">
                                     <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                                    <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                                    <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About us</a>
 
                                     </li>
                                     <li class="dropdown mega-menu">
-                                        <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+                                        <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Sale <span class="menu-label hot-menu hidden-xs">hot</span> </a>
 
                                     </li>
-                                    <li class="dropdown hidden-sm"> <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
+                                    <li class="dropdown hidden-sm"> <a href="category.html">Products<span class="menu-label new-menu hidden-xs">new</span> </a> </li>
                                     <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
                                     <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
                                     <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
                                     <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
-                                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
+                                    <li class="dropdown"> <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Contact us</a>
 
                                     </li>
                                     <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
@@ -269,19 +269,19 @@
                                 <li class="media">
                                     <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                                     <div class="media-body">
-                                        <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                                        <p>Tồ Hiến Thành, Đà Nẵng</p>
                                     </div>
                                 </li>
                                 <li class="media">
                                     <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                                     <div class="media-body">
-                                        <p>+(888) 123-4567<br>
-                                            +(888) 456-7890</p>
+                                        <p>+(84) 390 465 234<br>
+                                            +(84) 276 611 133</p>
                                     </div>
                                 </li>
                                 <li class="media">
                                     <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                                    <div class="media-body"> <span><a href="#">flipmart@themesground.com</a></span> </div>
+                                    <div class="media-body"> <span><a href="#">v_splushcometics@gmail.com</a></span> </div>
                                 </li>
                             </ul>
                         </div>

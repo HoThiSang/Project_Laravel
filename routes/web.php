@@ -41,7 +41,7 @@ Route::get('/login', function () {
 
 Route::get('/contact', function(){
     return view('users/contact');
-})->name('contatc');
+})->name('contact');
 
 Route::get('/login', [CustomAuthController::class, 'login'])->name('login');
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
@@ -52,3 +52,7 @@ Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
+
+Route::get('/checkout', function(){
+    return view('users/checkout');
+})->name('checkout');
