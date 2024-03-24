@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home', function () {
-//     return view('layouts/master');
-// });
+Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
-
-Route::get('/index', function () {
-    return view('users/index');
-})->name('homepage');
 
 Route::get('/category', function () {
     return view('users/category');
@@ -42,3 +39,9 @@ Route::get('/login', function () {
 Route::get('/contact', function(){
     return view('users/contact');
 })->name('contatc');
+
+Route::get('/login', [CustomAuthController::class, 'login'])->name('login');
+Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
+Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
+Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
+Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
