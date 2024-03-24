@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 
@@ -68,6 +69,18 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
-        return view('users/category');
+        $data = array();
+        if (Session::has('loginId')) {
+            $data = User::where('id', '=', Session::get('loginId'))->first();
+        }
+        return view('users/category', compact('data'));
+    }
+
+    public function logout()
+    {
+        if (Session::has('loginId')) {
+            Session::pull('loginId');
+            return redirect('login');
+        }
     }
 }

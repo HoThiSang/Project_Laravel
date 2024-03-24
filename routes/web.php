@@ -28,26 +28,20 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/category', function () {
     return view('users/category');
-});
-
-Route::get('/register', function () {
-    return view('users/register');
-})->name('register');
+})->name('category');
 
 
-Route::get('/login', function () {
-    return view('users/login');
-})->name('login');
 
 Route::get('/contact', function(){
     return view('users/contact');
 })->name('contatc');
 
-Route::get('/login', [CustomAuthController::class, 'login'])->name('login');
-Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
+Route::get('/login', [CustomAuthController::class, 'login'])->name('login')->middleware('alreadyLoggedIn');
+Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration')->middleware('alreadyLoggedIn');
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
-Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
+Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout', [CustomAuthController::class, 'logout']);
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
