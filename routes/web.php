@@ -41,7 +41,7 @@ Route::get('/login', function () {
 
 Route::get('/contact', function(){
     return view('users/contact');
-})->name('contatc');
+})->name('contact');
 
 Route::get('/login', [CustomAuthController::class, 'login'])->name('login');
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');

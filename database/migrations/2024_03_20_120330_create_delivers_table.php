@@ -18,7 +18,7 @@ class CreateDeliversTable extends Migration
             $table->string('deliver_name');
             $table->string('phone')->nullable();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable(false);
             $table->date('date_of_birth')->nullable();
             $table->string('gender')->nullable();
             $table->text('address')->nullable();
@@ -26,7 +26,8 @@ class CreateDeliversTable extends Migration
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade');
-            $table->timestamps();
+             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->default(null)->onUpdate(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
