@@ -51,20 +51,20 @@
   </div>
   <h4 class="checkout-heading text-center mt-4">Order information</h4>
   <div class="form-container">
-    <div class="form-row mt-3">
-      <div class="form-group col-md-3">
-        <label for="product">Product name:</label>
+      <div class="form-row mt-3">
+        <div class="form-group col-md-3">
+          <label for="product">Product name</label>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="quantity">Quantity</label>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="unit-price">Unit price</label>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="total-price">Total price</label>
+        </div>
       </div>
-      <div class="form-group col-md-3">
-        <label for="quantity">Quantity</label>
-      </div>
-      <div class="form-group col-md-3">
-        <label for="unit-price">Unit price</label>
-      </div>
-      <div class="form-group col-md-3">
-        <label for="total-price">Total price</label>
-      </div>
-    </div>
   </div>
   <div class="form-container">
   <div class="form-group col-md-12 text-right">
