@@ -6,6 +6,8 @@ use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductsController;
 use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\ChechoutController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,8 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
 
-Route::get('/checkout', function(){
-    return view('users/checkout');
-})->name('checkout');
+Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getDetail');
+
+Route::get('/checkout',[ChechoutController::class, 'index'])->name('checkout');
+
+Route::post('/checkout',[ChechoutController::class, 'checkout'])->name('checkoutPost');

@@ -56,7 +56,8 @@
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Login </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Register</a></li>
+                                    <li><a href="{{route('registration') }}">Register</a></li>
+                                      <li><a href="{{route('login') }}">Login</a></li>
                                     <li><a href="#">Logout</a></li>
                                 </ul>
                             </li>
@@ -77,7 +78,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                         <!-- ============================================================= LOGO ============================================================= -->
-                        <div class="logo"> <a href="home.html"> <img src="assets\images\logo.png" alt="logo"> </a> </div>
+                        <div class="logo"> <a href="{{route('homepage') }}"> <h1>V_SPLUSH </h1></a> </div>
                         <!-- /.logo -->
                         <!-- ============================================================= LOGO : END ============================================================= -->
                     </div>
@@ -110,7 +111,7 @@
                                 <div class="items-cart-inner">
                                     <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
                                     <div class="basket-item-count"><span class="count">2</span></div>
-                                    <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span> </div>
+                                    <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">00</span> </span> </div>
                                 </div>
                             </a>
                             <ul class="dropdown-menu">
@@ -118,10 +119,10 @@
                                     <div class="cart-item product-summary">
                                         <div class="row">
                                             <div class="col-xs-4">
-                                                <div class="image"> <a href="detail.html"><img src="assets\images\cart.jpg" alt=""></a> </div>
+                                                <div class="image"> <a href=""><img src="assets\images\cart.jpg" alt=""></a> </div>
                                             </div>
                                             <div class="col-xs-7">
-                                                <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
+                                                <h3 class="name"><a href="">Simple Product</a></h3>
                                                 <div class="price">$600.00</div>
                                             </div>
                                             <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
@@ -133,7 +134,7 @@
                                     <div class="clearfix cart-total">
                                         <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
                                         <div class="clearfix"></div>
-                                        <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                                        <a href="" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                                     </div>
                                     <!-- /.cart-total-->
 
@@ -150,10 +151,9 @@
                 <!-- /.row -->
 
             </div>
-            <!-- /.container -->
 
         </div>
-        <!-- /.main-header -->
+      
 
         <!-- ============================================== NAVBAR ============================================== -->
         <div class="header-nav animate-dropdown">
@@ -167,20 +167,20 @@
                         <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                             <div class="nav-outer">
                                 <ul class="nav navbar-nav">
-                                    <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                                    <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About us</a>
+                                    <li class="active dropdown yamm-fw"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
+                                    <li class="dropdown yamm mega-menu"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About us</a>
 
                                     </li>
                                     <li class="dropdown mega-menu">
-                                        <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Sale <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+                                        <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Sale</a>
 
                                     </li>
-                                    <li class="dropdown hidden-sm"> <a href="category.html">Products<span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                                    <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
-                                    <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
-                                    <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
-                                    <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
-                                    <li class="dropdown"> <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Contact us</a>
+                                    <li class="dropdown hidden-sm"> <a href="{{ route('categories') }}">Products</a> </li>
+                                   
+   
+                                    <li class="dropdown"> <a href="">Service</a> </li>
+                                    <li class="dropdown"> <a href="{{ route('contact') }}">Contact us</a> </li>
+                                 
 
                                     </li>
                                     <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
@@ -200,7 +200,7 @@
             <!-- /.container-class -->
 
         </div>
-        <!-- /.header-nav -->
+
         <!-- ============================================== NAVBAR : END ============================================== -->
 
     </header>
