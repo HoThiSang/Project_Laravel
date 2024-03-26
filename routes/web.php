@@ -19,11 +19,11 @@ use App\Http\Controllers\User\ChechoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
