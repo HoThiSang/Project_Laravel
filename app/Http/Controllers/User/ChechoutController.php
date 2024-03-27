@@ -90,6 +90,8 @@ class ChechoutController extends Controller
                         "vnp_ReturnUrl" => $vnp_Returnurl,
                         "vnp_TmnCode" => $vnp_TmnCode,
                         "vnp_TxnRef" => $vnp_TxnRef,
+                        "vnp_Bill_Mobile" => $vnp_Bill_Mobile, // Thêm thông tin khách hàng vào URL
+                        "vnp_Bill_Email" => $vnp_Bill_Email,
 
                     );
 
@@ -118,7 +120,7 @@ class ChechoutController extends Controller
                         $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
                         $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
                     }
-                   // return response()->json($vnp_Url);
+                    // return response()->json($vnp_Url);
                     $returnData = array(
                         'code' => '00', 'message' => 'success', 'data' => $vnp_Url
                     );
@@ -131,5 +133,19 @@ class ChechoutController extends Controller
                 }
             }
         }
+    }
+
+
+    public function returnCheckout()
+    {
+        $inputData = array();
+        $returnData = array();
+        foreach ($_GET as $key => $value) {
+            if (substr($key, 0, 4) == "vnp_") {
+                $inputData[$key] = $value;
+            }
+        }
+            return response()->json($inputData);
+      
     }
 }
