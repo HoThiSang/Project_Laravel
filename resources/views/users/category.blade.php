@@ -89,7 +89,11 @@
                                         <div class="products">
                                             <div class="product">
                                                 <div class="product-image">
-                                                    <div class="image"> <a href="detail.html"><img src="{{ $productMakeUp->image_url }}" alt=""></a> </div>
+                                                    <div class="image">
+                                                        <a href="{{ route('detail', ['id' => $productMakeUp->id]) }}">
+                                                            <img src="{{ $productMakeUp->image_url }}" alt="">
+                                                        </a>
+                                                    </div>
                                                     <!-- /.image -->
 
                                                     <div class="tag new"><span>new</span></div>
