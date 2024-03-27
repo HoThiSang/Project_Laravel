@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 

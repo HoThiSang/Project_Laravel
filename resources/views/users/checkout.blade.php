@@ -122,7 +122,7 @@
         </div>
         <hr style="border-width: 2px; border-color: #C4C4C4; margin-top: 10px;">
       </div>
-      <button type="submit" class="btn-lg btn-block custom-button">Place Order</button>
+      <button type="submit" name="redirect" class="btn-lg btn-block custom-button">Place Order</button>
     </div>
   </div>
 </form>
