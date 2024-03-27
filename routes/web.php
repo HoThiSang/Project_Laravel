@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductsController;
 use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Auth::routes();
 
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
@@ -50,3 +53,5 @@ Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('fi
 Route::get('/checkout', function(){
     return view('users/checkout');
 })->name('checkout');
+
+Route::get('admin/dashboard', [AdminController::class, 'admin'])->name('admin')->middleware('isAdmin');
