@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductsController;
 use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Auth::routes();
 
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
@@ -28,27 +31,21 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/category', function () {
     return view('users/category');
-});
-
-Route::get('/register', function () {
-    return view('users/register');
-})->name('register');
+})->name('category');
 
 
-Route::get('/login', function () {
-    return view('users/login');
-})->name('login');
 
 Route::get('/contact', function () {
     return view('users/contact');
 })->name('contact');
 
 
-Route::get('/login', [CustomAuthController::class, 'login'])->name('login');
-Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
+Route::get('/login', [CustomAuthController::class, 'login'])->name('login')->middleware('alreadyLoggedIn');
+Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration')->middleware('alreadyLoggedIn');
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
-Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
+Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout', [CustomAuthController::class, 'logout']);
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
@@ -58,4 +55,8 @@ Route::get('/checkout', function () {
     return view('users/checkout');
 })->name('checkout');
 
+
+Route::get('admin/dashboard', [AdminController::class, 'admin'])->name('admin')->middleware('isAdmin');
+
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
+
