@@ -42,6 +42,7 @@
               <span style="color: red;">{{$message}}</span>
               @enderror
             </div>
+            <input type="hidden" name="user_id" value="{{  $item->id}}">
             <div class="form-group mb-3 col-md-6">
               <label for="email" class="form-label">Email:</label>
               <input type="email" class="form-control" id="email" name="email" value="{{ $item->email }}">

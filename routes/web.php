@@ -60,3 +60,5 @@ Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getD
 Route::get('/checkout',[ChechoutController::class, 'index'])->name('checkout');
 
 Route::post('/checkout',[ChechoutController::class, 'checkout'])->name('checkoutPost');
+
+Route::get('/is-checkout-success',[ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
