@@ -21,9 +21,12 @@ class CreateProductsTable extends Migration
             $table->text('ingredient')->nullable();
             $table->text('description')->nullable();
             $table->string('brand')->nullable();
+            $table->decimal('discount',10, 2);
+            $table->decimal('discounted_price',10, 2);
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->default(null)->onUpdate(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

@@ -22,7 +22,8 @@ class CreateOrdersTable extends Migration
             $table->string('order_status')->default('pending');
             $table->unsignedBigInteger('deliver_id');
             $table->foreign('deliver_id')->references('id')->on('delivers')->onUpdate('cascade');
-            $table->timestamps();
+             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->default(null)->onUpdate(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

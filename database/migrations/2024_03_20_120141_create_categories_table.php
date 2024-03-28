@@ -16,7 +16,8 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('category_name')->unique();
-            $table->timestamps();
+             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->default(null)->onUpdate(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

@@ -19,7 +19,8 @@ class CreateImagesTable extends Migration
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
+             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->default(null)->onUpdate(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
