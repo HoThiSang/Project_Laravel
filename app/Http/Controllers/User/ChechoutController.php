@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Exception;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class ChechoutController extends Controller
 {
@@ -180,7 +181,7 @@ class ChechoutController extends Controller
 
                 $order = new Order();
                 $order->order_date = $inputData['vnp_PayDate'];
-                $order->address = $userInfo->username;
+                $order->address = $userInfo->address;
                 $order->phone_number = $userInfo->phone;
                 $order->payment_method = $inputData['vnp_BankCode'];
                 $order->order_status = 'Ordered';
@@ -190,23 +191,40 @@ class ChechoutController extends Controller
                 $order->user_id = $userInfo->id;
                 $order->save();
                 if ($order) {
-                   
+
                     $message = 'Giao dịch thành công!';
                     return view('users/checkout-success', compact('order', 'message'));
                 } else {
-                   
+
                     $error = 'Đã xảy ra lỗi khi lưu đơn hàng.';
                     return view('users/checkout-failded', compact('error'));
                 }
             } else {
-               
+
                 $error = 'Giao dịch không thành công.';
                 return view('users/checkout-failded', compact('error'));
             }
         } else {
-    
+
             $error = 'Chữ ký không hợp lệ.';
             return view('users/checkout-failded', compact('error'));
         }
     }
+
+   
+   public function getAllOrder($user_id = null)
+{
+    if ($user_id === null) {
+        $user_id = 1; 
+    }
+    $orderAll = DB::table('orders')
+                    ->join('users', 'orders.user_id', '=', 'users.id')
+                    ->where('user_id', $user_id)
+                    ->get(); 
+
+   // dd($orderAll);
+
+    return view('users/orders', compact('orderAll'));
+}
+
 }
