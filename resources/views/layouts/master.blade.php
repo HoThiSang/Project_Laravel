@@ -14,21 +14,22 @@
 
 
 
-    <link rel="stylesheet" href="assets\css\bootstrap.min.css">
+    <link rel="stylesheet" href="\assets\css\bootstrap.min.css">
 
  
 
     <!-- Customizable CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/blue.css">
-    <link rel="stylesheet" href="/assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="/assets/css/owl.transitions.css">
-    <link rel="stylesheet" href="/assets/css/animate.min.css">
-    <link rel="stylesheet" href="/assets/css/rateit.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="\assets\css\main.css">
+    <link rel="stylesheet" href="\assets\css\blue.css">
+    <link rel="stylesheet" href="\assets\css\owl.carousel.css">
+    <link rel="stylesheet" href="\assets\css\owl.transitions.css">
+    <link rel="stylesheet" href="\assets\css\animate.min.css">
+    <link rel="stylesheet" href="\assets\css\rateit.css">
+    <link rel="stylesheet" href="\assets\css\bootstrap-select.min.css">
 
 
-    <link rel="stylesheet" href="assets\css\font-awesome.css">
+    <link rel="stylesheet" href=\assets\css\font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>

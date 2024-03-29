@@ -68,12 +68,11 @@ Route::post('/checkout',[ChechoutController::class, 'checkout'])->name('checkout
 
 Route::get('/is-checkout-success',[ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
 
-Route::get('/checkout', function () {
-    return view('users/checkout');
-})->name('checkout');
 
 
 Route::get('admin/dashboard', [AdminController::class, 'admin'])->name('admin')->middleware('isAdmin');
 
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
+
+Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 
