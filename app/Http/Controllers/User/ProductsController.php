@@ -26,6 +26,7 @@ class ProductsController extends Controller
             dd($productFilter);
         }
     }
+
     public function getDetail(string $id)
     {
         if (!empty($id)) {
@@ -43,6 +44,7 @@ class ProductsController extends Controller
                 ->get();
 
             return view('users/product-detail', compact('product', 'product_images'));
+
         }
     }
 }

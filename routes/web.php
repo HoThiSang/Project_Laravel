@@ -7,7 +7,12 @@ use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductsController;
 use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\User\ChechoutController;
+
+
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +25,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
+
 // Auth::routes();
 
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
+
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 
@@ -50,6 +57,16 @@ Route::get('/logout', [CustomAuthController::class, 'logout']);
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
+
+
+Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getDetail');
+
+Route::get('/checkout',[ChechoutController::class, 'index'])->name('checkout');
+
+Route::post('/checkout',[ChechoutController::class, 'checkout'])->name('checkoutPost');
+
+
+Route::get('/is-checkout-success',[ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
 
 Route::get('/checkout', function () {
     return view('users/checkout');

@@ -38,7 +38,7 @@ class CustomAuthController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->password = Hash::make($request->password);
-        $user->role_id = $request->role_id;
+        $user->role_id = 1;
 
         $res = $user->save();
         if ($res) {
@@ -64,7 +64,7 @@ class CustomAuthController extends Controller
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put('loginId', $user->id);
-                return redirect('dashboard');
+                return redirect()->route('homepage');
             } else {
                 return back()->with('fail', 'Password not matches.');
             }

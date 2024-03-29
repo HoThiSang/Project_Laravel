@@ -27,21 +27,6 @@
                             <li class=" menu-item"> <a href="?sort-by=Hair" class="-toggle" data-toggle=""><i class="icon fa fa-diamond"></i>Hair</a>
 
                             </li>
-
-                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-heartbeat"></i>Health and Beauty</a>
-
-                            </li>
-
-                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-paper-plane"></i>Kids and Babies</a>
-                            </li>
-
-
-                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-futbol-o"></i>Sports</a>
-
-                            </li>
-
-                            <li class=" menu-item"> <a href="#" class="-toggle" data-toggle=""><i class="icon fa fa-envira"></i>Home and Garden</a>
-                            </li>
                         </ul>
 
                     </nav>
