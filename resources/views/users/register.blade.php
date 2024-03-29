@@ -67,11 +67,10 @@
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="{{old('confirmPassword')}}" placeholder="Confirm Password">
                         <span class="text-danger">@error('confirmPassword') {{$message}} @enderror</span>
                     </div>
-                    <div class="form-group">
-                       
-                        <input type="hidden" name=""value="1" name="role_id" >
-                        
-                    </div>
+
+
+                    <input type="hidden" value="1" name="role_id">
+
                     <div class="text-center">
                         <button type="submit" class="btn btn-create-account">Create account</button>
                     </div>
