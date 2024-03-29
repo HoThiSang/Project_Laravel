@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="\assets\css\animate.min.css">
     <link rel="stylesheet" href="\assets\css\rateit.css">
     <link rel="stylesheet" href="\assets\css\bootstrap-select.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
 
     <link rel="stylesheet" href=\assets\css\font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -185,7 +185,8 @@
                                    
    
                                     <li class="dropdown"> <a href="">Service</a> </li>
-                                    <li class="dropdown"> <a href="{{ route('contact') }}">Contact us</a> </li>
+                                    <li class="dropdown"> <a href="{{ route('contact-page') }}">Contact us</a> </li>
+                                    <li class="dropdown"> <a href="{{ route('view-orders') }}">Order purchased</a> </li>
                                  
 
                                     </li>

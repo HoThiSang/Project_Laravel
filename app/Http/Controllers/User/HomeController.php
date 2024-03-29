@@ -62,4 +62,9 @@ class HomeController extends Controller
             return view('users/product-detail', compact('product', 'product_images'));
         }
     }
+
+    public function contact()
+    {
+            return view('users/contact');
+    }
 }
