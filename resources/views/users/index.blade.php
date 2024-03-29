@@ -20,7 +20,7 @@
                     <div class="container-fluid">
                         <div class="caption bg-color vertical-center text-left">
                             <div class="slider-header fadeInDown-1">Spring 2016</div>
-                            <div class="big-text fadeInDown-1"> Women <span class="highlight">Fashion</span> </div>
+                            <div class="big-text fadeInDown-1"> Women <span class="highlight">Beauty</span> </div>
                             <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span> </div>
                             <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
                         </div>
@@ -70,12 +70,7 @@
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
             <div class="more-info-tab clearfix ">
                 <h3 class="new-product-title pull-left">All Products</h3>
-                <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
-                    <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
-                    <li><a data-transition-type="backSlide" href="#smartphone" data-toggle="tab">Clothing</a></li>
-                    <li><a data-transition-type="backSlide" href="#laptop" data-toggle="tab">Electronics</a></li>
-                    <li><a data-transition-type="backSlide" href="#apple" data-toggle="tab">Shoes</a></li>
-                </ul>
+              
             </div>
             <div class="tab-content outer-top-xs">
                 <div class="tab-pane in active" id="all">

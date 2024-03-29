@@ -67,16 +67,10 @@
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="{{old('confirmPassword')}}" placeholder="Confirm Password">
                         <span class="text-danger">@error('confirmPassword') {{$message}} @enderror</span>
                     </div>
-                    <div class="form-group">
-                        <label for="role_id">Role</label>
-                        <select class="form-control" id="role_id" name="role_id">
-                            <option value="1" {{ old('role_id') == 1 ? 'selected' : '' }}>User</option>
-                            <option value="2" {{ old('role_id') == 2 ? 'selected' : '' }}>Admin</option>
-                            <option value="3" {{ old('role_id') == 3 ? 'selected' : '' }}>Deliverer</option>
-                            <!-- Thêm các lựa chọn khác tùy thuộc vào nguồn dữ liệu của bạn -->
-                        </select>
-                        <span class="text-danger">@error('role_id') {{$message}} @enderror</span>
-                    </div>
+
+
+                    <input type="hidden" value="1" name="role_id">
+
                     <div class="text-center">
                         <button type="submit" class="btn btn-create-account">Create account</button>
                     </div>

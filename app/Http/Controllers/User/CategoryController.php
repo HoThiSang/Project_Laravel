@@ -24,6 +24,7 @@ class CategoryController extends Controller
                 ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
                 ->where('categories.category_name', $softBy)
                 ->get();
+                
             Session::flash('message', 'filter');
         } else {
             $title = 'All products';

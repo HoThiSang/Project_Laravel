@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Meta -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
@@ -12,22 +12,26 @@
     <title>TỨ DIỆP THẢO</title>
     <link rel="shortcut icon" type="image/png" href="data:image/png;base64,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" />
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="assets\css\bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="\assets\css\bootstrap.min.css">
+
+ 
 
     <!-- Customizable CSS -->
-    <link rel="stylesheet" href="assets\css\main.css">
-    <link rel="stylesheet" href="assets\css\blue.css">
-    <link rel="stylesheet" href="assets\css\owl.carousel.css">
-    <link rel="stylesheet" href="assets\css\owl.transitions.css">
-    <link rel="stylesheet" href="assets\css\animate.min.css">
-    <link rel="stylesheet" href="assets\css\rateit.css">
-    <link rel="stylesheet" href="assets\css\bootstrap-select.min.css">
+    <link rel="stylesheet" href="\assets\css\main.css">
+    <link rel="stylesheet" href="\assets\css\blue.css">
+    <link rel="stylesheet" href="\assets\css\owl.carousel.css">
+    <link rel="stylesheet" href="\assets\css\owl.transitions.css">
+    <link rel="stylesheet" href="\assets\css\animate.min.css">
+    <link rel="stylesheet" href="\assets\css\rateit.css">
+    <link rel="stylesheet" href="\assets\css\bootstrap-select.min.css">
 
-    <!-- Icons/Glyphs -->
-    <link rel="stylesheet" href="assets\css\font-awesome.css">
 
-    <!-- Fonts -->
+    <link rel="stylesheet" href=\assets\css\font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -47,17 +51,20 @@
                             <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
                             <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-                            <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+                            <li><a href="{{ route('checkout')}}"><i class="icon fa fa-check"></i>Checkout</a></li>
                         </ul>
                     </div>
                     <!-- /.cnt-account -->
 
                     <div class="cnt-block">
                         <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Login </span><b class="caret"></b></a>
+                            <li class="dropdown dropdown-small"> <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Login </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Register</a></li>
+
+                                    <li><a href="{{route('registration') }}">Register</a></li>
+                                      <li><a href="{{route('login') }}">Login</a></li>
                                     <li><a href="#">Logout</a></li>
+
                                 </ul>
                             </li>
                         </ul>
@@ -77,7 +84,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                         <!-- ============================================================= LOGO ============================================================= -->
-                        <div class="logo"> <a href="home.html"> <img src="assets\images\logo.png" alt="logo"> </a> </div>
+                        <div class="logo"> <a href="{{route('homepage') }}"> <h1>V_SPLUSH </h1></a> </div>
                         <!-- /.logo -->
                         <!-- ============================================================= LOGO : END ============================================================= -->
                     </div>
@@ -110,7 +117,7 @@
                                 <div class="items-cart-inner">
                                     <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
                                     <div class="basket-item-count"><span class="count">2</span></div>
-                                    <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span> </div>
+                                    <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">00</span> </span> </div>
                                 </div>
                             </a>
                             <ul class="dropdown-menu">
@@ -118,10 +125,10 @@
                                     <div class="cart-item product-summary">
                                         <div class="row">
                                             <div class="col-xs-4">
-                                                <div class="image"> <a href="detail.html"><img src="assets\images\cart.jpg" alt=""></a> </div>
+                                                <div class="image"> <a href=""><img src="assets\images\cart.jpg" alt=""></a> </div>
                                             </div>
                                             <div class="col-xs-7">
-                                                <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
+                                                <h3 class="name"><a href="">Simple Product</a></h3>
                                                 <div class="price">$600.00</div>
                                             </div>
                                             <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
@@ -133,7 +140,7 @@
                                     <div class="clearfix cart-total">
                                         <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
                                         <div class="clearfix"></div>
-                                        <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                                        <a href="" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                                     </div>
                                     <!-- /.cart-total-->
 
@@ -150,10 +157,9 @@
                 <!-- /.row -->
 
             </div>
-            <!-- /.container -->
 
         </div>
-        <!-- /.main-header -->
+      
 
         <!-- ============================================== NAVBAR ============================================== -->
         <div class="header-nav animate-dropdown">
@@ -167,20 +173,20 @@
                         <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                             <div class="nav-outer">
                                 <ul class="nav navbar-nav">
-                                    <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                                    <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About us</a>
+                                    <li class="active dropdown yamm-fw"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
+                                    <li class="dropdown yamm mega-menu"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About us</a>
 
                                     </li>
                                     <li class="dropdown mega-menu">
-                                        <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Sale <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+                                        <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Sale</a>
 
                                     </li>
-                                    <li class="dropdown hidden-sm"> <a href="category.html">Products<span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                                    <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
-                                    <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
-                                    <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
-                                    <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
-                                    <li class="dropdown"> <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Contact us</a>
+                                    <li class="dropdown hidden-sm"> <a href="{{ route('categories') }}">Products</a> </li>
+                                   
+   
+                                    <li class="dropdown"> <a href="">Service</a> </li>
+                                    <li class="dropdown"> <a href="{{ route('contact') }}">Contact us</a> </li>
+                                 
 
                                     </li>
                                     <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
@@ -200,7 +206,7 @@
             <!-- /.container-class -->
 
         </div>
-        <!-- /.header-nav -->
+
         <!-- ============================================== NAVBAR : END ============================================== -->
 
     </header>
