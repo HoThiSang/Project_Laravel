@@ -211,20 +211,19 @@ class ChechoutController extends Controller
         }
     }
 
-   
-   public function getAllOrder($user_id = null)
-{
-    if ($user_id === null) {
-        $user_id = 1; 
+
+    public function getAllOrder($user_id = null)
+    {
+        $check = "failed";
+        if (Session::has('loginId')) {
+            $user_id = Session::get('loginId');
+            $orderAll = DB::table('orders')
+                ->join('users', 'orders.user_id', '=', 'users.id')
+                ->where('user_id', $user_id)
+                ->get();
+            $check = "success";
+            return view('users/order-list', compact('orderAll', 'check'));
+        }
+        return view('users/order-list');
     }
-    $orderAll = DB::table('orders')
-                    ->join('users', 'orders.user_id', '=', 'users.id')
-                    ->where('user_id', $user_id)
-                    ->get(); 
-
-   // dd($orderAll);
-
-    return view('users/orders', compact('orderAll'));
-}
-
 }

@@ -26,53 +26,24 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-Route::get('/', [HomeController::class, 'index'])->name('homepage');
-
 
 // Auth::routes();
-
-Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
-
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
-
-
-Route::get('/category', function () {
-    return view('users/category');
-})->name('category');
-
-
-
-Route::get('/contact', function () {
-    return view('users/contact');
-})->name('contact');
-
-
+Route::get('/contact-page', [HomeController::class, 'contact'])->name('contact-page');
 Route::get('/login', [CustomAuthController::class, 'login'])->name('login')->middleware('alreadyLoggedIn');
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration')->middleware('alreadyLoggedIn');
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
 Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->middleware('isLoggedIn');
 Route::get('/logout', [CustomAuthController::class, 'logout']);
-
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
-
-
 Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getDetail');
-
 Route::get('/checkout',[ChechoutController::class, 'index'])->name('checkout');
-
 Route::post('/checkout',[ChechoutController::class, 'checkout'])->name('checkoutPost');
-
-
 Route::get('/is-checkout-success',[ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
-
-
-
 Route::get('admin/dashboard', [AdminController::class, 'admin'])->name('admin')->middleware('isAdmin');
-
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
-
 Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 
