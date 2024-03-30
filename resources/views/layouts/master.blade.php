@@ -19,16 +19,16 @@
  
 
     <!-- Customizable CSS -->
-    <link rel="stylesheet" href="\assets\css\main.css">
-    <link rel="stylesheet" href="\assets\css\blue.css">
-    <link rel="stylesheet" href="\assets\css\owl.carousel.css">
-    <link rel="stylesheet" href="\assets\css\owl.transitions.css">
-    <link rel="stylesheet" href="\assets\css\animate.min.css">
-    <link rel="stylesheet" href="\assets\css\rateit.css">
-    <link rel="stylesheet" href="\assets\css\bootstrap-select.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/blue.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rateit.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
 
-    <link rel="stylesheet" href=\assets\css\font-awesome.css">
+
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 
@@ -374,18 +374,18 @@
         </div>
     </footer>
 
-    <script src="assets\js\jquery-1.11.1.min.js"></script>
-    <script src="assets\js\bootstrap.min.js"></script>
-    <script src="assets\js\bootstrap-hover-dropdown.min.js"></script>
-    <script src="assets\js\owl.carousel.min.js"></script>
-    <script src="assets\js\echo.min.js"></script>
-    <script src="assets\js\jquery.easing-1.3.min.js"></script>
-    <script src="assets\js\bootstrap-slider.min.js"></script>
-    <script src="assets\js\jquery.rateit.min.js"></script>
-    <script type="text/javascript" src="assets\js\lightbox.min.js"></script>
-    <script src="assets\js\bootstrap-select.min.js"></script>
-    <script src="assets\js\wow.min.js"></script>
-    <script src="assets\js\scripts.js"></script>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/echo.min.js"></script>
+    <script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/bootstrap-slider.min.js"></script>
+    <script src="assets/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
     @yield('jss')
 </body>
 
