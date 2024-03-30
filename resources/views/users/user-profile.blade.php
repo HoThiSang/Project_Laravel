@@ -23,6 +23,15 @@
         align-items: flex-start;
         justify-content: flex-start;
     }
+
+    .icon-with-text {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .icon-with-text i {
+        margin-right: 15px;
+    }
 </style>
 @endsection
 @section('content')
@@ -33,34 +42,12 @@
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 <div class="side-menu animate-dropdown outer-bottom-xs">
                     <div class="head">
-                        <img src="https://down-vn.img.susercontent.com/file/cdf9af013aa652eb0596cb252b1101d4_tn" alt="">
+                        <img src="" style="height: 200px; width: 220px; border: 1px solid gray;" alt="">
 
-                        <p class="text-center">Nhã Trần</p>
+                        <p class="text-center">{{ $user->username }}</p>
 
                     </div>
-                    <nav class="yamm megamenu-horizontal">
-                        <ul class="nav">
-                            <li class=" menu-item"> <a href="?sort-by=Make up" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
-                            </li>
-
-                            <li class="dropdown menu-item"> <a href="?sort-by=Body" class="dropdown-toggle" data-toggle=""><i class="icon fa fa-laptop" aria-hidden="true"></i>Body care</a>
-
-                            </li>
-
-                            <li class=" menu-item"> <a href="?sort-by=Skincare" class="-toggle" data-toggle=""><i class="icon fa fa-paw" aria-hidden="true"></i>Skincare</a>
-
-                            </li>
-
-                            <li class=" menu-item"> <a href="?sort-by=Fragrance" class="-toggle" data-toggle=""><i class="icon fa fa-clock-o"></i>Fragrance</a>
-
-                            </li>
-
-                            <li class=" menu-item"> <a href="?sort-by=Hair" class="-toggle" data-toggle=""><i class="icon fa fa-diamond"></i>Hair</a>
-
-                            </li>
-                        </ul>
-
-                    </nav>
+                    @include('components.nav')
 
                 </div>
 
@@ -79,11 +66,11 @@
                         <div class="tab-pane active " id="grid-container">
                             <div class="category-product">
                                 <div>
-                                    <h1></h1>
+                                    <h4>Profile Details</h4>
                                 </div>
                                 <div class="row">
                                     <div class="card mb-4">
-                                        <h5 class="card-header">Profile Details</h5>
+                                      
 
                                         <div class="">
                                             <div class="d-flex align-items-start align-items-sm-center gap-4">
@@ -121,7 +108,7 @@
                                                         <span style="color: red;">{{$message}}</span>
                                                         @enderror
                                                     </div>
-                                                     <div class="mb-3 col-md-6 mt-2">
+                                                    <div class="mb-3 col-md-6 mt-2">
                                                         <label for="email" class="form-label">Email</label>
                                                         <input class="form-control" type="text" id="email" name="email" value="{{ $user->email }}" autofocus />
                                                         @error('email')
@@ -131,7 +118,7 @@
                                                     <div class="mb-3 col-md-6 mt-2">
                                                         <label for="date" class="form-label">Date of birth</label>
                                                         <input class="form-control" type="date" name="date" id="dateOfBirth" value="{{ $user->date_of_birth }}" placeholder="XX-XX-XXXX" />
-                                                      
+
                                                     </div>
                                                     <div class="mb-3 col-md-6 mt-2">
                                                         <label for="address" class="form-label">Address</label>
@@ -148,7 +135,7 @@
                                                         @enderror
                                                     </div>
 
-                                                   
+
                                                 </div>
                                                 @csrf
                                                 <div class="mt-4" style="margin-top: 10px;">
@@ -171,6 +158,17 @@
         </div>
 
     </div>
+    @if(session('message'))
+    <script>
+        alert("{{ session('message') }}");
+    </script>
+    @endif
+
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
 
     <!-- ============================================== BRANDS CAROUSEL ============================================== -->
     <div id="brands-carousel" class="logo-slider wow fadeInUp">

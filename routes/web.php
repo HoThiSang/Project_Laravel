@@ -47,4 +47,8 @@ Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('deta
 Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 Route::get('user-profile/{id?}', [UserController::class, 'index'])->name('user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
+Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
+Route::get('/admin-dashboard', function(){
+        return view('admin/dashboard');
+});
 

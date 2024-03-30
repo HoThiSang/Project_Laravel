@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function updateUser(Request $request, $id)
     {
-        $message = 'failed';
+      
 
         if ($request->isMethod('post')) {
 
@@ -34,7 +34,7 @@ class UserController extends Controller
                 'phone' => 'required|digits:10',
                 'address' => 'required',
             ]);
-           // dd($request->user_id);
+          
             $user = new User();
    
             $user->username = $request->username;
@@ -46,16 +46,14 @@ class UserController extends Controller
             $user->role_id = $request->role_id;;
             $user->updated_at = now();
             $user->save();
-
-       // dd($user);
-            
+    
             if ($user) {
-                $message='success';
-                return redirect()->back()->with($message);
+            
+                return redirect()->back()->with('message', 'Updated your information successfully !');
             } else {
-                return redirect()->back()->with($vvv);
+                return redirect()->back()->with('error', 'Update your information failed !');
             }
         }
-        return redirect()->back()->with($message);
+        return redirect()->back()->with('error', 'Not found user with id '. $id);
     }
 }
