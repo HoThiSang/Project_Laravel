@@ -26,25 +26,4 @@ class ProductsController extends Controller
             dd($productFilter);
         }
     }
-
-    public function getDetail(string $id)
-    {
-        if (!empty($id)) {
-            $product = DB::table('products')
-                ->join('images', 'products.id', '=', 'images.product_id')
-                ->where('products.id', $id)
-                ->groupBy('products.id')
-                ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', 'products.description', DB::raw('MAX(images.image_url) as image_url'))
-                ->first();
-
-            $product_images = DB::table('images')
-                ->where('product_id', $id)
-                ->limit(1)
-                ->select('image_url')
-                ->get();
-
-            return view('users/product-detail', compact('product', 'product_images'));
-
-        }
-    }
 }
