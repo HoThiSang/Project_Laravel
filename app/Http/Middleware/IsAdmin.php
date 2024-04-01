@@ -19,6 +19,6 @@ class IsAdmin
         if (auth()->user()->role_id == 2) {
             return $next($request);
         }
-        return redirect('homepage')->with('error', 'You have no admin access');
+        return redirect()->route('homepage')->with('error', 'You have no admin access');
     }
 }
