@@ -466,8 +466,3 @@
     <!-- Content -->
 
     @endsection
-
-    @section('footer')
-    @included('components.admn-footer')
-
-    @endsection
