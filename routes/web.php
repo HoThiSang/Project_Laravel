@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ChechoutController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\AdminUserController;
+
 
 
 /*
@@ -48,6 +50,8 @@ Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->nam
 Route::get('user-profile/{id?}', [UserController::class, 'index'])->name('user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
-Route::get('/admin-dashboard', function () {
-        return view('admin/dashboard');
+
+Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('/admin-user', [AdminUserController::class, 'index'])->name('user-index');
 });
+
