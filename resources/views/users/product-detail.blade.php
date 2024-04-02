@@ -1,38 +1,54 @@
 @extends('layouts.master')
-@section('content')
-   
+
+@section('css')
+<style>
+    .small-images {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px; /* Tạo khoảng cách phía trên */
+    }
+
+    .single-product-gallery-item {
+        margin-bottom: 20px; /* Tạo khoảng cách phía dưới */
+    }
+
+    .small-image {
+        margin-right: 10px;
+        cursor: pointer;
+        border: 1px solid #ccc; /* Tạo khung bao quanh ảnh */
+        padding: 5px; /* Tạo khoảng cách giữa khung và ảnh */
+    }
+
+    .small-image:hover {
+        opacity: 0.7;
+    }
+</style>
+
+@endsection
+@section('content')   
 <div class="body-content outer-top-xs">
     <div class='container'>
         <div class='row single-product'>
-            <div class='col-md-3 sidebar'>
-                <div class="sidebar-module-container">
-                    <div class="home-banner outer-top-n">
-              
-                    </div>	
-                </div>
-            </div>
-            <div class='col-md-9'>
+            <div class='col-md-12'>
                 <div class="detail-block">
                     <div class="row  wow fadeInUp">
                         <div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
-                            <div class="product-item-holder size-big single-product-gallery small-gallery">
+                            <div class="product-item-holder size-big">
                                 <div id="owl-single-product">
-                                    <div class="single-product-gallery-item" id="slide1">
-                                        @if(isset($product_images))
-                                            @foreach($product_images as $image)
-                                                <img src="{{ $image->image_url }}" alt="Product Image" class="img-fluild" height="400" width="350">
-                                            @endforeach
-                                        @endif
-                                    </div><!-- /.single-product-gallery-item -->
+                                    <div class="single-product-gallery-item mt-3" id="slide1">
+                                        <img src="{{ $product_images[0]->image_url }}" alt="Product Image" class="img-fluid" height="400" width="450" id="large-image">
+                                    </div>
+                                    <div class="small-images mt-3">
+                                        @foreach($product_images as $image)
+                                        <div class="small-image">
+                                            <img src="{{ $image->image_url }}" alt="Product Image" class="img-fluid" data-large-image="{{ $image->image_url }}" height="100" width="128" onclick="changeLargeImage('{{ $image->image_url }}')">
+                                        </div>
+                                        @endforeach
+                                    </div>
                                 </div>
-                                <div class="single-product-gallery-thumbs gallery-thumbs">
-
-            
-            
-
-        </div><!-- /.single-product-slider -->
-                            </div><!-- /.single-product-gallery -->
-                        </div><!-- /.gallery-holder -->        			
+                            </div>
+                        </div>
                         <div class='col-sm-6 col-md-7 product-info-block'>
                             <div class="product-info">
                                 @if(isset($product))
@@ -70,8 +86,10 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="price-box">
-                                                    <span class="price">{{ $product->price }}</span>
-                                                    <span class="price-strike">{{ $product->discounted_price }}</span>
+                                                    <span class="price">{{ $price }}</span>
+                                                    @if ($discountedPrice)
+                                                    <span class="price-strike">{{ $discountedPrice }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -242,7 +260,22 @@
 				<div class="clearfix"></div>
 			</div><!-- /.row -->
 	</div>
-    </div>
 </div>
 
+@endsection
+
+@section('js')
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var smallImages = document.querySelectorAll('.small-image');
+        var largeImage = document.getElementById('large-image');
+
+        smallImages.forEach(function(smallImage) {
+            smallImage.addEventListener('click', function() {
+                var largeImageUrl = smallImage.getAttribute('data-large-image');
+                largeImage.src = largeImageUrl;
+            });
+        });
+    });
+</script>
 @endsection

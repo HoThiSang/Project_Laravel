@@ -45,21 +45,14 @@ class HomeController extends Controller
     public function getDetail(string $id)
     {
         if (!empty($id)) {
-            $product = DB::table('products')
-                ->join('images', 'products.id', '=', 'images.product_id')
-                ->where('products.id', $id)
-                ->groupBy('products.id')
-                ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', 'products.description', DB::raw('MAX(images.image_url) as image_url'))
-                ->first();
-
+            $product = Product::find($id);
             $product_images = DB::table('images')
-                ->where('product_id', $id)
-                ->limit(1)
-                ->select('image_url')
-                ->get();
-            // dd($product_images);
-
-            return view('users/product-detail', compact('product', 'product_images'));
+            ->where('product_id', $product->id)
+            ->get();
+            $price = $product->price;
+            $discountedPrice = $product->discounted_price;
+            $displayPrice = $discountedPrice ? $discountedPrice : $price;
+            return view('users/product-detail', compact('product', 'product_images', 'price', 'discountedPrice'));
         }
     }
 

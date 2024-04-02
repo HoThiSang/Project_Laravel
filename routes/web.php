@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ChechoutController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\AdminUserController;
+
 
 
 /*
@@ -39,16 +41,17 @@ Route::get('/logout', [CustomAuthController::class, 'logout']);
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
 Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getDetail');
-Route::get('/checkout',[ChechoutController::class, 'index'])->name('checkout');
-Route::post('/checkout',[ChechoutController::class, 'checkout'])->name('checkoutPost');
-Route::get('/is-checkout-success',[ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
+Route::get('/checkout', [ChechoutController::class, 'index'])->name('checkout');
+Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkoutPost');
+Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
 Route::get('admin/dashboard', [AdminController::class, 'admin'])->name('admin')->middleware('isAdmin');
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
 Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 Route::get('user-profile/{id?}', [UserController::class, 'index'])->name('user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
-Route::get('/admin-dashboard', function(){
-        return view('admin/dashboard');
+
+Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('/admin-user', [AdminUserController::class, 'index'])->name('user-index');
 });
 
