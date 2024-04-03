@@ -23,16 +23,13 @@ class AdminUserController extends Controller
      */
     public function index(Request $request)
     {
-        //  $statement = $this->users->statementUser("DELETE FROM users ");
-        //   $builder = $this->users->learningQueryBuilder();
-        //   dd($builder);
         $filters = [];
         $keyword = null;
         if (!empty($request->status)) {
             $status = $request->status;
             if ($status == 'active') {
                 $status = 1;
-            } else {z
+            } else {
                 $status = 0;
             }
             $filters[] = ['users.status', '=', $status];

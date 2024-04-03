@@ -12,8 +12,7 @@ use App\Http\Controllers\User\ChechoutController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminUserController;
-
-
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +30,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 // Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
-Route::get('/contact-page', [HomeController::class, 'contact'])->name('contact-page');
+Route::get('/contact-page', [EmailController::class, 'index'])->name('contact-page');
 Route::get('/login', [CustomAuthController::class, 'login'])->name('login')->middleware('alreadyLoggedIn');
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration')->middleware('alreadyLoggedIn');
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
@@ -50,7 +49,7 @@ Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->nam
 Route::get('user-profile/{id?}', [UserController::class, 'index'])->name('user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
-
+Route::post('/contact-page', [EmailController::class, 'sendEmail'])->name('sendEmail');
 Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/admin-user', [AdminUserController::class, 'index'])->name('user-index');
 });

@@ -31,6 +31,11 @@
 
     <script src="/assets/js/admin/helpers.js"></script>
     <script src="/assets/js/admin/config.js"></script>
+    <style>
+         .menu-link .menu-icon {
+            margin-right: 10px; /* Adjust the value as needed */
+    }
+    </style>
 </head>
 
 <body>
@@ -98,7 +103,7 @@
                     <!-- Layouts -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <i class="fa-brands fa-product-hunt menu-icon"></i>
                             <div data-i18n="Layouts">Products</div>
                         </a>
 
@@ -136,7 +141,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="fa-regular fa-user"></i>
+                            <i class="fa-regular fa-user menu-icon"></i>
                             <div data-i18n="Account Settings">Account Settings</div>
                         </a>
                         <ul class="menu-sub">

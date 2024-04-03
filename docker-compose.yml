@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  # MailHog
+  ui_web:
+    image: mailhog/mailhog
+    container_name: cont_mailhog
+    tty: true
+
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+    restart: on-failure
