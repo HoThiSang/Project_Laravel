@@ -11,9 +11,9 @@ class Image extends Model
     use HasFactory;
     protected $table ='images';
 
-     public function product(){
-        return $this->belongsTo('App\Models\Product', 'product_id','id');
-    }
+    //  public function product(){
+    //     return $this->belongsTo('App\Models\Product', 'product_id','id');
+    // }
 
     public function getAllImageByProductId($product_id)
     {
@@ -22,6 +22,8 @@ class Image extends Model
         return $images;
     }
 
-    
-
+    // public function product()
+    // {
+    //     return $this->belongsTo(Product::class);
+    // }
 }

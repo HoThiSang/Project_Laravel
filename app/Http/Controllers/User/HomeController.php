@@ -60,4 +60,5 @@ class HomeController extends Controller
     {
             return view('users/contact');
     }
+
 }
