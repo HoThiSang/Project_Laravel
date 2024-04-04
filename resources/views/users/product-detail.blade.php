@@ -1,30 +1,73 @@
 @extends('layouts.master')
 
 @section('css')
-<style>
-    .small-images {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-top: 20px; /* Tạo khoảng cách phía trên */
-    }
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-    .single-product-gallery-item {
-        margin-bottom: 20px; /* Tạo khoảng cách phía dưới */
-    }
+        function addToWishlist(event) {
+            event.preventDefault();
+            var product_id = $(event.target).closest('.product_data').find('.product_id').val();
 
-    .small-image {
-        margin-right: 10px;
-        cursor: pointer;
-        border: 1px solid #ccc; /* Tạo khung bao quanh ảnh */
-        padding: 5px; /* Tạo khoảng cách giữa khung và ảnh */
-    }
+            $.ajax({
+                method: "POST",
+                url: "/add-to-wishlist",
+                data: {
+                    '_token': csrfToken,
+                    'product_id': product_id
+                },
+                
+                success: function(response) {
+                    swal({
+                        title: "Success",
+                        text: response.status,
+                        icon: "success",
+                    });
+                },
+                error: function(xhr, status, error) {
+                    swal({
+                        title: "Error",
+                        text: "An error occurred: " + error,
+                        icon: "error",
+                    });
+                }
+            });
 
-    .small-image:hover {
-        opacity: 0.7;
-    }
-</style>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        }
+    </script>
+    <style>
+        .small-images {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 20px;
+            /* Tạo khoảng cách phía trên */
+        }
 
+        .single-product-gallery-item {
+            margin-bottom: 20px;
+            /* Tạo khoảng cách phía dưới */
+        }
+
+        .small-image {
+            margin-right: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            /* Tạo khung bao quanh ảnh */
+            padding: 5px;
+            /* Tạo khoảng cách giữa khung và ảnh */
+        }
+
+        .small-image:hover {
+            opacity: 0.7;
+        }
+    </style>
 @endsection
 @section('content')  
 @if (session()->has('success'))
@@ -273,20 +316,20 @@
 	</div>
 </div>
 
-@endsection
+    @endsection
 
-@section('js')
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var smallImages = document.querySelectorAll('.small-image');
-        var largeImage = document.getElementById('large-image');
+    @section('js')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var smallImages = document.querySelectorAll('.small-image');
+                var largeImage = document.getElementById('large-image');
 
-        smallImages.forEach(function(smallImage) {
-            smallImage.addEventListener('click', function() {
-                var largeImageUrl = smallImage.getAttribute('data-large-image');
-                largeImage.src = largeImageUrl;
+                smallImages.forEach(function(smallImage) {
+                    smallImage.addEventListener('click', function() {
+                        var largeImageUrl = smallImage.getAttribute('data-large-image');
+                        largeImage.src = largeImageUrl;
+                    });
+                });
             });
-        });
-    });
-</script>
-@endsection
+        </script>
+    @endsection

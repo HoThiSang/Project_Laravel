@@ -61,3 +61,5 @@ Route::get('/shopping-cart',[CartController::class, 'showCart'])->name('showtoca
 
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
+Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist');
+Route::post('/add-to-wishlist', [WishlistController::class, 'add'])->name('addToWishlist');
