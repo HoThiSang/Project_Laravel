@@ -42,7 +42,13 @@
 
 					<td class="cart-image">
 						<a class="entry-thumbnail" href="{{ route('detail', $cart->product->id) }}">
-						   <img src="{{ $cart->product->images->first()->image_url }}" alt="Product Image" class="img-fluid" height="120" width="50" id="large-image">
+							@if ($cart->product->images->isNotEmpty())
+								
+									<img src="{{ $cart->product->images->first()->image_url }}" alt="Product Image" class="img-fluid" height="120" width="50" id="large-image">
+								
+							@else
+								<img src="{{ asset('path_to_default_image.jpg') }}" alt="Default Image" class="img-fluid" height="120" width="50" id="large-image">
+							@endif
 						</a>
 					</td>
 					<td class="cart-product-name-info">
