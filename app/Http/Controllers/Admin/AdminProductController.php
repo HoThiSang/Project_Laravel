@@ -75,12 +75,12 @@ class AdminProductController extends Controller
                 $success = $this->products->creatNewProduct($dataInsert);
 
                 if ($success) {
-                    return redirect()->back()->with('success', 'Product added successfully');
+                    return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
                 } else {
-                    return redirect()->back()->with('error', 'Failed to add product');
+                    return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
                 }
             } else {
-                 return redirect()->back()->with('error', 'Missing required fields');
+                 return redirect()->route('admin.product-index')->with('error', 'Missing required fields');
             }
         }
     }

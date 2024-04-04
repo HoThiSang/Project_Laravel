@@ -52,10 +52,6 @@ Route::get('user-profile/{id?}', [UserController::class, 'index'])->name('user-p
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 
-Route::prefix('admin')->name('admin.')->group(function(){
-        Route::get('/', [AdminController::class, 'index'])->name('admin-page');
-        Route::get('/admin-user', [AdminUserController::class, 'index'])->name('user-index');
-});
 
 Route::prefix('admin')->name('admin.')->group(function(){
 
