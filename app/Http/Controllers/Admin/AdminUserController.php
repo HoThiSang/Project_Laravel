@@ -32,7 +32,7 @@ class AdminUserController extends Controller
             $status = $request->status;
             if ($status == 'active') {
                 $status = 1;
-            } else {z
+            } else {
                 $status = 0;
             }
             $filters[] = ['users.status', '=', $status];
