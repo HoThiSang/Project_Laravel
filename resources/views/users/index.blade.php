@@ -82,7 +82,7 @@
                                     <div class="product">
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href="{{ route('detail', ['id' => $product->id]) }}">
+                                                <a href="">
                                                     <img src="{{ $product->image_url }}" alt="">
                                                 </a>
                                             </div>
@@ -851,7 +851,6 @@
                                 <div class="image"> <a href="{{ route('detail', ['id' => $productdiscount->id]) }}"><img src="{{ $productdiscount->image_url }}" alt=""></a> </div>
                                 <div class="tag hot"><span>hot</span></div>
                             </div>
-
                             <div class="product-info text-left">
                                 <h3 class="name"><a href="detail.html">{{ $productdiscount->product_name }}</a></h3>
                                 <div class="rating rateit-small"></div>
@@ -863,8 +862,20 @@
                                 <div class="action">
                                     <ul class="list-unstyled">
                                         <li class="add-cart-button btn-group">
-                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                            <form id="addToCartForm" action="{{ route('addtocart', ['id' => $productdiscount->id]) }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+
+                                            <a href= onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();" class="btn btn-primary icon">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+
+                                            {{-- <form action="{{ route('addtocart', ['id' => $product->id]) }}" method="POST" style="display: inline;">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <button class="btn btn-primary cart-btn" type="submit">Add to cart</button>
+                                            </form> --}}
                                         </li>
                                         <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
                                         <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
