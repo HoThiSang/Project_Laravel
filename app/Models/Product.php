@@ -58,6 +58,6 @@ class Product extends Model
     {
 
         //   DB::insert('INSERT INTO users (name, email, created_at) values (?,?,?)', $data);
-        return DB::table($this->table)->insert($data);
+        return DB::table($this->table)->insertGetId($data);
     }
 }
