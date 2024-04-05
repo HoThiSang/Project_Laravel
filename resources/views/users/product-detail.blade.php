@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('css')
-<<<<<<< Updated upstream
 <style>
     .small-images {
         display: flex;
@@ -9,12 +8,6 @@
         align-items: center;
         margin-top: 20px; /* Tạo khoảng cách phía trên */
     }
-=======
-    <!-- <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    <script>
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
->>>>>>> Stashed changes
 
     .single-product-gallery-item {
         margin-bottom: 20px; /* Tạo khoảng cách phía dưới */
