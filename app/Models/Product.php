@@ -12,10 +12,10 @@ class Product extends Model
     protected $table = 'products';
 
 
-    public function images()
-    {
-        return $this->hasMany('App\Models\Image', 'product_id', 'id');
-    }
+    // public function images()
+    // {
+    //     return $this->hasMany('App\Models\Image', 'product_id', 'id');
+    // }
 
     public function getFilter($filter)
     {
@@ -59,5 +59,9 @@ class Product extends Model
 
         //   DB::insert('INSERT INTO users (name, email, created_at) values (?,?,?)', $data);
         return DB::table($this->table)->insertGetId($data);
+    }
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }
