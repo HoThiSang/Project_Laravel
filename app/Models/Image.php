@@ -22,8 +22,13 @@ class Image extends Model
         return $images;
     }
 
-    // public function product()
-    // {
-    //     return $this->belongsTo(Product::class);
-    // }
+
+    public function createImageByProductId($data)
+    {
+
+        $image =DB::table($this->table)->insertGetId($data);
+        return $image;
+    }
+
+    
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="\assets\css\bootstrap.min.css">
 
- 
+
 
     <!-- Customizable CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -62,7 +62,7 @@
                                 <ul class="dropdown-menu">
 
                                     <li><a href="{{route('registration') }}">Register</a></li>
-                                      <li><a href="{{route('login') }}">Login</a></li>
+                                    <li><a href="{{route('login') }}">Login</a></li>
                                     <li><a href="#">Logout</a></li>
 
                                 </ul>
@@ -84,7 +84,9 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                         <!-- ============================================================= LOGO ============================================================= -->
-                        <div class="logo"> <a href="{{route('homepage') }}"> <h1>V_SPLUSH </h1></a> </div>
+                        <div class="logo"> <a href="{{route('homepage') }}">
+                                <h1>V_SPLUSH </h1>
+                            </a> </div>
                         <!-- /.logo -->
                         <!-- ============================================================= LOGO : END ============================================================= -->
                     </div>
@@ -133,7 +135,7 @@
             </div>
 
         </div>
-      
+
 
         <!-- ============================================== NAVBAR ============================================== -->
         <div class="header-nav animate-dropdown">
@@ -156,12 +158,12 @@
 
                                     </li>
                                     <li class="dropdown hidden-sm"> <a href="{{ route('categories') }}">Products</a> </li>
-                                   
-   
+
+
                                     <li class="dropdown"> <a href="">Service</a> </li>
                                     <li class="dropdown"> <a href="{{ route('contact-page') }}">Contact us</a> </li>
                                     <li class="dropdown"> <a href="{{ route('view-orders') }}">Order purchased</a> </li>
-                                 
+
 
                                     </li>
                                     <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
@@ -360,6 +362,7 @@
     <script src="assets/js/bootstrap-select.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @yield('jss')
 </body>
 

@@ -71,18 +71,39 @@ class AdminProductController extends Controller
                     'category_id' => $request->category_id,
                     'created_at' => now()
                 ];
+                $product_id = $this->products->creatNewProduct($dataInsert);
 
-                $success = $this->products->creatNewProduct($dataInsert);
+                if ($product_id > 0) {
+                    $imamg = $request->url;
+                  
+                    $dataImage = [
+                        'image_name' => $request->product_name,
+                        'image_url' =>    $imamg ,
+                        'product_id' => $product_id,
+                        'created_at' => now()
+                    ];
+                    $imageSuccess = $this->image->createImageByProductId($dataImage);
 
-                if ($success) {
-                    return redirect()->back()->with('success', 'Product added successfully');
+                    if ($imageSuccess) {
+                        return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
+                    } else {
+                        return redirect()->route('admin.product-index')->with('error', 'Failed to add Image');
+                    }
                 } else {
-                    return redirect()->back()->with('error', 'Failed to add product');
+                    return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
                 }
             } else {
-                 return redirect()->back()->with('error', 'Missing required fields');
+                return redirect()->route('admin.product-index')->with('error', 'Missing required fields');
             }
         }
+    }
+
+    public function saveImage(Request $request, $product_id, $url)
+    {
+        $request->validate([
+            'url' => 'required|url',
+        ]);
+        $this->image->url = $request->url;
     }
 
     /**
