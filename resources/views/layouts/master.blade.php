@@ -349,6 +349,13 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @if(session('status'))
+    <script>
+        swal("{{ session('status') }}");
+    </script>
+    @endif
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

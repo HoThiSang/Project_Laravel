@@ -42,9 +42,9 @@ class CustomAuthController extends Controller
 
         $res = $user->save();
         if ($res) {
-            return back()->with('success', 'You have registered successfuly');
+            return back()->with('status', 'You have registered successfuly');
         } else {
-            return back()->with('fail', 'Something wrong');
+            return back()->with('status', 'Something wrong');
         }
     }
 
