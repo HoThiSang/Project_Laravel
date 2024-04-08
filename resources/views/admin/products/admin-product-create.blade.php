@@ -5,7 +5,7 @@
 
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
-        <form action="{{  route('admin.create-new-product') }}" method="post">
+        <form action="{{  route('admin.create-new-product') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -83,7 +83,7 @@
                                 <span style="color: red;">{{$message}}</span>
                                 @enderror
                             </div>
-                            <button type="submit" onclick="event.preventDefault() ; uploadImg()" class=" btn btn-primary">Create new</button>
+                            <button type="submit" onclick="uploadImg()" class=" btn btn-primary">Create new</button>
 
                         </div>
                     </div>
@@ -122,9 +122,9 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <input type="text" id="imageUrl" name="url" value="">
+                                <input type="hidden" id="imageUrl" name="url" value="">
                                 <input id="image" type="file" accept="image/*" name="image" onchange="loadFile(event)">
-                                <p id="uploading_text"></p>
+                            
                             </div>
                             @error('image')
                             <span style="color: red;">{{$message}}</span>
@@ -200,10 +200,10 @@
                 .then((data) => {
                     console.log(data);
                     url = data.secure_url
-                    document.getElementById('imageUrl').value = url;
+                  
                 })
                 .catch((err) => console.log(err));
-            console.log(url);
+        //    console.log(url);
             return url
         }
 

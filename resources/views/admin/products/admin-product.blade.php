@@ -67,7 +67,7 @@
                              <td>{{ $product->discounted_price }}</td>
                              <td>{{ $product->quantity }}</td>
                              <td>
-                                 <img src="{{ $product->image_url }}" alt="" class="img-fluid" height="150" width="100">
+                                 <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
                              </td>
 
 

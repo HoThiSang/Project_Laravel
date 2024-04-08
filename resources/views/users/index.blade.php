@@ -83,7 +83,7 @@
                                         <div class="product-image">
                                             <div class="image">
                                                 <a href="">
-                                                    <img src="{{ $product->image_url }}" alt="">
+                                                   <img src="{{ asset('images/' . $product->image_url) }}" alt="">
                                                 </a>
                                             </div>
                                             <!-- /.image -->
@@ -848,7 +848,7 @@
                     <div class="products">
                         <div class="product">
                             <div class="product-image">
-                                <div class="image"> <a href="{{ route('detail', ['id' => $productdiscount->id]) }}"><img src="{{ $productdiscount->image_url }}" alt=""></a> </div>
+                                <div class="image"> <a href="{{ route('detail', ['id' => $productdiscount->id]) }}"><img src="{{ asset('images/' . $productdiscount->image_url) }}" alt=""></a> </div>
                                 <div class="tag hot"><span>hot</span></div>
                             </div>
                             <div class="product-info text-left">
@@ -1004,7 +1004,7 @@
                     <div class="products">
                         <div class="product">
                             <div class="product-image">
-                                <div class="image"> <a href="{{ route('detail', ['id' => $productsSuggested->id]) }}"><img src="{{ $productsSuggested->image_url}}" alt=""></a> </div>
+                                <div class="image"> <a href="{{ route('detail', ['id' => $productsSuggested->id]) }}"><img src="{{ asset('images/' . $productsSuggested->image_url) }}" alt=""></a> </div>
 
                                 <div class="tag new"><span>new</span></div>
                             </div>

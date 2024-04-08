@@ -60,41 +60,52 @@ class AdminProductController extends Controller
                 && isset($request->quantity) && isset($request->description) && isset($request->ingredient)
                 && isset($request->category_id) && isset($request->category_id)
             ) {
-                $dataInsert = [
-                    'product_name' => $request->product_name,
-                    'quantity' => $request->quantity,
-                    'price' => $request->price,
-                    'ingredient' => $request->ingredient,
-                    'description' => $request->description,
-                    'brand' => $request->brand,
-                    'discount' => $request->discount,
-                    'discounted_price' => 30000,
-                    'category_id' => $request->category_id,
-                    'created_at' => now()
-                ];
-                $product_id = $this->products->creatNewProduct($dataInsert);
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $image->move(public_path('images'), $imageName);
 
-                if ($product_id > 0) {
-                    $imamg = $request->url;
-                  
-                    $dataImage = [
-                        'image_name' => $request->product_name,
-                        'image_url' =>    $imamg ,
-                        'product_id' => $product_id,
+                    $dataInsert = [
+                        'product_name' => $request->product_name,
+                        'quantity' => $request->quantity,
+                        'price' => $request->price,
+                        'ingredient' => $request->ingredient,
+                        'description' => $request->description,
+                        'brand' => $request->brand,
+                        'discount' => $request->discount,
+                        'discounted_price' => 30000,
+                        'category_id' => $request->category_id,
                         'created_at' => now()
                     ];
-                    $imageSuccess = $this->image->createImageByProductId($dataImage);
 
-                    if ($imageSuccess) {
-                        return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
+                    $product_id = $this->products->creatNewProduct($dataInsert);
+
+                    if ($product_id > 0) {
+
+
+                        $dataImage = [
+                            'image_name' => $request->product_name,
+                            'image_url' =>  $imageName,
+                            'product_id' => $product_id,
+                            'created_at' => now()
+                        ];
+
+                        $imageSuccess = $this->image->createImageByProductId($dataImage);
+                        dd($imageSuccess);
+
+                        if ($imageSuccess) {
+                            return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
+                        } else {
+                            return redirect()->route('admin.product-index')->with('error', 'Failed to add Image');
+                        }
                     } else {
-                        return redirect()->route('admin.product-index')->with('error', 'Failed to add Image');
+                        return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
                     }
                 } else {
-                    return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
+                    return redirect()->back()->with('error', 'Missing image fields');
                 }
             } else {
-                return redirect()->route('admin.product-index')->with('error', 'Missing required fields');
+                return redirect()->back()->with('error', 'Missing required fields');
             }
         }
     }
@@ -144,9 +155,11 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+          $product = $this->products->findById($id);
+         // dd($product);
+         
     }
 
     /**
@@ -157,6 +170,9 @@ class AdminProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
+
+
+    
 }

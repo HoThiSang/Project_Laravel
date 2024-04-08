@@ -38,7 +38,7 @@ class HomeController extends Controller
             ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
             ->where('quantity', '<', 60)
             ->get();
-
+// dd($products);
         return  view('users/index', compact('products', 'productsWithDiscount', 'productsSuggesteds'));
     }
 
