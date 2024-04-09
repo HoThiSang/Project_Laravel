@@ -13,6 +13,7 @@ use App\Http\Controllers\User\ChechoutController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,7 @@ Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getD
 Route::get('/checkout', [ChechoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkoutPost');
 Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
-Route::get('admin/dashboard', [AdminController::class, 'admin'])->name('admin')->middleware('isAdmin');
+Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin')->middleware('isAdmin');
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
 Route::get('/view-order/{id?}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 Route::get('user-profile/{id?}', [UserController::class, 'index'])->name('user-profile');
@@ -71,6 +72,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/admin-product-add', [AdminProductController::class, 'create'])->name('get-view-add-new');
 
         Route::post('/admin-product-add', [AdminProductController::class, 'store'])->name('create-new-product');
+
+        Route::get('/admin-product-update/{id}', [AdminProductController::class, 'edit'])->name('admin-get-update');
+
+        Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
+
+
 });
 
 
