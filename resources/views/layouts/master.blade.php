@@ -48,7 +48,6 @@
                 <div class="header-top-inner">
                     <div class="cnt-account">
                         <ul class="list-unstyled">
-                            <li><a href="{{ route('user-profile') }}"><i class="icon fa fa-user"></i>My Account</a></li>
                             <li><a href="{{ route('wishlist')}}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                             <li><a href="{{ route('checkout')}}"><i class="icon fa fa-check"></i>Checkout</a></li>
@@ -58,15 +57,32 @@
 
                     <div class="cnt-block">
                         <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small"> <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Login </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-
-                                    <li><a href="{{route('registration') }}">Register</a></li>
-                                    <li><a href="{{route('login') }}">Login</a></li>
-                                    <li><a href="#">Logout</a></li>
-
-                                </ul>
-                            </li>
+                            @guest
+                                <li class="dropdown dropdown-small">
+                                    <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                        <span class="value">Login</span><b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('registration') }}">Register</a></li>
+                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                <li class="dropdown dropdown-small">
+                                    <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                        <span class="value">My Profile</span><b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('user-profile') }}">Profile</a></li>
+                                        <li>
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button type="submit">Logout</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endguest
                         </ul>
                         <!-- /.list-unstyled -->
                     </div>
@@ -370,7 +386,7 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    @yield('jss')
+    @yield('js')
 </body>
 
 </html>

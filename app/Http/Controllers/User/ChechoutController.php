@@ -215,8 +215,9 @@ class ChechoutController extends Controller
     public function getAllOrder($user_id = null)
     {
         $check = "failed";
-        if (Session::has('loginId')) {
-            $user_id = Session::get('loginId');
+        $user_id = Session::get('loginId');
+        if (!empty($user_id)) {
+         
             $orderAll = DB::table('orders')
                 ->join('users', 'orders.user_id', '=', 'users.id')
                 ->where('user_id', $user_id)

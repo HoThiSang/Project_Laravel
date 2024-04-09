@@ -25,6 +25,7 @@ class WishlistController extends Controller
         // if(Auth::check())
         // {
             $product_id = $request->input('product_id');
+            echo $product_id;
             if(Product::find($product_id))
             {
                 $wish = new WishList();
