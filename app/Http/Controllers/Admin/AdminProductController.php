@@ -164,11 +164,11 @@ class AdminProductController extends Controller
 
             if ($request->isMethod('post')) {
 
-                if ($request->hasFile('image')) {
+                if ($request->hasFile('images')) {
 
-                    $image = $request->file('image');
-                    $imageName = time() . '_' . $image->getClientOriginalName();
-                    $image->move(public_path('images'), $imageName);
+                    // $image = $request->file('images');
+                    // $imageName = time() . '_' . $image->getClientOriginalName();
+                    // $image->move(public_path('images'), $imageName);
 
                     $dataInsert = [
                         'product_name' => $request->product_name,
@@ -182,33 +182,32 @@ class AdminProductController extends Controller
                         'category_id' => $request->category_id,
                         'updated_at' => now()
                     ];
-
-
-
                     $product_id = $this->products->updateProduct($id, $dataInsert);
 
                     if ($product_id > 0) {
                         $imageSuccess = true;
                         $successCount = 0;
+                        $imageData = [];
                         foreach ($request->file('images') as $image) {
-
                             $imageName = $image->getClientOriginalName();
                             $image->move(public_path('images'), $imageName);
-
-
                             $imageData = [
-                                'image_name' => $imageName,
+                                'image_name' => $request->product_name,
                                 'image_url' => $imageName,
                                 'product_id' => $product_id,
                                 'updated_at' => now()
                             ];
+                            $images = $this->image->updateImage($product_id, $imageData);
+                            dd($images);
                             if ($imageData) {
                                 $successCount++;
                             }
                         }
-                        
+
+                        dd($imageData);
                         // Lưu trữ dữ liệu ảnh vào cơ sở dữ liệu
-                        $product = $this->image->updateImage($product_id, $imageData);
+
+
                         if ($successCount == count($request->file('images'))) {
                             return redirect()->route('admin.product-index')->with('success', 'All images added successfully');
                         } else {
@@ -239,32 +238,30 @@ class AdminProductController extends Controller
      */
     public function destroy($id)
     {
-        
     }
 
     public function delete(string $id)
     {
         if (!empty($id)) {
-                $product = $this->products->findById($id);
-                dd($product);
+            $product = $this->products->findById($id);
+            dd($product);
         }
         //     $car = Car::find($id);
 
 
-            // if ($car) {
-                // $image_path = public_path("images/{$car->image}");
+        // if ($car) {
+        // $image_path = public_path("images/{$car->image}");
 
-                // if (File::exists($image_path)) {
-                //     File::delete($image_path);
-                // }
+        // if (File::exists($image_path)) {
+        //     File::delete($image_path);
+        // }
 
-                // $car->delete();
-            //     return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
-            // } else {
-            //     return redirect()->back()->with('error', 'Car not found');
+        // $car->delete();
+        //     return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
+        // } else {
+        //     return redirect()->back()->with('error', 'Car not found');
         //     }
         // } else {
         //     return redirect()->back()->with('error', 'Invalid car ID');
-        }
     }
-
+}
