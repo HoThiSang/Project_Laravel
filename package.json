@@ -15,5 +15,8 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "prettier": "3.2.5"
+    },
+    "dependencies": {
+        "sweetalert2": "^11.10.7"
     }
 }
