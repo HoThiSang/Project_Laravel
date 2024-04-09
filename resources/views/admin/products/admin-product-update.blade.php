@@ -5,7 +5,7 @@
 
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
-        <form action="{{  route('admin.create-new-product') }}" method="post" enctype="multipart/form-data">
+        <form action="{{  route('admin.admin-product-update', ['id'=> $productDetail->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -21,7 +21,7 @@
                                 <label class="form-label" for="fullname">Product Name</label>
                                 <div class="input-group input-group-merge">
                                     <span id="product_name" class="input-group-text"><i class="bx bx-user"></i></span>
-                                    <input type="text" class="form-control" id="product_name" name="product_name" value="{{ old('product_name') }}" placeholder="Product name" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" />
+                                    <input type="text" class="form-control" id="product_name" name="product_name" value="{{ $productDetail->product_name }}" placeholder="Product name" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" />
 
                                 </div>
                                 @error('product_name')
@@ -32,7 +32,7 @@
                                 <label class="form-label" for="price">Price</label>
                                 <div class="input-group input-group-merge">
                                     <span id="price" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                    <input type="text" id="price" class="form-control" name="price" value="{{ old('price') }}{{ isset($productDetail)? $productDetail->price : old('price') }}" placeholder="Price of product" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" />
+                                    <input type="text" id="price" class="form-control" name="price" value="{{ $productDetail->price }}" placeholder="Price of product" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" />
 
                                 </div>
                                 @error('price')
@@ -43,7 +43,7 @@
                                 <label class="form-label" for="discount">Discount</label>
                                 <div class="input-group input-group-merge">
                                     <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                    <input type="text" id="discount" name="discount" class="form-control" value="{{ isset($productDetail)? $productDetail->discount : old('discount') }}" placeholder="Discount of product" aria-label="john.doe" aria-describedby="basic-icon-default-email2" />
+                                    <input type="text" id="discount" name="discount" class="form-control" value="{{ $productDetail->discount }}" placeholder="Discount of product" aria-label="john.doe" aria-describedby="basic-icon-default-email2" />
                                 </div>
                                 @error('discount')
                                 <span style="color: red;">{{$message}}</span>
@@ -54,7 +54,7 @@
                                 <label class="form-label" for="quantity">Quantity</label>
                                 <div class="input-group input-group-merge">
                                     <span id="quantity" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                    <input type="text" id="quantity" name="quantity" value="{{ isset($productDetail)? $productDetail->brand : old('brand') }}" class="form-control phone-mask" placeholder="Quantity" aria-describedby="quantity" />
+                                    <input type="text" id="quantity" name="quantity" value="{{ $productDetail->quantity }}" class="form-control phone-mask" placeholder="Quantity" aria-describedby="quantity" />
                                 </div>
                                 @error('quantity')
                                 <span style="color: red;">{{$message}}</span>
@@ -65,7 +65,7 @@
                                 <label class="form-label" for="price">Brand</label>
                                 <div class="input-group input-group-merge">
                                     <span id="brand" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                    <input type="text" id="brand" class="form-control" name="brand" value="{{ isset($productDetail)? $productDetail->brand : old('brand') }}" placeholder="Brand of product" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" />
+                                    <input type="text" id="brand" class="form-control" name="brand" value="{{ $productDetail->brand }}" placeholder="Brand of product" aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" />
 
                                 </div>
                                 @error('brand')
@@ -76,14 +76,14 @@
                                 <label class="form-label" for="description">Description</label>
                                 <div class="input-group input-group-merge">
                                     <span id="description" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <textarea id="description" name="description" value="{{ isset($productDetail)? $productDetail->description : old('description') }}" class="form-control" placeholder="Description for your product" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"></textarea>
+                                    <textarea id="description" name="description" value="{{ $productDetail->description }}" class="form-control" placeholder="Description for your product" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2">{{ $productDetail->description }}</textarea>
 
                                 </div>
                                 @error('description')
                                 <span style="color: red;">{{$message}}</span>
                                 @enderror
                             </div>
-                            <button type="submit" onclick="uploadImg()" class=" btn btn-primary">Create new</button>
+                            <button type="submit" class=" btn btn-primary">Update</button>
 
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                                 <label class="form-label" for="ingredient">Ingredient</label>
                                 <div class="input-group input-group-merge">
                                     <span id="ingredient" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <textarea id="ingredient" class="form-control" name="ingredient" value="{{ isset($productDetail)? $productDetail->ingredient : old('ingredient') }}" placeholder="Ingredient for your product" aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                    <textarea id="ingredient" class="form-control" name="ingredient" value="{{ $productDetail->ingredient }}" placeholder="Ingredient for your product" aria-label="" aria-describedby="basic-icon-default-message2">{{ $productDetail->ingredient }}</textarea>
 
                                 </div>
                                 @error('ingredient')
@@ -121,16 +121,22 @@
                                 <span style="color: red;">{{$message}}</span>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                               @foreach ($imageAll as $imageUrl) : ?>
-                                    <input type="hidden" id="imageUrl" name="url" value="<?= $imageUrl ?>">
-                               @endforeach; ?>
-                                <input id="image" type="file" accept="image/*" name="image" onchange="loadFile(event)">
-
+                            <!-- <div class=""> -->
+                            @foreach ($imageAll as $image)
+                            <div>
+                                <!-- <p>ID: {{ $image->id }}</p>
+                                <p>Image Name: {{ $image->image_name }}</p> -->
+                                <img src="{{ asset('/images/' . $image->image_url) }}" alt="{{ $image->image_name }}">
                             </div>
-                            @error('image')
-                            <span style="color: red;">{{$message}}</span>
+                            @endforeach
+
+                            <!-- </div> -->
+                            <input type="file" class="form-control" id="images" name="images[]" multiple onchange="loadFile(event)">
+                            <small class="text-muted">Select one or more images to upload (max: 4MB per image)</small>
+                            @error('images')
+                            <span class="text-danger">{{ $message }}</span>
                             @enderror
+                           
                             <div>
                                 <img style="width: 200px; height: 200px; list-style-type: none; border:none" id="output" />
                             </div>
@@ -175,43 +181,43 @@
 
 
 
-    async function uploadImg() {
-        const cloud_name = '{{ env("CLOUDINARY_NAME") }}';
-        const upload_preset = '{{ env("CLOUDINARY_UPLOAD_PRESET") }}';
-        const api_key = '{{ env("CLOUDINARY_API_KEY") }}';
-        const api_secret = '{{ env("CLOUDINARY_API_SECRET") }}';
+    // async function uploadImg() {
+    //     const cloud_name = '{{ env("CLOUDINARY_NAME") }}';
+    //     const upload_preset = '{{ env("CLOUDINARY_UPLOAD_PRESET") }}';
+    //     const api_key = '{{ env("CLOUDINARY_API_KEY") }}';
+    //     const api_secret = '{{ env("CLOUDINARY_API_SECRET") }}';
 
-        let url = '';
+    //     let url = '';
 
-        const formData = new FormData();
-        formData.append("file", file.target.files[0]);
-        formData.append("upload_preset", upload_preset);
-        formData.append("api_key", api_key);
-        formData.append("api_secret", api_secret);
-        const options = {
-            method: "POST",
-            body: formData,
-        };
+    //     const formData = new FormData();
+    //     formData.append("file", file.target.files[0]);
+    //     formData.append("upload_preset", upload_preset);
+    //     formData.append("api_key", api_key);
+    //     formData.append("api_secret", api_secret);
+    //     const options = {
+    //         method: "POST",
+    //         body: formData,
+    //     };
 
-        if (file) {
-            await fetch(
-                    `https://api.cloudinary.com/v1_1/${cloud_name}/upload/`,
-                    options
-                )
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data);
-                    url = data.secure_url
+    //     if (file) {
+    //         await fetch(
+    //                 `https://api.cloudinary.com/v1_1/${cloud_name}/upload/`,
+    //                 options
+    //             )
+    //             .then((res) => res.json())
+    //             .then((data) => {
+    //                 console.log(data);
+    //                 url = data.secure_url
 
-                })
-                .catch((err) => console.log(err));
-            //    console.log(url);
-            return url
-        }
+    //             })
+    //             .catch((err) => console.log(err));
+    //         //    console.log(url);
+    //         return url
+    //     }
 
-        return;
+    //     return;
 
-    }
+    // }
 </script>
 
 

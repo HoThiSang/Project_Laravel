@@ -67,15 +67,14 @@ class Product extends Model
 
     public function updateProduct($id, $data)
     {
-    return DB::table($this->table)
+        return DB::table($this->table)
             ->where('id', $id)
             ->update($data);
     }
-    
+
     // function find product
-     public static function findById($id)
+    public static function findById($id)
     {
         return self::find($id);
     }
-
 }

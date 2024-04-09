@@ -144,8 +144,10 @@ class AdminProductController extends Controller
         $productDetail = $this->products->getProductById($id);
         $imageAll = $this->image->getAllImageByProductId($id);
         $category_id = $productDetail->category_id;
+        $categoryAll = $this->categories->getAllCategories();
         $category = $this->categories->getCategoryById($category_id);
-        return view('admin/products/admin-product-update', compact('productDetail', 'imageAll', 'category'));
+        // dd($imageAll);
+        return view('admin/products/admin-product-update', compact('productDetail', 'imageAll', 'category', 'categoryAll'));
     }
 
     /**
@@ -157,9 +159,76 @@ class AdminProductController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
-          $product = $this->products->findById($id);
-         // dd($product);
-         
+        $product = $this->products->findById($id);
+        if (!empty($product)) {
+
+            if ($request->isMethod('post')) {
+
+                if ($request->hasFile('image')) {
+
+                    $image = $request->file('image');
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $image->move(public_path('images'), $imageName);
+
+                    $dataInsert = [
+                        'product_name' => $request->product_name,
+                        'quantity' => $request->quantity,
+                        'price' => $request->price,
+                        'ingredient' => $request->ingredient,
+                        'description' => $request->description,
+                        'brand' => $request->brand,
+                        'discount' => $request->discount,
+                        'discounted_price' => 30000,
+                        'category_id' => $request->category_id,
+                        'updated_at' => now()
+                    ];
+
+
+
+                    $product_id = $this->products->updateProduct($id, $dataInsert);
+
+                    if ($product_id > 0) {
+                        $imageSuccess = true;
+                        $successCount = 0;
+                        foreach ($request->file('images') as $image) {
+
+                            $imageName = $image->getClientOriginalName();
+                            $image->move(public_path('images'), $imageName);
+
+
+                            $imageData = [
+                                'image_name' => $imageName,
+                                'image_url' => $imageName,
+                                'product_id' => $product_id,
+                                'updated_at' => now()
+                            ];
+                            if ($imageData) {
+                                $successCount++;
+                            }
+                        }
+                        
+                        // Lưu trữ dữ liệu ảnh vào cơ sở dữ liệu
+                        $product = $this->image->updateImage($product_id, $imageData);
+                        if ($successCount == count($request->file('images'))) {
+                            return redirect()->route('admin.product-index')->with('success', 'All images added successfully');
+                        } else {
+                            return redirect()->route('admin.product-index')->with('error', 'Some images failed to add');
+                        }
+                        if ($imageSuccess) {
+                            return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
+                        } else {
+                            return redirect()->route('admin.product-index')->with('error', 'Failed to add Image');
+                        }
+                    } else {
+                        return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
+                    }
+                } else {
+                    return redirect()->back()->with('error', 'Missing image fields');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Missing required fields');
+            }
+        }
     }
 
     /**
@@ -173,6 +242,29 @@ class AdminProductController extends Controller
         
     }
 
+    public function delete(string $id)
+    {
+        if (!empty($id)) {
+                $product = $this->products->findById($id);
+                dd($product);
+        }
+        //     $car = Car::find($id);
 
-    
-}
+
+            // if ($car) {
+                // $image_path = public_path("images/{$car->image}");
+
+                // if (File::exists($image_path)) {
+                //     File::delete($image_path);
+                // }
+
+                // $car->delete();
+            //     return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
+            // } else {
+            //     return redirect()->back()->with('error', 'Car not found');
+        //     }
+        // } else {
+        //     return redirect()->back()->with('error', 'Invalid car ID');
+        }
+    }
+
