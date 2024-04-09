@@ -21,6 +21,7 @@ class AdminProductController extends Controller
         $this->products = new Product();
         $this->categories = new Categories();
         $this->image = new Image();
+        // $this->middleware('alreadyLoggedIn');
     }
     /**
      * Display a listing of the resource.

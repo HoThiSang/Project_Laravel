@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 
+
 class AdminUserController extends Controller
 {
     protected $users;
@@ -15,6 +16,7 @@ class AdminUserController extends Controller
     public function __construct()
     {
         $this->users = new User();
+        // $this->middleware('alreadyLoggedIn');
     }
     /**
      * Display a listing of the resource.
