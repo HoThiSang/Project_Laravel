@@ -58,7 +58,7 @@ Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('u
 
 Route::post('/add-to-cart/{id}', [CartController::class, 'store'])->name('addtocart');
 
-Route::get('/shopping-cart',[CartController::class, 'showCart'])->name('showtocart');
+Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtocart');
 
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
@@ -70,7 +70,7 @@ Route::post('/add-to-wishlist', [WishlistController::class, 'add'])->name('addTo
 //         Route::get('/admin-product', [AdminProductController::class, 'index'])->name('product-index');
 
 //         Route::get('/admin-product-detail/{id}', [AdminProductController::class, 'show'])->name('product-detail');
-        
+
 //         Route::get('/admin-product-add', [AdminProductController::class, 'create'])->name('get-view-add-new');
 
 //         Route::post('/admin-product-add', [AdminProductController::class, 'store'])->name('create-new-product');
@@ -83,21 +83,30 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');Auth::routes();
 
 
-Route::middleware(['auth','isAdmin'])->group(function(){
+Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/dashboard', function () {
                 return view('admin.dashboard');
         });
         Route::get('/admin-product', [AdminProductController::class, 'index'])->name('product-index');
 
         Route::get('/admin-product-detail/{id}', [AdminProductController::class, 'show'])->name('product-detail');
-        
+
         Route::get('/admin-product-add', [AdminProductController::class, 'create'])->name('get-view-add-new');
 
         Route::post('/admin-product-add', [AdminProductController::class, 'store'])->name('create-new-product');
 
         Route::get('/admin-user', [AdminUserController::class, 'index'])->name('user-index');
+
+
+        Route::get('/admin-product-update/{id}', [AdminProductController::class, 'edit'])->name('admin-get-update');
+
+
+        Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
 });
 
-Route::middleware(['auth'])->group(function () {
-    
-});
+// Route::middleware(['auth'])->group(function () {
+// });
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

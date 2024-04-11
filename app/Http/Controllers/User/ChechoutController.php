@@ -52,7 +52,8 @@ class ChechoutController extends Controller
             } else {
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+                    if(auth()->check()){
+                
 
                     error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -144,6 +145,7 @@ class ChechoutController extends Controller
                         echo json_encode($returnData);
                     }
                 }
+                }
             }
         }
     }
@@ -214,10 +216,8 @@ class ChechoutController extends Controller
 
     public function getAllOrder($user_id = null)
     {
-        $check = "failed";
-        $user_id = Session::get('loginId');
-        if (!empty($user_id)) {
-         
+        if(auth()->check()){
+            $user_id = auth()->user()->id;
             $orderAll = DB::table('orders')
                 ->join('users', 'orders.user_id', '=', 'users.id')
                 ->where('user_id', $user_id)

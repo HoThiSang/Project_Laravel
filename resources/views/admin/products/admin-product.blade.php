@@ -67,7 +67,7 @@
                              <td>{{ $product->discounted_price }}</td>
                              <td>{{ $product->quantity }}</td>
                              <td>
-                                 <img src="{{ $product->image_url }}" alt="" class="img-fluid" height="150" width="100">
+                                 <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
                              </td>
 
 
@@ -78,7 +78,7 @@
                                      </button>
                                      <div class="dropdown-menu">
                                          <a class="dropdown-item" href="{{ route('admin.product-detail', ['id'=>$product->id ]) }}"><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a>
-                                         <a class="dropdown-item" href="javascript:void(0);"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
+                                         <a class="dropdown-item" href="{{ route('admin.admin-get-update',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
                                          <a class="dropdown-item" href="javascript:void(0);"><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
                                      </div>
                                  </div>
@@ -104,5 +104,3 @@
 
 
      @endsection
-
-    

@@ -64,4 +64,17 @@ class Product extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    public function updateProduct($id, $data)
+    {
+        return DB::table($this->table)
+            ->where('id', $id)
+            ->update($data);
+    }
+
+    // function find product
+    public static function findById($id)
+    {
+        return self::find($id);
+    }
 }

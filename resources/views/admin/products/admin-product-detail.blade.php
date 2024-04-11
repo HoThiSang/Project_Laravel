@@ -10,7 +10,8 @@
          </div>
          <div class="col-md-3 mt-4" style="margin-left: 40px;">
              <!-- Image on the left -->
-             <img src="{{ $imageAll[0]->image_url }}" alt="Car Image" class="img-fluid" style="height:300px;" >
+           
+             <img src="{{ asset('images/' . $imageAll[0]->image_url) }}" alt="Car Image" class="img-fluid" style="height:300px;" >
          </div>
          
 

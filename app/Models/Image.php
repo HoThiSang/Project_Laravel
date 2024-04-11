@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Image extends Model
 {
     use HasFactory;
-    protected $table ='images';
+    protected $table = 'images';
 
     //  public function product(){
     //     return $this->belongsTo('App\Models\Product', 'product_id','id');
@@ -17,7 +17,7 @@ class Image extends Model
 
     public function getAllImageByProductId($product_id)
     {
-        
+
         $images = DB::table($this->table)->where('product_id', $product_id)->get();
         return $images;
     }
@@ -26,9 +26,14 @@ class Image extends Model
     public function createImageByProductId($data)
     {
 
-        $image =DB::table($this->table)->insertGetId($data);
+        $image = DB::table($this->table)->insertGetId($data);
         return $image;
     }
 
-    
+    public function updateImage($product_id, $data)
+    {
+        return DB::table($this->table)
+            ->where('product_id', $product_id)
+            ->update($data);
+    }
 }
