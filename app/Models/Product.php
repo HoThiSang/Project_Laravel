@@ -98,4 +98,5 @@ class Product extends Model
     {
         return $this->update(['deleted_at' => Carbon::now()]);
     }
+    
 }
