@@ -204,7 +204,6 @@ class AdminProductController extends Controller
                             }
                         }
 
-                        dd($imageData);
                         // Lưu trữ dữ liệu ảnh vào cơ sở dữ liệu
 
 
