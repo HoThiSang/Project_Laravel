@@ -5,17 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
 
-
-    // public function images()
-    // {
-    //     return $this->hasMany('App\Models\Image', 'product_id', 'id');
-    // }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'description', 'price', 'deleted_at', 
+    ];
+    
 
     public function getFilter($filter)
     {
@@ -72,9 +77,25 @@ class Product extends Model
             ->update($data);
     }
 
-    // function find product
     public static function findById($id)
     {
         return self::find($id);
+    }
+
+
+    public function deleteProductById($id)
+    {
+        $product = $this->findOrFail($id);
+        return $product->softDelete();
+    }
+
+    /**
+     * Đánh dấu sản phẩm là đã xóa mềm bằng cách cập nhật trường deleted_at.
+     *
+     * @return bool
+     */
+    public function softDelete()
+    {
+        return $this->update(['deleted_at' => Carbon::now()]);
     }
 }

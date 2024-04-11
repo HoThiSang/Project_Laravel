@@ -102,6 +102,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
         Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
+
+        Route::get('/admin-product-delete/{id}', [AdminProductController::class, 'destroy'])->name('admin-product-delete');
 });
 
 // Route::middleware(['auth'])->group(function () {
