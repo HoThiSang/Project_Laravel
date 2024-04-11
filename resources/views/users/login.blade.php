@@ -47,7 +47,7 @@
 <div class="container">
     <div class="login-form">
         <h2 class="login-form-title">Sign in</h2>
-        <form method="POST" action="{{route('login-user')}}">
+        <form method="POST" action="{{ route('login') }}">
             @if(Session::has('success'))
             <div class="alert alert-success">{{Session::get('success')}}</div>
             @endif

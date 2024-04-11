@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="\assets\css\bootstrap.min.css">
 
- 
+
 
     <!-- Customizable CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -48,8 +48,7 @@
                 <div class="header-top-inner">
                     <div class="cnt-account">
                         <ul class="list-unstyled">
-                            <li><a href="{{ route('user-profile') }}"><i class="icon fa fa-user"></i>My Account</a></li>
-                            <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+                            <li><a href="{{ route('wishlist')}}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                             <li><a href="{{ route('checkout')}}"><i class="icon fa fa-check"></i>Checkout</a></li>
                         </ul>
@@ -58,15 +57,32 @@
 
                     <div class="cnt-block">
                         <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small"> <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Login </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-
-                                    <li><a href="{{route('registration') }}">Register</a></li>
-                                      <li><a href="{{route('login') }}">Login</a></li>
-                                    <li><a href="#">Logout</a></li>
-
-                                </ul>
-                            </li>
+                            @guest
+                                <li class="dropdown dropdown-small">
+                                    <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                        <span class="value">Login</span><b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('registration') }}">Register</a></li>
+                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                <li class="dropdown dropdown-small">
+                                    <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                        <span class="value">My Profile</span><b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('user-profile') }}">Profile</a></li>
+                                        <li>
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button type="submit">Logout</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endguest
                         </ul>
                         <!-- /.list-unstyled -->
                     </div>
@@ -84,7 +100,9 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                         <!-- ============================================================= LOGO ============================================================= -->
-                        <div class="logo"> <a href="{{route('homepage') }}"> <h1>V_SPLUSH </h1></a> </div>
+                        <div class="logo"> <a href="{{route('homepage') }}">
+                                <h1>V_SPLUSH </h1>
+                            </a> </div>
                         <!-- /.logo -->
                         <!-- ============================================================= LOGO : END ============================================================= -->
                     </div>
@@ -110,43 +128,17 @@
                     </div>
                     <!-- /.top-search-holder -->
 
-                    <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
+                    <div class="col-xs-12 col-sm-12 col-md-2  top-cart-row">
                         <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-                        <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                        <div class=" dropdown-cart"> <a href="{{route('showtocart')}}" class="lnk-cart" >
                                 <div class="items-cart-inner">
                                     <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
-                                    <div class="basket-item-count"><span class="count">2</span></div>
-                                    <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">00</span> </span> </div>
+                                    <div class="basket-item-count"><span class="count"></span></div>
+                                    <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign"></span><span class="value"></span> </span> </div>
                                 </div>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="cart-item product-summary">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                                <div class="image"> <a href=""><img src="assets\images\cart.jpg" alt=""></a> </div>
-                                            </div>
-                                            <div class="col-xs-7">
-                                                <h3 class="name"><a href="">Simple Product</a></h3>
-                                                <div class="price">$600.00</div>
-                                            </div>
-                                            <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.cart-item -->
-                                    <div class="clearfix"></div>
-                                    <hr>
-                                    <div class="clearfix cart-total">
-                                        <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
-                                        <div class="clearfix"></div>
-                                        <a href="" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
-                                    </div>
-                                    <!-- /.cart-total-->
-
-                                </li>
-                            </ul>
-                            <!-- /.dropdown-menu-->
+                            
                         </div>
                         <!-- /.dropdown-cart -->
 
@@ -159,7 +151,7 @@
             </div>
 
         </div>
-      
+
 
         <!-- ============================================== NAVBAR ============================================== -->
         <div class="header-nav animate-dropdown">
@@ -182,12 +174,12 @@
 
                                     </li>
                                     <li class="dropdown hidden-sm"> <a href="{{ route('categories') }}">Products</a> </li>
-                                   
-   
+
+
                                     <li class="dropdown"> <a href="">Service</a> </li>
                                     <li class="dropdown"> <a href="{{ route('contact-page') }}">Contact us</a> </li>
                                     <li class="dropdown"> <a href="{{ route('view-orders') }}">Order purchased</a> </li>
-                                 
+
 
                                     </li>
                                     <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
@@ -373,6 +365,13 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @if(session('status'))
+    <script>
+        swal("{{ session('status') }}");
+    </script>
+    @endif
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -386,7 +385,8 @@
     <script src="assets/js/bootstrap-select.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
-    @yield('jss')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    @yield('js')
 </body>
 
 </html>
