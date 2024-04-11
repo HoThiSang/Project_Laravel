@@ -96,7 +96,8 @@ class Product extends Model
      */
     public function softDelete()
     {
+        
         return $this->update(['deleted_at' => Carbon::now()]);
     }
-    
+
 }
