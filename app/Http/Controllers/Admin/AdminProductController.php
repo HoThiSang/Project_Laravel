@@ -91,7 +91,6 @@ class AdminProductController extends Controller
                         ];
 
                         $imageSuccess = $this->image->createImageByProductId($dataImage);
-                        dd($imageSuccess);
 
                         if ($imageSuccess) {
                             return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
@@ -237,30 +236,24 @@ class AdminProductController extends Controller
      */
     public function destroy($id)
     {
+        if (!empty($id)) {
+            $product = $this->products->deleteProductById($id);
+            dd($product);
+            // $product = $this->products->findById($id);
+            // dd($product);
+            // // if (!empty($product)) {
+            // // }
+        }
     }
 
     public function delete(string $id)
     {
         if (!empty($id)) {
-            $product = $this->products->findById($id);
+            $d = Product::find($id);
+            dd($d);
+            $product = $this->products->deleteProductById($id);
             dd($product);
         }
-        //     $car = Car::find($id);
-
-
-        // if ($car) {
-        // $image_path = public_path("images/{$car->image}");
-
-        // if (File::exists($image_path)) {
-        //     File::delete($image_path);
-        // }
-
-        // $car->delete();
-        //     return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
-        // } else {
-        //     return redirect()->back()->with('error', 'Car not found');
-        //     }
-        // } else {
-        //     return redirect()->back()->with('error', 'Invalid car ID');
+    
     }
 }

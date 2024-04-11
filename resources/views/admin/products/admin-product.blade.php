@@ -44,7 +44,7 @@
          @endif
 
          <div class="card">
-             <div style="margin:15px;"><a href="{{ route('admin.get-view-add-new')}}" class="btn btn-primary">Create new</a></div>
+             <div style="margin:15px;"><a href="{{ route('get-view-add-new')}}" class="btn btn-primary">Create new</a></div>
              <div class="table-responsive text-nowrap">
                  <table class="table">
                      <thead>
@@ -77,9 +77,9 @@
                                          <i class="fa-solid fa-ellipsis-vertical" style="padding-right: 10px;"></i>
                                      </button>
                                      <div class="dropdown-menu">
-                                         <a class="dropdown-item" href="{{ route('admin.product-detail', ['id'=>$product->id ]) }}"><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a>
-                                         <a class="dropdown-item" href="{{ route('admin.admin-get-update',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
-                                         <a class="dropdown-item" href="javascript:void(0);"><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
+                                         <a class="dropdown-item" href="{{ route('product-detail', ['id'=>$product->id ]) }}"><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a>
+                                         <a class="dropdown-item" href="{{ route('admin-get-update',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
+                                         <a class="dropdown-item" href="{{ route('admin-product-delete',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
                                      </div>
                                  </div>
                              </td>

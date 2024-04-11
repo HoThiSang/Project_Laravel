@@ -5,7 +5,7 @@
 
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
-        <form action="{{  route('admin.admin-product-update', ['id'=> $productDetail->id]) }}" method="post" enctype="multipart/form-data">
+        <form action="{{  route('admin-product-update', ['id'=> $productDetail->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -136,7 +136,7 @@
                             @error('images')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
-                           
+
                             <div>
                                 <img style="width: 200px; height: 200px; list-style-type: none; border:none" id="output" />
                             </div>
