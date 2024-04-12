@@ -237,30 +237,9 @@ class AdminProductController extends Controller
      */
     public function destroy($id)
     {
-    }
-
-    public function delete(string $id)
-    {
         if (!empty($id)) {
-            $product = $this->products->findById($id);
+            $product = $this->products->deleteProductById($id);
             dd($product);
         }
-        //     $car = Car::find($id);
-
-
-        // if ($car) {
-        // $image_path = public_path("images/{$car->image}");
-
-        // if (File::exists($image_path)) {
-        //     File::delete($image_path);
-        // }
-
-        // $car->delete();
-        //     return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
-        // } else {
-        //     return redirect()->back()->with('error', 'Car not found');
-        //     }
-        // } else {
-        //     return redirect()->back()->with('error', 'Invalid car ID');
     }
 }

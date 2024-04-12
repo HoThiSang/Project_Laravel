@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\AdminWishListController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,8 +104,15 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('/admin-product-update/{id}', [AdminProductController::class, 'edit'])->name('admin-get-update');
 
+        Route::get('/admin-order', [AdminOrderController::class, 'showOrder'])->name('admin-order');
+
+        Route::get('/admin-wish-lists', [AdminWishListController::class, 'showWishLists'])->name('admin-wish-lists');
 
         Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
+
+        Route::get('/admin-product-delete/{id}', [AdminProductController::class, 'destroy'])->name('admin-product-delete');
+
+        
 });
 
 // Route::middleware(['auth'])->group(function () {

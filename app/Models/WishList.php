@@ -17,4 +17,9 @@ class WishList extends Model
     public function product(){
         return $this->belongsTo('App\Models\Product', 'product_id','id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
