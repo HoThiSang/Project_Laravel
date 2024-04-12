@@ -114,7 +114,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('/admin-product-delete/{id}', [AdminProductController::class, 'destroy'])->name('admin-product-delete');
 
-        
 });
 
 // Route::middleware(['auth'])->group(function () {

@@ -18,13 +18,11 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
+
         'name', 'description', 'price', 'deleted_at',
     ];
 
-    // public function images()
-    // {
-    //     return $this->hasMany('App\Models\Image', 'product_id', 'id');
-    // }
+ 
 
     public function getFilter($filter)
     {
@@ -81,11 +79,11 @@ class Product extends Model
             ->update($data);
     }
 
-    // function find product
     public static function findById($id)
     {
         return self::find($id);
     }
+
 
     public function deleteProductById($id)
     {
@@ -100,7 +98,7 @@ class Product extends Model
      */
     public function softDelete()
     {
-
+        
         return $this->update(['deleted_at' => Carbon::now()]);
     }
 }

@@ -91,7 +91,6 @@ class AdminProductController extends Controller
                         ];
 
                         $imageSuccess = $this->image->createImageByProductId($dataImage);
-                        dd($imageSuccess);
 
                         if ($imageSuccess) {
                             return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
@@ -237,9 +236,13 @@ class AdminProductController extends Controller
      */
     public function destroy($id)
     {
+
         if (!empty($id)) {
             $product = $this->products->deleteProductById($id);
             dd($product);
         }
+
+   
     }
+
 }
