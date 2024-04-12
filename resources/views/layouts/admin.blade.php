@@ -94,6 +94,7 @@
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
+                    
 
                     <!-- Layouts -->
                     <li class="menu-item">
@@ -102,12 +103,22 @@
                             <div data-i18n="Layouts">Products</div>
                         </a>
 
-
                     </li>
 
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Users</span>
                     </li>
+                    <li class="menu-header small text-uppercase">
+                        <a href="{{ route('admin-order') }}" class="menu-header-link">
+                            <span class="menu-header-text">Order</span>
+                        </a>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <a href="{{ route('admin-wish-lists') }}" class="menu-header-link">
+                            <span class="menu-header-text">Wish Lists</span>
+                        </a>
+                    </li>
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="fa-regular fa-user"></i>

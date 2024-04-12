@@ -236,24 +236,13 @@ class AdminProductController extends Controller
      */
     public function destroy($id)
     {
+
         if (!empty($id)) {
             $product = $this->products->deleteProductById($id);
             dd($product);
-            // $product = $this->products->findById($id);
-            // dd($product);
-            // // if (!empty($product)) {
-            // // }
         }
+
+   
     }
 
-    public function delete(string $id)
-    {
-        if (!empty($id)) {
-            $d = Product::find($id);
-            dd($d);
-            $product = $this->products->deleteProductById($id);
-            dd($product);
-        }
-    
-    }
 }
