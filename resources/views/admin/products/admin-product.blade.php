@@ -20,10 +20,12 @@
                  <a href="?sort-by" class="btn btn-primary mx-1">Primary link</a>
              </div>
              <div class="col-2">
-                 <form action="" class="position-relative" method="post">
+                 <form action="{{ route('admin-category-research') }}" class="position-relative" method="post">
                      @csrf
-                     <input type="text" class="form-control pl-5" placeholder="Search..." style="width: 300px; padding-left: 35px;">
-                     <i class="fas fa-search position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%);"></i>
+                     <input type="text" class="form-control pl-5" name="key-search" placeholder="Search..." style="width: 300px; padding-left: 35px;">
+                     <button type="submit" class="position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%); border: none; background: none;">
+                         <i class="fas fa-search"></i>
+                     </button>
                  </form>
              </div>
 
@@ -69,7 +71,6 @@
                              <td>
                                  <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
                              </td>
-
 
                              <td>
                                  <div class="dropdown">

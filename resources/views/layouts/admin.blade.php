@@ -99,7 +99,7 @@
                     <!-- Layouts -->
                     <li class="menu-item">
                         <a href="{{ route('product-index') }}" class="menu-link menu-toggle">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <i class="fa fa-user-o" ></i>
                             <div data-i18n="Layouts">Products</div>
                         </a>
 
@@ -126,7 +126,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="pages-account-settings-account.html" class="menu-link">
+                                <a href="#" class="menu-link">
                                     <div data-i18n="Account">Account</div>
                                 </a>
                             </li>
@@ -183,16 +183,13 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-                    <!-- Cards -->
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Basic">Cards</div>
                         </a>
                     </li>
-                    <!-- User interface -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-box"></i>
@@ -260,17 +257,17 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-pagination-breadcrumbs.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Pagination &amp; Breadcrumbs">Pagination &amp; Breadcrumbs</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-progress.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Progress">Progress</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-spinners.html" class="menu-link">
+                                <a href="#" class="menu-link">
                                     <div data-i18n="Spinners">Spinners</div>
                                 </a>
                             </li>
@@ -280,24 +277,23 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-toasts.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Toasts">Toasts</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-tooltips-popovers.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Tooltips & Popovers">Tooltips &amp; popovers</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-typography.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Typography">Typography</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <!-- Extended components -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-copy"></i>
@@ -310,7 +306,7 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="extended-ui-text-divider.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Text Divider">Text Divider</div>
                                 </a>
                             </li>

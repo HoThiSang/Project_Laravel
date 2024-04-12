@@ -11,7 +11,7 @@
                         <ul class="nav">
                             <li class=" menu-item"> <a href="?sort-by=Make up" class="-toggle" data-toggle=""><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Make up</a>
                             </li>
-                           
+
                             <li class="dropdown menu-item"> <a href="?sort-by=Body" class="dropdown-toggle" data-toggle=""><i class="icon fa fa-laptop" aria-hidden="true"></i>Body care</a>
 
                             </li>
@@ -42,20 +42,19 @@
 
             </div>
             <div class='col-md-9'>
-                <!-- ========================================== SECTION – HERO ========================================= -->
 
                 <div id="category" class="category-carousel hidden-xs">
                     <div class="item">
-                        <div class="image"> <img src="assets\images\banners\cat-banner-1.jpg" alt="" class="img-responsive"> </div>
+                        <div class="image"> <img src="assets\images\sliders\02.jpg" alt="" class="img-responsive"> </div>
                         <div class="container-fluid">
                             <div class="caption vertical-top text-left">
                                 <div class="big-text"> Big Sale </div>
                                 <div class="excerpt hidden-sm hidden-md"> Save up to 49% off </div>
                                 <div class="excerpt-normal hidden-sm hidden-md"> Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
                             </div>
-                            <!-- /.caption -->
+                       
                         </div>
-                        <!-- /.container-fluid -->
+                
                     </div>
                 </div>
 
@@ -76,24 +75,23 @@
                                                 <div class="product-image">
                                                     <div class="image">
                                                         <a href="{{ route('detail', ['id' => $productMakeUp->id]) }}">
-                                                            <img src="{{ $productMakeUp->image_url }}" alt="">
+                                                            <img src="{{ asset('images/' . $productMakeUp->image_url) }}" alt="">
                                                         </a>
                                                     </div>
-                                                    <!-- /.image -->
+                                        
 
                                                     <div class="tag new"><span>new</span></div>
                                                 </div>
-                                                <!-- /.product-image -->
 
                                                 <div class="product-info text-left">
                                                     <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
                                                     <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
-                                                    <!-- /.product-price -->
+                                        
 
                                                 </div>
-                                                <!-- /.product-info -->
+                                     
                                                 <div class="cart clearfix animate-effect">
                                                     <div class="action">
                                                         <ul class="list-unstyled">
@@ -105,31 +103,27 @@
                                                             <li class="lnk"> <a class="add-to-cart" href="#" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
                                                         </ul>
                                                     </div>
-                                                    <!-- /.action -->
+                                         
                                                 </div>
-                                                <!-- /.cart -->
+                                    
                                             </div>
-                                            <!-- /.product -->
+                                
 
                                         </div>
-                                        <!-- /.products -->
+                                  
                                     </div>
-                                    <!-- /.item -->
+                           
 
                                     @endforeach
 
 
                                 </div>
-                                <!-- /.row -->
                             </div>
-                            <!-- /.category-product -->
+                    
 
                         </div>
-                        <!-- /.tab-pane -->
-
-                        <!-- /.tab-pane #list-container -->
+               
                     </div>
-                    <!-- /.tab-content -->
                     <!--
                     <div class="clearfix filters-container">
                         <div class="text-right">
@@ -152,57 +146,52 @@
                     <!-- /.filters-container -->
 
                 </div>
-                <!-- /.search-result-container -->
 
 
             </div>
         </div>
-        <!-- /.col -->
     </div>
-    <!-- /.row -->
-    <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+   
     <div id="brands-carousel" class="logo-slider wow fadeInUp">
         <div class="logo-slider-inner">
             <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
                 <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+        
 
                 <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+ 
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand3.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+     
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+         
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand6.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+           
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+      
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+ 
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+    
 
                 <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets\images\blank.gif" alt=""> </a> </div>
-                <!--/.item-->
+  
             </div>
-            <!-- /.owl-carousel #logo-slider -->
+
         </div>
-        <!-- /.logo-slider-inner -->
+ 
 
     </div>
-    <!-- /.logo-slider -->
-    <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+   
 </div>
-<!-- /.container -->
 
 </div>
 
