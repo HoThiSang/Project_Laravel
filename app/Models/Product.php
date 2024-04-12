@@ -18,9 +18,11 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'price', 'deleted_at', 
+
+        'name', 'description', 'price', 'deleted_at',
     ];
-    
+
+ 
 
     public function getFilter($filter)
     {
@@ -99,5 +101,4 @@ class Product extends Model
         
         return $this->update(['deleted_at' => Carbon::now()]);
     }
-
 }
