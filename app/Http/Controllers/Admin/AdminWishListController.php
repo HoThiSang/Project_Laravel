@@ -10,6 +10,6 @@ class AdminWishListController extends Controller
     public function showWishLists()
     {
         $wishLists = WishList::with('user', 'product')->get();
-        return view('admin/products/admin-wish-lists', compact('wishLists'));
+        return view('admin/wish-lists/admin-wish-lists', compact('wishLists'));
     }
 }
