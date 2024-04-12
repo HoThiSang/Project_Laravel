@@ -93,7 +93,19 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+       $userData=[
+        'username'=>$request->username,
+        'email'=>$request->email,
+        'password'=>$request->password,
+        'phone'=>'004556843',
+        'date_of_birth'=>$request->date_of_birth,
+        'address'=>$request->address,
+        'role_id'=>$request->role_id,
+        ];
+    $user= $this->users->createUser($userData);
+    dd($user);
+    return response()->json(['succes'=>'Student Added Successfully']);
     }
 
     /**

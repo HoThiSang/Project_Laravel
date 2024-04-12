@@ -56,4 +56,9 @@ class User extends Authenticatable
         }
         return $users;
     }
+
+    public function createUser($data) 
+    {
+        return DB::table($this->table)->insert($data);
+    }
 }
