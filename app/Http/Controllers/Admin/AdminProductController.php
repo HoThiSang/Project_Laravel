@@ -239,10 +239,6 @@ class AdminProductController extends Controller
         if (!empty($id)) {
             $product = $this->products->deleteProductById($id);
             dd($product);
-            // $product = $this->products->findById($id);
-            // dd($product);
-            // // if (!empty($product)) {
-            // // }
         }
     }
 

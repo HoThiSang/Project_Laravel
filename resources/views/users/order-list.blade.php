@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-@if( isset($check) && $check=='success');
+@if( isset($check) && $check=='success')
 <div class="container-full-width">
 
     <table class="table table-hover" style="font-size: 15px;">

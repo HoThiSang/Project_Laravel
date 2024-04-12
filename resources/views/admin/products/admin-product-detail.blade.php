@@ -10,10 +10,10 @@
          </div>
          <div class="col-md-3 mt-4" style="margin-left: 40px;">
              <!-- Image on the left -->
-           
-             <img src="{{ asset('images/' . $imageAll[0]->image_url) }}" alt="Car Image" class="img-fluid" style="height:300px;" >
+
+             <img src="{{ asset('images/' . $imageAll[0]->image_url) }}" alt="Car Image" class="img-fluid" style="height:300px;">
          </div>
-         
+
 
          <div class="col-md-8">
              <div class="col-md-8 mt-4">
@@ -39,12 +39,11 @@
                  </ul>
              </div>
              <div>
-                 <a href="{{ route('admin.product-index')}}" class="btn btn-primary mt-4">Back</a>
+                 <a href="{{ route('product-index')}}" class="btn btn-primary mt-4">Back</a>
              </div>
          </div>
      </div>
 
-    
+
  </div>
  @endsection
- 
