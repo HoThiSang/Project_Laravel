@@ -28,9 +28,21 @@
     <link rel="stylesheet" href="/assets/css/admin/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="/assets/css/admin/apex-charts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <script src="/assets/js/admin/helpers.js"></script>
     <script src="/assets/js/admin/config.js"></script>
+    <style>
+        .menu-icon {
+            margin-right: 10px;
+            /* Khoảng cách 10px giữa biểu tượng và văn bản */
+        }
+
+        .menu-link div {
+            margin-left: 10px;
+            /* Khoảng cách 10px giữa biểu tượng và văn bản */
+        }
+    </style>
 </head>
 
 <body>
@@ -89,45 +101,62 @@
                 <ul class="menu-inner py-1">
 
                     <li class="menu-item active">
-                        <a href="index.html" class="menu-link">
+                        <a href="#" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
-                    
 
-                    <!-- Layouts -->
+
+                    <!-- Product -->
                     <li class="menu-item">
-                        <a href="{{ route('product-index') }}" class="menu-link menu-toggle">
-                            <i class="fa fa-user-o" ></i>
+                        <a href="#" class="menu-link menu-toggle">
+                            <i class="fa-brands fa-product-hunt"></i>
                             <div data-i18n="Layouts">Products</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('product-index') }}" class="menu-link">
+                                    <div data-i18n="Account">Product page</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin-wish-lists') }}" class="menu-link">
+                                    <div data-i18n="Notifications">Wish list</div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+                    <!-- User -->
+                    <li class="menu-item">
+                        <a href="#" class="menu-link menu-toggle">
+                            <i class="fa-regular fa-user"></i>
+                            <div data-i18n="Layouts">Wish list</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('product-index') }}" class="menu-link">
+
+                                    <div data-i18n="Account">Users page</div>
+                                </a>
+                            </li>
+
+                        </ul>
 
                     </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Users</span>
-                    </li>
-                    <li class="menu-header small text-uppercase">
-                        <a href="{{ route('admin-order') }}" class="menu-header-link">
-                            <span class="menu-header-text">Order</span>
-                        </a>
-                    </li>
-                    <li class="menu-header small text-uppercase">
-                        <a href="{{ route('admin-wish-lists') }}" class="menu-header-link">
-                            <span class="menu-header-text">Wish Lists</span>
-                        </a>
-                    </li>
 
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="fa-regular fa-user"></i>
-                            <div data-i18n="Account Settings">Account Settings</div>
+                            <i class="fa-solid fa-heart"></i>
+                            <div data-i18n="Account Settings"> Wish list</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="#" class="menu-link">
-                                    <div data-i18n="Account">Account</div>
+                                    <div data-i18n="Account">wish product</div>
                                 </a>
                             </li>
                             <li class="menu-item">
@@ -144,43 +173,43 @@
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                            <div data-i18n="Authentications">Authentications</div>
+                            <i class="fa-solid fa-address-book"></i>
+                            <div data-i18n="Account Settings">Contact</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Login</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Register</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Forgot Password</div>
+                                <a href="{{ route('admin-contact') }}" class="menu-link">
+                                    <div data-i18n="Account">User contact</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                            <div data-i18n="Misc">Misc</div>
+                            <i class="fa-solid fa-blog"></i>
+                            <div data-i18n="Authentications">Blog</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                                    <div data-i18n="Basic">Blogs page</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="fa-solid fa-fire"></i>
+                            <div data-i18n="Misc">Banner</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="pages-misc-error.html" class="menu-link">
-                                    <div data-i18n="Error">Error</div>
+                                    <div data-i18n="Error">Banner page</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="pages-misc-under-maintenance.html" class="menu-link">
-                                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                                </a>
-                            </li>
+
                         </ul>
                     </li>
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
