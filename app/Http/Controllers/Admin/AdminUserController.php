@@ -82,7 +82,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/user/admin-user-create');
     }
 
     /**
@@ -93,7 +93,18 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+            'role_id' => 'required|integer',
+            'username' => 'required|string',
+            'date_of_birth' => 'required|date',
+            'address' => 'required|string',
+        ]);
+    
+        User::create($validatedData);
+    
+        return redirect()->route('admin-user.index')->with('status', 'Thêm user thành công');
     }
 
     /**
@@ -102,7 +113,7 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
     }
@@ -138,6 +149,18 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+    
+        if ($user) {
+            // Xóa tất cả các bản ghi trong bảng wish_lists liên quan đến người dùng
+            $user->wishLists()->delete();
+    
+            // Xóa người dùng
+            $user->delete();
+    
+            return redirect()->route('admin-user.index')->with('status', 'Xóa thành công');
+        } else {
+            return redirect()->route('admin-user.index')->with('error', 'Không tìm thấy người dùng');
+        }
     }
 }
