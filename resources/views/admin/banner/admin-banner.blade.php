@@ -43,6 +43,7 @@
          @endif
 
          <div class="card">
+            <h5 class="card-header">Banner</h5>
              <div style="margin:15px;"><a href="{{route('add-banner')}}" class="btn btn-primary">Create new</a></div>
              <div class="table-responsive text-nowrap">
                  <table class="table">
@@ -62,10 +63,11 @@
                              <td><strong>{{ $banner->id }}</strong></td>
                              <td>{{ Str::limit($banner->title, 20) }}</td>
                              <td>{{ $banner->content }}</td>
-                             <td>
-                                 <img src="{{ asset('images/' . $banner->banner_picture) }}" alt="" class="img-fluid" height="150" width="100">
-                             </td>
                              <td>{{ $banner->image_name }}</td>
+                             <td>
+                                 <img src="{{ asset('images/' . $banner->image_url) }}" alt="" class="img-fluid" height="150" width="100">
+                             </td>
+                             
 
 
                              <td>
@@ -74,9 +76,9 @@
                                          <i class="fa-solid fa-ellipsis-vertical" style="padding-right: 10px;"></i>
                                      </button>
                                      <div class="dropdown-menu">
-                                         <a class="dropdown-item" href=""><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a>
-                                         <a class="dropdown-item" href=""><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
-                                         <a class="dropdown-item" href=""><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
+                                         {{-- <a class="dropdown-item" href=""><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a> --}}
+                                         <a class="dropdown-item" href="{{ route('edit-banner', ['id'=> $banner->id]) }}"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
+                                         <a class="dropdown-item" href="{{ route('delete-banner', ['id'=> $banner->id]) }}"><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
                                      </div>
                                  </div>
                              </td>
