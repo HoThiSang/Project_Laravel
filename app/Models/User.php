@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -44,7 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAllUsers($orderBy,$keyword)
+    public function getAllUsers($orderBy, $keyword)
     {
         $users = DB::table('users')->get();
         if (!empty($keyword)) {
@@ -57,18 +58,23 @@ class User extends Authenticatable
         return $users;
     }
 
-    public function createUser($data) 
+    public function createUser($data)
     {
         return DB::table($this->table)->insert($data);
     }
 
     public function carts()
-{
-    return $this->hasMany(Cart::class);
-}
+    {
+        return $this->hasMany(Cart::class);
+    }
 
-public function wishLists()
-{
-    return $this->hasMany(WishList::class);
-}
+    public function wishLists()
+    {
+        return $this->hasMany(WishList::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
