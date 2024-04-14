@@ -158,9 +158,9 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('admin-user') }}" class="menu-link">
+                                <a href="{{ route('admin-wish-lists') }}" class="menu-link">
 
-                                    <div data-i18n="Account">Users page</div>
+                                    <div data-i18n="Account">Wish lists page</div>
                                 </a>
                             </li>
 
