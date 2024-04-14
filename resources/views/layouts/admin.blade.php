@@ -131,6 +131,25 @@
                         </ul>
 
                     </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="menu-link menu-toggle">
+                            <i class="fa-solid fa-list"></i>
+                            <div data-i18n="Layouts">Orders</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('admin-order') }}" class="menu-link">
+
+                                    <div data-i18n="Account">Order page</div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    
                     <!-- User -->
                     <li class="menu-item">
                         <a href="#" class="menu-link menu-toggle">
