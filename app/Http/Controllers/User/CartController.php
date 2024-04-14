@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -46,7 +47,7 @@ class CartController extends Controller
 
         $product_id = $request->input('id');
         $quantity = 1;
-        $user_id = Auth()->user()->id;
+        $user_id = Auth::check() ? Auth::id() : null;
 
         $existing_cart_item = Cart::where('product_id', $product_id)
             ->where('user_id', $user_id)
@@ -77,7 +78,7 @@ class CartController extends Controller
     {
         $check= 'error';
         if (Auth()->check()) {
-            $user_id = Auth()->user()->id;        
+            $user_id = Auth::check() ? Auth::id() : null;        
             $carts = Cart::with('product.images')->where('user_id', $user_id)->get();
             $check= 'success';
             return view('users.shopping-cart', compact('carts', 'check'));

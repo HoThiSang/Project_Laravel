@@ -1016,18 +1016,23 @@
 
                             </div>
                             <!-- /.product-info -->
-                            <div class="cart clearfix animate-effect">
-                                <div class="action">
-                                    <ul class="list-unstyled">
-                                        <li class="add-cart-button btn-group">
-                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                        </li>
-                                        <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                        <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                                    </ul>
+                            <form action="{{ route('addtocart', ['id' => $product->id]) }}" method="post">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="user_id" value="1"> <!-- Giả sử user_id là 1 -->
+                                <input type="hidden" name="price" value="{{ $product->price }}">
+                                <div class="cart clearfix animate-effect">
+                                    <div class="action">
+                                        <ul class="list-unstyled">
+                                            <li class="add-cart-button btn-group">
+                                                <button class="btn btn-primary icon" type="submit"> <i class="fa fa-shopping-cart"></i> </button>
+                                            </li>
+                                            <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                            <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
 
                     </div>

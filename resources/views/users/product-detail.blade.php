@@ -144,7 +144,7 @@
                                                         </div> --}}
                                             </div>
                                             <input type="hidden" name="id" value="{{ $product->id }}">
-                                            <input type="hidden" name="use_id" value="1">
+                                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                             <input type="hidden" name="price" value="{{ $product->price }}">
                                             <div class="col-sm-7">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO
