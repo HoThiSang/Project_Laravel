@@ -21,6 +21,8 @@ use App\Http\Controllers\Admin\AdminWishListController;
 use App\Http\Controllers\Mail\UserSendMailController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AminContactController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Models\Banner;
 
 /*
 |--------------------------------------------------------------------------

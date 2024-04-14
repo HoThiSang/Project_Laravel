@@ -82,7 +82,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/user/admin-user-create');
     }
 
     /**
@@ -93,19 +93,18 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-     
-       $userData=[
-        'username'=>$request->username,
-        'email'=>$request->email,
-        'password'=>$request->password,
-        'phone'=>'004556843',
-        'date_of_birth'=>$request->date_of_birth,
-        'address'=>$request->address,
-        'role_id'=>$request->role_id,
-        ];
-    $user= $this->users->createUser($userData);
-    dd($user);
-    return response()->json(['succes'=>'Student Added Successfully']);
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+            'role_id' => 'required|integer',
+            'username' => 'required|string',
+            'date_of_birth' => 'required|date',
+            'address' => 'required|string',
+        ]);
+    
+        User::create($validatedData);
+    
+        return redirect()->route('admin-user.index')->with('status', 'Thêm user thành công');
     }
 
     /**
@@ -114,7 +113,7 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
     }
@@ -150,6 +149,18 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+    
+        if ($user) {
+            // Xóa tất cả các bản ghi trong bảng wish_lists liên quan đến người dùng
+            $user->wishLists()->delete();
+    
+            // Xóa người dùng
+            $user->delete();
+    
+            return redirect()->route('admin-user.index')->with('status', 'Xóa thành công');
+        } else {
+            return redirect()->route('admin-user.index')->with('error', 'Không tìm thấy người dùng');
+        }
     }
 }

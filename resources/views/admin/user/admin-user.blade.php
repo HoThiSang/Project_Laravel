@@ -37,67 +37,76 @@
              <div class="card">
                  <h5 class="card-header">Table Users</h5>
                  <div class="d-flex justify-content-end">
-                     <a class="btn btn-primary mx-1 align-self-end" href="javascript:void(0)" id="createNewUser">Add</a>
+                     <a class="btn btn-primary mx-1 align-self-end" href="{{ route('admin-user.create') }}" id="createNewUser">Add</a>
                  </div>
                  <div class="table-responsive text-nowrap">
-                     <table class="table">
-                         <thead>
-                             <tr>
-                                 <th>ID</th>
-                                 <th>User name</th>
-                                 <th>Phone</th>
-                                 <th>Email</th>
-                                 <th>Avatar</th>
-                                 <th>Status</th>
-                                 <th>Actions</th>
-                             </tr>
-                         </thead>
-                         <tbody class="table-border-bottom-0">
-                             @foreach ($userAll as $user)
+                     @if (Session::has('status'))
+                         <div class="alert alert-success">
+                             {{ Session::get('status') }}
+                         </div>
+                    @endif
+                         <table class="table">
+                             <thead>
                                  <tr>
-                                     <td><strong>{{ $user->id }}</strong></td>
-                                     <td>{{ $user->username }}</td>
-                                     <td>{{ $user->phone }}</td>
-                                     <td>{{ $user->email }}</td>
-                                     <td>
-                                         <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                             <li data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                 data-bs-placement="top" class="avatar avatar-xs pull-up"
-                                                 title="Lilian Fuller">
-                                                 <img src="https://down-vn.img.susercontent.com/file/cdf9af013aa652eb0596cb252b1101d4_tn"
-                                                     alt="Avatar" class="rounded-circle" />
-                                             </li>
-
-                                             <!-- Có thêm dòng cho phần này
-                                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                                                     <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                                                 </li>
-                                                 <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
-                                                     <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                                                 </li>   -->
-                                         </ul>
-
-                                     </td>
-                                     <td><span class="badge bg-label-primary me-1">Active</span></td>
-                                     <td>
-                                         <div class="dropdown">
-                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                 data-bs-toggle="dropdown">
-                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
-                                             </button>
-                                             <div class="dropdown-menu">
-                                                 <a class="dropdown-item" href="javascript:void(0);"><i
-                                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                 <a class="dropdown-item" href="javascript:void(0);"><i
-                                                         class="bx bx-trash me-1"></i> Delete</a>
-                                             </div>
-                                         </div>
-                                     </td>
+                                     <th>ID</th>
+                                     <th>User name</th>
+                                     <th>Phone</th>
+                                     <th>Email</th>
+                                     <th>Avatar</th>
+                                     <th>Status</th>
+                                     <th>Actions</th>
                                  </tr>
-                             @endforeach
+                             </thead>
+                             <tbody class="table-border-bottom-0">
+                                 @foreach ($userAll as $user)
+                                     <tr>
+                                         <td><strong>{{ $user->id }}</strong></td>
+                                         <td>{{ $user->username }}</td>
+                                         <td>{{ $user->phone }}</td>
+                                         <td>{{ $user->email }}</td>
+                                         <td>
+                                             <ul
+                                                 class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                 <li data-bs-toggle="tooltip" data-popup="tooltip-custom"
+                                                     data-bs-placement="top" class="avatar avatar-xs pull-up"
+                                                     title="Lilian Fuller">
+                                                     <img src="https://down-vn.img.susercontent.com/file/cdf9af013aa652eb0596cb252b1101d4_tn"
+                                                         alt="Avatar" class="rounded-circle" />
+                                                 </li>
 
-                         </tbody>
-                     </table>
+                                                 <!-- Có thêm dòng cho phần này
+                                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+                                                         <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                                     </li>
+                                                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+                                                         <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                                     </li>   -->
+                                             </ul>
+
+                                         </td>
+                                         <td><span class="badge bg-label-primary me-1">Active</span></td>
+                                         <td>
+                                             <div class="dropdown">
+                                                 <button type="button" class="btn p-10 dropdown-toggle hide-arrow"
+                                                     data-bs-toggle="dropdown">
+                                                     <i class="fa-solid fa-ellipsis-vertical"
+                                                         style="padding-right: 10px;"></i>
+                                                 </button>
+                                                 <div class="dropdown-menu">
+                                                     <a class="dropdown-item" href=""><i class="fa-solid fa-eye"
+                                                             style="padding-right: 5px;"></i> Detail</a>
+                                                     <a class="dropdown-item" href=""><i class="fa-solid fa-pen"
+                                                             style="padding-right: 5px;"></i> Edit</a>
+                                                     <a class="dropdown-item" href=""><i class="fa-solid fa-trash"
+                                                             style="padding-right: 10px;"></i> Delete</a>
+                                                 </div>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                 @endforeach
+
+                             </tbody>
+                         </table>
                  </div>
              </div>
              <!--/ Basic Bootstrap Table -->
@@ -119,7 +128,9 @@
                      <h4 class="modal-title" id="modalHeading"></h4>
                  </div>
                  <div class="modal-body">
-                     <form id="userForm" name="userForm" class="form-horizontal">
+                     <form action="{{ route('admin-user.store') }}" method="post" id="userForm" name="userForm"
+                         class="form-horizontal">
+                         @csrf
                          <input type="hidden" name="user_id" id="user_id">
 
                          <div class="form-group">
@@ -174,40 +185,40 @@
                  }
              });
 
-             $("#createNewUser").click(function() {
-                 $('#user_id').val('');
-                 $('#userForm').trigger('reset');
-                 $('#modalHeading').html("Add User");
-                 $('#ajaxModel').modal('show');
-             });
-
-            //  $('#saveBtn').click(function(e) {
-            //      e.preventDefault();
-            //      $(this).html('Save');
-
-            //      $.ajax({
-            //          data: {
-            //              '_token': '{{ csrf_token() }}',
-            //              // Include other form data here
-            //              // For example: 'name': $('#name').val(),
-            //              //             'email': $('#email').val(),
-            //              //             ...
-            //              // Make sure to include all the form fields
-            //          },
-            //          url: "{{ route('admin-user.store') }}",
-            //          type: "POST",
-            //          dataType: 'json',
-            //          success: function(data) {
-            //              $('#userForm').trigger('reset');
-            //              $('#ajaxModel').modal('hide');
-            //              table.draw();
-            //          },
-            //          error: function(data) {
-            //              console.log('Error:', data);
-            //              $('#saveBtn').html('Save');
-            //          }
-            //      });
+            //  $("#createNewUser").click(function() {
+            //      $('#user_id').val('');
+            //      $('#userForm').trigger('reset');
+            //      $('#modalHeading').html("Add User");
+            //      $('#ajaxModel').modal('show');
             //  });
+
+             //  $('#saveBtn').click(function(e) {
+             //      e.preventDefault();
+             //      $(this).html('Save');
+
+             //      $.ajax({
+             //          data: {
+             //              '_token': '{{ csrf_token() }}',
+             //              // Include other form data here
+             //              // For example: 'name': $('#name').val(),
+             //              //             'email': $('#email').val(),
+             //              //             ...
+             //              // Make sure to include all the form fields
+             //          },
+             //          url: "{{ route('admin-user.store') }}",
+             //          type: "POST",
+             //          dataType: 'json',
+             //          success: function(data) {
+             //              $('#userForm').trigger('reset');
+             //              $('#ajaxModel').modal('hide');
+             //              table.draw();
+             //          },
+             //          error: function(data) {
+             //              console.log('Error:', data);
+             //              $('#saveBtn').html('Save');
+             //          }
+             //      });
+             //  });
          });
      </script>
  @endsection

@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
         'role_id'
@@ -61,4 +61,14 @@ class User extends Authenticatable
     {
         return DB::table($this->table)->insert($data);
     }
+
+    public function carts()
+{
+    return $this->hasMany(Cart::class);
+}
+
+public function wishLists()
+{
+    return $this->hasMany(WishList::class);
+}
 }
