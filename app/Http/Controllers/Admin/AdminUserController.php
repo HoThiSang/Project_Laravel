@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -72,7 +75,7 @@ class AdminUserController extends Controller
         ];
         $userAll = $this->users->getAllUsers($sortType, $keyword);
         return view('admin/user/admin-user', compact('userAll'));
-       //   dd($userAll);
+        //   dd($userAll);
     }
 
     /**
@@ -82,7 +85,8 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view('admin/user/admin-user-create');
+        $userAll = User::all();
+        return view('admin/user/admin-user-create', compact('userAll'));
     }
 
     /**
@@ -93,18 +97,55 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
+            'phone' => 'required',
             'password' => 'required',
-            'role_id' => 'required|integer',
-            'username' => 'required|string',
-            'date_of_birth' => 'required|date',
-            'address' => 'required|string',
+            'role_id' => 'integer',
+            'username' => 'required',
+            'date_of_birth' => 'date',
+            'address' => 'string',
+            'image_name' => 'string',
+            'image_url' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-    
-        User::create($validatedData);
-    
-        return redirect()->route('admin-user.index')->with('status', 'Thêm user thành công');
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = new User;
+        $user->username = $request->input('username');
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+
+        $password = $request->input('password');
+        $hashedPassword = Hash::make($password);
+        $user->password = $hashedPassword;
+
+        $user->date_of_birth = $request->input('date_of_birth');
+        $user->address = $request->input('address');
+
+        $user->role_id = $request->input('role_id');
+
+        if (isset($role_id)) {
+            $user->role_id = $role_id;
+        } else {
+            $user->role_id = 1; // Gán giá trị mặc định là 1
+        }
+
+        $user->image_name = $request->input('image_name');
+
+        if ($request->hasFile('image_url')) {
+            $file = $request->file('image_url');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('images/', $filename);
+            $user->image_url = $filename;
+        }
+
+        $user->save();
+
+        return redirect()->route('admin-user')->with('success', 'User added successfully');
     }
 
     /**
@@ -126,7 +167,8 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin/user/admin-user-update', compact('user'));
     }
 
     /**
@@ -138,7 +180,53 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+            'phone' => 'required',
+            'role_id' => 'integer',
+            'username' => 'required',
+            'date_of_birth' => 'date',
+            'address' => 'string',
+            'image_name' => 'string',
+            'image_url' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = User::find($id);
+        $user->username = $request->input('username');
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->date_of_birth = $request->input('date_of_birth');
+        $user->address = $request->input('address');
+        $user->role_id = $request->input('role_id');
+
+        if (isset($role_id)) {
+            $user->role_id = $role_id;
+        } else {
+            $user->role_id = 1; // Gán giá trị mặc định là 1
+        }
+
+        $user->image_name = $request->input('image_name');
+
+        if ($request->hasFile('image_url')) {
+            $oldImage = 'images/' . $user->image_url;
+            if (File::exists($oldImage)) {
+                File::delete($oldImage);
+            }
+            $file = $request->file('image_url');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('images/', $filename);
+            $user->image_url = $filename;
+        }
+
+        $user->update();
+        return redirect()->route('admin-user')->with('success', 'Updated successfully');
     }
 
     /**
@@ -150,17 +238,18 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-    
+
         if ($user) {
-            // Xóa tất cả các bản ghi trong bảng wish_lists liên quan đến người dùng
-            $user->wishLists()->delete();
-    
+            // Xóa tất cả các bản ghi trong bảng carts liên quan đến người dùng
+            $user->carts()->delete();
+            $user->orders()->delete();
+        
             // Xóa người dùng
             $user->delete();
-    
-            return redirect()->route('admin-user.index')->with('status', 'Xóa thành công');
+        
+            return redirect()->route('admin-user')->with('status', 'Deleted successfully');
         } else {
-            return redirect()->route('admin-user.index')->with('error', 'Không tìm thấy người dùng');
+            return redirect()->route('admin-user')->with('error', 'Không tìm thấy người dùng');
         }
     }
 }

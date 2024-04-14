@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\AdminWishListController;
 use App\Http\Controllers\Mail\UserSendMailController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AminContactController;
-use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\AdminBannerController;
 use App\Models\Banner;
 
 /*
@@ -122,7 +122,22 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('/admin-reply-contact/{id}', [UserSendMailController::class, 'replyEmail'])->name('admin-reply-contact'); // display view creat
         Route::get('/admin-contact-delete/{id}', [AminContactController::class, 'destroy'])->name('admin-contact-delete'); // display view creat
 
+        Route::get('admin-banner', [AdminBannerController::class, 'index'])->name('admin-banner');
+        Route::get('add-banner', [AdminBannerController::class, 'create'])->name('add-banner');
+        Route::post('create-new-banner', [AdminBannerController::class, 'store'])->name('create-new-banner');
+        Route::get('edit-banner/{id}', [AdminBannerController::class, 'edit'])->name('edit-banner');
+        Route::post('update-banner/{id}', [AdminBannerController::class, 'update'])->name('update-banner');
+        Route::get('delete-banner/{id}', [AdminBannerController::class, 'destroy'])->name('delete-banner');
+
+        Route::get('admin-user', [AdminUserController::class, 'index'])->name('admin-user');
+        Route::get('add-user', [AdminUserController::class, 'create'])->name('add-user');
+        Route::post('create-new-user', [AdminUserController::class, 'store'])->name('create-new-user');
+        Route::get('edit-user/{id}', [AdminUserController::class, 'edit'])->name('edit-user');
+        Route::post('update-user/{id}', [AdminUserController::class, 'update'])->name('update-user');
+        Route::get('delete-user/{id}', [AdminUserController::class, 'destroy'])->name('delete-user');
 });
 
 Route::middleware(['auth'])->group(function () {
 });
+
+

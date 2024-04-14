@@ -135,11 +135,11 @@
                     <li class="menu-item">
                         <a href="#" class="menu-link menu-toggle">
                             <i class="fa-regular fa-user"></i>
-                            <div data-i18n="Layouts">Wish list</div>
+                            <div data-i18n="Layouts">User</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('product-index') }}" class="menu-link">
+                                <a href="{{ route('admin-user') }}" class="menu-link">
 
                                     <div data-i18n="Account">Users page</div>
                                 </a>
@@ -207,7 +207,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="pages-misc-error.html" class="menu-link">
+                                <a href="{{ route('admin-banner') }}" class="menu-link">
                                     <div data-i18n="Error">Banner page</div>
                                 </a>
                             </li>
