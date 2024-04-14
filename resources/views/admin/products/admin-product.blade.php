@@ -20,10 +20,12 @@
                  <a href="?sort-by" class="btn btn-primary mx-1">Primary link</a>
              </div>
              <div class="col-2">
-                 <form action="" class="position-relative" method="post">
+                 <form action="{{ route('admin-category-research') }}" class="position-relative" method="post">
                      @csrf
-                     <input type="text" class="form-control pl-5" placeholder="Search..." style="width: 300px; padding-left: 35px;">
-                     <i class="fas fa-search position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%);"></i>
+                     <input type="text" class="form-control pl-5" name="key-search" placeholder="Search..." style="width: 300px; padding-left: 35px;">
+                     <button type="submit" class="position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%); border: none; background: none;">
+                         <i class="fas fa-search"></i>
+                     </button>
                  </form>
              </div>
 
@@ -44,7 +46,7 @@
          @endif
 
          <div class="card">
-             <div style="margin:15px;"><a href="{{ route('admin.get-view-add-new')}}" class="btn btn-primary">Create new</a></div>
+             <div style="margin:15px;"><a href="{{ route('get-view-add-new')}}" class="btn btn-primary">Create new</a></div>
              <div class="table-responsive text-nowrap">
                  <table class="table">
                      <thead>
@@ -70,16 +72,15 @@
                                  <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
                              </td>
 
-
                              <td>
                                  <div class="dropdown">
                                      <button type="button" class="btn p-10 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                          <i class="fa-solid fa-ellipsis-vertical" style="padding-right: 10px;"></i>
                                      </button>
                                      <div class="dropdown-menu">
-                                         <a class="dropdown-item" href="{{ route('admin.product-detail', ['id'=>$product->id ]) }}"><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a>
-                                         <a class="dropdown-item" href="{{ route('admin.admin-get-update',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
-                                         <a class="dropdown-item" href="javascript:void(0);"><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
+                                         <a class="dropdown-item" href="{{ route('product-detail', ['id'=>$product->id ]) }}"><i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail</a>
+                                         <a class="dropdown-item" href="{{ route('admin-get-update',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit</a>
+                                         <a class="dropdown-item" href="{{ route('admin-product-delete',  ['id'=>$product->id ]) }}"><i class="fa-solid fa-trash" style="padding-right: 10px;"></i> Delete</a>
                                      </div>
                                  </div>
                              </td>

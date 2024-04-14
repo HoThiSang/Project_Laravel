@@ -49,39 +49,39 @@
                     <div class="cnt-account">
                         <ul class="list-unstyled">
                             <li><a href="{{ route('wishlist')}}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-                            <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+                            <li><a href="{{ route('showtocart')}}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                             <li><a href="{{ route('checkout')}}"><i class="icon fa fa-check"></i>Checkout</a></li>
                         </ul>
                     </div>
-                    <!-- /.cnt-account -->
+                
 
                     <div class="cnt-block">
                         <ul class="list-unstyled list-inline">
                             @guest
-                                <li class="dropdown dropdown-small">
-                                    <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                                        <span class="value">Login</span><b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ route('registration') }}">Register</a></li>
-                                        <li><a href="{{ route('login') }}">Login</a></li>
-                                    </ul>
-                                </li>
+                            <li class="dropdown dropdown-small">
+                                <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                    <span class="value">Login</span><b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('registration') }}">Register</a></li>
+                                    <li><a href="{{ route('login') }}">Login</a></li>
+                                </ul>
+                            </li>
                             @else
-                                <li class="dropdown dropdown-small">
-                                    <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                                        <span class="value">My Profile</span><b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ route('user-profile') }}">Profile</a></li>
-                                        <li>
-                                            <form action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <button type="submit">Logout</button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </li>
+                            <li class="dropdown dropdown-small">
+                                <a href="" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                    <span class="value">My Profile</span><b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('user-profile') }}">Profile</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit">Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                             @endguest
                         </ul>
                         <!-- /.list-unstyled -->
@@ -131,14 +131,14 @@
                     <div class="col-xs-12 col-sm-12 col-md-2  top-cart-row">
                         <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-                        <div class=" dropdown-cart"> <a href="{{route('showtocart')}}" class="lnk-cart" >
+                        <div class=" dropdown-cart"> <a href="{{route('showtocart')}}" class="lnk-cart">
                                 <div class="items-cart-inner">
                                     <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
                                     <div class="basket-item-count"><span class="count"></span></div>
                                     <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign"></span><span class="value"></span> </span> </div>
                                 </div>
                             </a>
-                            
+
                         </div>
                         <!-- /.dropdown-cart -->
 

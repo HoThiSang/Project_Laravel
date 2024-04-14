@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard - Analytics | V-Splush</title>
 
     <meta name="description" content="" />
 
@@ -28,9 +28,21 @@
     <link rel="stylesheet" href="/assets/css/admin/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="/assets/css/admin/apex-charts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <script src="/assets/js/admin/helpers.js"></script>
     <script src="/assets/js/admin/config.js"></script>
+    <style>
+        .menu-icon {
+            margin-right: 10px;
+            /* Khoảng cách 10px giữa biểu tượng và văn bản */
+        }
+
+        .menu-link div {
+            margin-left: 10px;
+            /* Khoảng cách 10px giữa biểu tượng và văn bản */
+        }
+    </style>
 </head>
 
 <body>
@@ -89,60 +101,62 @@
                 <ul class="menu-inner py-1">
 
                     <li class="menu-item active">
-                        <a href="index.html" class="menu-link">
+                        <a href="#" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
 
-                    <!-- Layouts -->
+
+                    <!-- Product -->
                     <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <a href="#" class="menu-link menu-toggle">
+                            <i class="fa-brands fa-product-hunt"></i>
                             <div data-i18n="Layouts">Products</div>
                         </a>
-
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="layouts-without-menu.html" class="menu-link">
-                                    <div data-i18n="Without menu">Without menu</div>
+                                <a href="{{ route('product-index') }}" class="menu-link">
+                                    <div data-i18n="Account">Product page</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="layouts-without-navbar.html" class="menu-link">
-                                    <div data-i18n="Without navbar">Without navbar</div>
+                                <a href="{{ route('admin-wish-lists') }}" class="menu-link">
+                                    <div data-i18n="Notifications">Wish list</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="layouts-container.html" class="menu-link">
-                                    <div data-i18n="Container">Container</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-fluid.html" class="menu-link">
-                                    <div data-i18n="Fluid">Fluid</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-blank.html" class="menu-link">
-                                    <div data-i18n="Blank">Blank</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Users</span>
+                        </ul>
+
                     </li>
+                    <!-- User -->
                     <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <a href="#" class="menu-link menu-toggle">
                             <i class="fa-regular fa-user"></i>
-                            <div data-i18n="Account Settings">Account Settings</div>
+                            <div data-i18n="Layouts">Wish list</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="pages-account-settings-account.html" class="menu-link">
-                                    <div data-i18n="Account">Account</div>
+                                <a href="{{ route('product-index') }}" class="menu-link">
+
+                                    <div data-i18n="Account">Users page</div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="fa-solid fa-heart"></i>
+                            <div data-i18n="Account Settings"> Wish list</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="Account">wish product</div>
                                 </a>
                             </li>
                             <li class="menu-item">
@@ -159,55 +173,52 @@
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                            <div data-i18n="Authentications">Authentications</div>
+                            <i class="fa-solid fa-address-book"></i>
+                            <div data-i18n="Account Settings">Contact</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Login</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Register</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                                    <div data-i18n="Basic">Forgot Password</div>
+                                <a href="{{ route('admin-contact') }}" class="menu-link">
+                                    <div data-i18n="Account">User contact</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                            <div data-i18n="Misc">Misc</div>
+                            <i class="fa-solid fa-blog"></i>
+                            <div data-i18n="Authentications">Blog</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                                    <div data-i18n="Basic">Blogs page</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="fa-solid fa-fire"></i>
+                            <div data-i18n="Misc">Banner</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="pages-misc-error.html" class="menu-link">
-                                    <div data-i18n="Error">Error</div>
+                                    <div data-i18n="Error">Banner page</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="pages-misc-under-maintenance.html" class="menu-link">
-                                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                                </a>
-                            </li>
+
                         </ul>
                     </li>
-                    <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-                    <!-- Cards -->
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Basic">Cards</div>
                         </a>
                     </li>
-                    <!-- User interface -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-box"></i>
@@ -275,17 +286,17 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-pagination-breadcrumbs.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Pagination &amp; Breadcrumbs">Pagination &amp; Breadcrumbs</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-progress.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Progress">Progress</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-spinners.html" class="menu-link">
+                                <a href="#" class="menu-link">
                                     <div data-i18n="Spinners">Spinners</div>
                                 </a>
                             </li>
@@ -295,24 +306,23 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-toasts.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Toasts">Toasts</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-tooltips-popovers.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Tooltips & Popovers">Tooltips &amp; popovers</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="ui-typography.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Typography">Typography</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <!-- Extended components -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-copy"></i>
@@ -325,7 +335,7 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="extended-ui-text-divider.html" class="menu-link">
+                                <a href="" class="menu-link">
                                     <div data-i18n="Text Divider">Text Divider</div>
                                 </a>
                             </li>
@@ -482,14 +492,14 @@
                                     </li>
                                     {{-- <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}>
-                                            <i class="bx bx-power-off me-2"></i> --}}
+                                    <i class="bx bx-power-off me-2"></i> --}}
 
-                                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </li>
-                                            {{-- <span class="align-middle">Log Out</span>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                    {{-- <span class="align-middle">Log Out</span>
                                         </a>
                                     </li> --}}
                                 </ul>
