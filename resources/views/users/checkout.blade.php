@@ -32,41 +32,41 @@
     <h3 class="checkout-heading">CHECKOUT PAGE</h3>
     <hr style="border-width: 2px; border-color: #C4C4C4">
     <h4 class="checkout-heading text-center mt-4">Bill information</h4>
-    @foreach($user as $item)
+
     <div class="row">
       <div class="form-container">
         <div class="form-group mb-3 col-md-6">
           <label for="username" class="form-label">User name:</label>
-          <input type="text" class="form-control" id="username" name="username" value="{{ $item->username }}">
+          <input type="text" class="form-control" id="username" name="username" value="{{ isset($user->username) ? $user->username : 'N/A' }}">
           @error('username')
           <span style="color: red;">{{$message}}</span>
           @enderror
         </div>
-        <input type="hidden" name="user_id" value="{{  $item->id}}">
+        <input type="hidden" name="user_id" value="{{  $user->id}}">
         <div class="form-group mb-3 col-md-6">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" name="email" value="{{ $item->email }}">
+          <input type="email" class="form-control" id="email" name="email" value="{{ isset($user->email) ? $user->email : 'N/A' }}">
           @error('email')
           <span style="color: red;">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group mb-3 col-md-6">
           <label for="phone" class="form-label">Phone number:</label>
-          <input type="text" class="form-control" id="phone" name="phone" value="{{ $item->phone }}">
+          <input type="text" class="form-control" id="phone" name="phone" value="{{ isset($user->phone) ? $user->phone : 'XXXXX' }}">
           @error('phone')
           <span style="color: red;">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group mb-3 col-md-6">
           <label for="address" class="form-label">Address:</label>
-          <input type="text" class="form-control" id="address" name="address" value="{{ $item->address }}">
+          <input type="text" class="form-control" id="address" name="address" value="{{ isset($user->address) ? $user->address : 'ABC' }}">
           @error('address')
           <span style="color: red;">{{$message}}</span>
           @enderror
         </div>
       </div>
     </div>
-    @endforeach
+
 
     <h4 class="checkout-heading text-center mt-4">Order information</h4>
     <div class="form-container">

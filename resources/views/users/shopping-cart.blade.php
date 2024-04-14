@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+@if( isset($check) && $check=='success')
 <div class="body-content outer-top-xs">
 	<div class="container">
 		<div class="row ">
@@ -181,5 +182,14 @@
 		<!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
 	</div><!-- /.container -->
 </div><!-- /.body-content -->
+@else
+<div class="body-content" style="height: 30vh; margin-top: 10%; justify-content: center; align-items: center">
+    <div class="container">
+        <div class="contact-page" >
+            <h3>Your haven't have order yet! Or you not login. <a href="{{ route('login') }}" style="text-decoration: none; color:chocolate">Login Now</a></h3>
 
+        </div>
+    </div>
+</div>
+@endif
 @endsection
