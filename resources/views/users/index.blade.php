@@ -12,7 +12,7 @@
                             <div class="slider-header fadeInDown-1">Top Brands</div>
                             <div class="big-text fadeInDown-1"> New Collections </div>
                             <div class="excerpt fadeInDown-2 hidden-xs"> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> </div>
-                            <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
+                            <div class="button-holder fadeInDown-3"> <a href="{{ route('categories') }}" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                                     <div class="product">
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href="">
+                                                <a href="{{ route('detail', ['id' => $product->id]) }}">
                                                    <img src="{{ asset('images/' . $product->image_url) }}" alt="">
                                                 </a>
                                             </div>

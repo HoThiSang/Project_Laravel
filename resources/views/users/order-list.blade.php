@@ -43,7 +43,7 @@
 <div class="body-content" style="height: 30vh; margin-top: 10%; justify-content: center; align-items: center">
     <div class="container">
         <div class="contact-page" >
-            <h3>Your haven't have order yet! Or you not login. <a href="{{ route('login') }}" style="text-decoration: none;">Login Now</a></h3>
+            <h3>Your haven't have order yet! Or you not login. <a href="{{ route('login') }}" style="text-decoration: none; color:chocolate">Login Now</a></h3>
 
         </div>
     </div>
