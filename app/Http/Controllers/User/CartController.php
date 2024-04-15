@@ -75,11 +75,14 @@ class CartController extends Controller
 
     public function showCart()
     {
+        $check= 'error';
         if (Auth()->check()) {
             $user_id = Auth()->user()->id;        
             $carts = Cart::with('product.images')->where('user_id', $user_id)->get();
-            return view('users.shopping-cart', compact('carts'));
+            $check= 'success';
+            return view('users.shopping-cart', compact('carts', 'check'));
         }
+        return view('users.shopping-cart', compact('check'));
     }
 
     public function removeFromCart($id)

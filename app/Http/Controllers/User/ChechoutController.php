@@ -19,15 +19,17 @@ class ChechoutController extends Controller
     public function index()
     {
         if (Auth()->check()) {
-
             $user_id = Auth()->user()->id;
-            $user = User::all()->where('id', $user_id);
+            $user = User::find($user_id);
+            
+            // Lấy các carts dựa trên user_id
             $carts = Cart::select('products.product_name', 'carts.price as cart_price', 'carts.quantity', 'products.price', 'products.id as product_id')  
-            ->join('products', 'carts.product_id', '=', 'products.id')
-               // ->join('c', 'carts.product_id', '=', 'products.id')               
-            ->get();
+                ->join('products', 'carts.product_id', '=', 'products.id')
+                ->where('carts.user_id', $user_id) // Điều kiện lấy carts của user hiện tại
+                ->get();
+            
             return view('users/checkout', compact('carts', 'user'));
-        }
+        }    
     }
 
     public function checkout(Request $request)
@@ -195,29 +197,30 @@ class ChechoutController extends Controller
                 $order->user_id = $userInfo->id;
                 $order->save();
                 if ($order) {
-
-                    $message = 'Giao dịch thành công!';
-                    return view('users/checkout-success', compact('order', 'message'));
+                    
+                    $success = 'Giao dịch thành công!';
+                    return view('users/checkout-success', compact('order', 'success'));
                 } else {
 
                     $error = 'Đã xảy ra lỗi khi lưu đơn hàng.';
-                    return view('users/checkout-failded', compact('error'));
+                    return view('users/checkout-failed', compact('error'));
                 }
             } else {
 
                 $error = 'Giao dịch không thành công.';
-                return view('users/checkout-failded', compact('error'));
+                return view('users/checkout-failed', compact('error'));
             }
         } else {
 
             $error = 'Chữ ký không hợp lệ.';
-            return view('users/checkout-failded', compact('error'));
+            return view('users/checkout-failed', compact('error'));
         }
     }
 
 
-    public function getAllOrder($user_id = null)
+    public function getAllOrder()
     {
+        $check = "error";
         if (auth()->check()) {
             $user_id = auth()->user()->id;
             $orderAll = DB::table('orders')
@@ -227,6 +230,6 @@ class ChechoutController extends Controller
             $check = "success";
             return view('users/order-list', compact('orderAll', 'check'));
         }
-        return view('users/order-list');
+        return view('users/order-list', compact('check'));
     }
 }

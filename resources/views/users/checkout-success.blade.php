@@ -4,9 +4,9 @@
 <div class="body-content">
     <div class="container">
         <div class="contact-page">
-            @if (isset($message) && !empty($message))
+            @if (isset($success) && !empty($success))
             <div class="alert alert-success">
-                {{ $message }}
+                {{ $success }}
             </div>
             <h2>Order Details</h2>
 
@@ -24,6 +24,7 @@
                         <th>User ID</th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     <tr>
                         <td><?php echo $order->order_date; ?></td>
@@ -38,12 +39,17 @@
                     </tr>
                 </tbody>
             </table>
+
+            @else
+            <div class="alert alert-success">
+                <h1 style="color: #FF0000">{{ $error }}</h1>
+            </div>
             @endif
             <div class="col-md-12 mt-4 justify-content-end align-content-center end">
 
                 <button type="button" class="btn btn-primary"><a href="{{ route('homepage')}}" style="text-decoration: none; color: white;">Continue Shopping</a></button>
 
-                <button type="button" class="btn btn-success"><a href="" style="text-decoration: none; color: white;">Check Order</a></button>
+                <button type="button" class="btn btn-success"><a href="{{ route('view-orders')}}" style="text-decoration: none; color: white;">Check Order</a></button>
             </div>
         </div>
 

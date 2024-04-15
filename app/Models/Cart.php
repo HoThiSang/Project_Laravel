@@ -46,9 +46,4 @@ class Cart extends Model
         return $cart;
     }
 
-
-    // public function getAddtoCart(){
-    //     $product = Product::find($id);
-    //     return $product;
-    // }
 }
