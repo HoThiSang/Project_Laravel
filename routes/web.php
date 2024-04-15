@@ -110,6 +110,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('/admin-product-delete/{id}', [AdminProductController::class, 'destroy'])->name('admin-product-delete');
 
+        // web.php
+        Route::get('/admin-products-sortByPrice', [AdminProductController::class, 'sortByPriceDesc'])->name('admin-products-sortByPrice');
+
+        Route::get('/admin-products-sortByQuantity', [AdminProductController::class, 'sortByQuantityDesc'])->name('admin-products-sortByQuantity');
+
+        Route::post('/admin-products-search', [AdminProductController::class, 'search'])->name('admin-products-search');
+
 
         // Admin category 
         Route::get('/admin-categories', [AdminCategoryController::class, 'index'])->name('admin-categories'); // Show all cactegory

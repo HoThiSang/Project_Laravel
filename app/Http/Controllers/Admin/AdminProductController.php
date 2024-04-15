@@ -245,4 +245,24 @@ class AdminProductController extends Controller
    
     }
 
+    public function sortByPriceDesc()
+    {
+        $productAll = Product::orderBy('price', 'desc')->get();
+        return view('admin.products.admin-product', compact('productAll'));
+    }
+
+    public function sortByQuantityDesc()
+    {
+        $productAll = Product::orderBy('quantity', 'desc')->get();
+        return view('admin.products.admin-product', compact('productAll'));
+    }
+
+    public function search(Request $request)
+{
+    $keyword = $request->input('keyword');
+    $productAll = Product::where('product_name', 'like', "%$keyword%")->get();
+    return view('admin.products.admin-product', compact('productAll'));
+}
+
+
 }

@@ -101,7 +101,6 @@ class Product extends Model
         
         return $this->update(['deleted_at' => Carbon::now()]);
     }
-
     public function subtractQuantity($product_id, $quantityToSubtract)
     {
 
@@ -116,4 +115,13 @@ class Product extends Model
         }
     }
 
+    public function getAllProductSortedByPriceDesc()
+    {
+        return $this->orderBy('price', 'desc')->get();
+    }
+
+    public function getAllProductSortedByQuantityDesc()
+    {
+        return $this->orderBy('quantity', 'desc')->get();
+    }
 }

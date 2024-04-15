@@ -7,27 +7,23 @@
      <div class="container-xxl flex-grow-1 container-p-y">
          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Produts</h4>
          <div class="row mb-4">
+            <div class="col-2">
+                <a href="{{ route('admin-products-sortByPrice') }}" class="btn btn-primary mx-1">Sort by Price</a>
+            </div>
+
              <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Soft by date</a>
-             </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Soft by name</a>
-             </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Soft by DOB</a>
-             </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Primary link</a>
-             </div>
-             <div class="col-2">
-                 <form action="{{ route('admin-category-research') }}" class="position-relative" method="post">
-                     @csrf
-                     <input type="text" class="form-control pl-5" name="key-search" placeholder="Search..." style="width: 300px; padding-left: 35px;">
-                     <button type="submit" class="position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%); border: none; background: none;">
-                         <i class="fas fa-search"></i>
-                     </button>
-                 </form>
-             </div>
+                <a href="{{ route('admin-products-sortByQuantity') }}" class="btn btn-primary mx-1">Sort by Quantity</a>
+            </div>
+             <div class="col-4">
+                <form action="{{ route('admin-products-search') }}" method="post">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control" placeholder="Search by product name">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+
 
 
 
@@ -69,9 +65,8 @@
                              <td>{{ $product->discounted_price }}</td>
                              <td>{{ $product->quantity }}</td>
                              <td>
-                                 <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
+                                 <img src="{{ asset('images/' .$product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
                              </td>
-
                              <td>
                                  <div class="dropdown">
                                      <button type="button" class="btn p-10 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -99,9 +94,6 @@
      </div>
      <!-- / Content -->
 
-
-
      <div class="content-backdrop fade"></div>
-
 
      @endsection

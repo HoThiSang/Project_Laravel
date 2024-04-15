@@ -862,20 +862,16 @@
                                 <div class="action">
                                     <ul class="list-unstyled">
                                         <li class="add-cart-button btn-group">
-                                            <form id="addToCartForm" action="{{ route('addtocart', ['id' => $productdiscount->id]) }}" method="POST" style="display: none;">
+                                           <form id="addToCartForm" action="{{ route('addtocart', ['id' => $product->id]) }}" method="POST" style="display: none;">
                                                 @csrf
+                                                <input type="hidden" name="id" value="{{ $product->id }}">
+                                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                <input type="hidden" name="price" value="{{ $product->price }}">
                                             </form>
 
-                                            <a href= onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();" class="btn btn-primary icon">
+                                            <a href="{{ route('addtocart', ['id' => $product->id]) }}"  onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();" class="btn btn-primary icon">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </a>
-
-                                            {{-- <form action="{{ route('addtocart', ['id' => $product->id]) }}" method="POST" style="display: inline;">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <input type="hidden" name="quantity" value="1">
-                                                <button class="btn btn-primary cart-btn" type="submit">Add to cart</button>
-                                            </form> --}}
                                         </li>
                                         <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
                                         <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
