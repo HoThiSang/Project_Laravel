@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Exception;
@@ -16,12 +18,23 @@ use Illuminate\Support\Facades\DB;
 class ChechoutController extends Controller
 {
 
+    protected $order_item;
+    protected $orders;
+    protected $products;
+    public function __construct()
+    {
+        $this->order_item = new OrderItem();
+        $this->orders = new Order();
+        $this->products = new Product();
+    }
+
     public function index()
     {
         if (Auth()->check()) {
             $user_id = Auth()->user()->id;
             $user = User::find($user_id);
-            
+            // $cartAll = Cart::all();
+            // dd($cartAll);
             // Lấy các carts dựa trên user_id
             $carts = Cart::select('products.product_name', 'carts.price as cart_price', 'carts.quantity', 'products.price', 'products.id as product_id')  
                 ->join('products', 'carts.product_id', '=', 'products.id')
@@ -71,8 +84,7 @@ class ChechoutController extends Controller
 
                         $vnp_OrderInfo = "Noi dung thanh toan";
                         $vnp_OrderType = "billpayment";
-                        $total = $request->total_price;
-                        $vnp_Amount = 13900 * 100;
+                        $vnp_Amount =$request->totalPrice*100;
                         $vnp_Locale = "vn";
                         $vnp_BankCode = "NCB";
                         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
@@ -183,25 +195,43 @@ class ChechoutController extends Controller
         $secureHash = hash_hmac('sha512', $hashData, getenv('VNP_HASHSECRET'));
         if ($secureHash == $vnp_SecureHash) {
             if ($_GET['vnp_ResponseCode'] == '00') {
-                $userInfo = User::find(1);
+                $user_id = Auth()->user()->id;
+                $userInfo = User::find($user_id);
+                $orderData = [
+                    'order_date'=>$inputData['vnp_PayDate'],
+                    'address'=> $userInfo->address,
+                    'phone_number'=>$userInfo->phone,
+                    'payment_method'=>$inputData['vnp_BankCode'],
+                    'order_status'=> 'Ordered',
+                    'deliver_id'=>1,
+                    'order_total'=>$inputData['vnp_Amount'],
+                    'created_at'=>now(),
+                    'user_id'=>$user_id
 
-                $order = new Order();
-                $order->order_date = $inputData['vnp_PayDate'];
-                $order->address = $userInfo->address;
-                $order->phone_number = $userInfo->phone;
-                $order->payment_method = $inputData['vnp_BankCode'];
-                $order->order_status = 'Ordered';
-                $order->deliver_id = 1;
-                $order->created_at = now();
-                $order->order_total = $inputData['vnp_Amount'];
-                $order->user_id = $userInfo->id;
-                $order->save();
-                if ($order) {
-                    
+                ];
+                $order_id =  $this->orders->creatNewOrder($orderData);
+                $order = Order::find($order_id);
+                if ($order_id>0) {
+                    $cartAll = Cart::all();
+                    foreach($cartAll as $item ){    
+                           $product = $this->products->subtractQuantity($item->product_id,$item->quantity ); 
+                    }
+                    foreach($cartAll as $item ){                       
+                            $orderItemData= [
+                                'quantity'=> $item->quantity,
+                                'unit_price'=>$item->price,
+                                'order_id'=>$order_id,
+                                'product_id'=>$item->product_id,
+                                'created_at'=>now()
+                            ];
+                            
+                        $order_item =   $this->order_item->creatNewOrderItem($orderItemData);
+
+                    }
+                    Cart::truncate();
                     $success = 'Giao dịch thành công!';
                     return view('users/checkout-success', compact('order', 'success'));
                 } else {
-
                     $error = 'Đã xảy ra lỗi khi lưu đơn hàng.';
                     return view('users/checkout-failed', compact('error'));
                 }
