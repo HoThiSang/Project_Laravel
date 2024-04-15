@@ -68,7 +68,7 @@ Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtoc
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-Route::post('/add-to-wishlist', [WishlistController::class, 'add'])->name('addToWishlist');
+Route::post('/add-to-wishlist/{id}', [WishlistController::class, 'add'])->name('addToWishlist');
 //
 Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
 
@@ -155,5 +155,3 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
         
 });
-
-
