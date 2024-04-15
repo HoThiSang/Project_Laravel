@@ -96,23 +96,24 @@
         </div>
         <div class="form-group col-md-3">
           <label for="total-price">{{ $item->cart_price }}</label>
-          <?php $total += $item->cart_price  ;
+          <?php $total += $item->cart_price*1000 *2;
             $total_quantity +=$item->quantity ;
            ?>
         </div>
         
+    
         <input type="hidden" value="{{ $item->product_id }}">
       
         @endforeach
       </div>
     </div>
-
+    <input type="hidden" name="totalPrice" value="<?php echo $total ?>">
     <div class="form-container">
       <div class="form-group col-md-12 text-right">
         <hr style="border-width: 2px; border-color: #C4C4C4; margin-top: 10px;">
         <div class="form-inline" style="display: flex; justify-content: space-between; align-items: center;">
           <h4 style="margin: 0;">Total of payment</h4>
-          <label for="">{{ number_format($total,2) }}</label>
+          <label for="">{{$total }}</label>
           <input type="hidden" name="total_price" value="{{ number_format($total,2) }}">
         </div>
         <hr style="border-width: 2px; border-color: #C4C4C4; margin-top: 10px;">

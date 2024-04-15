@@ -62,27 +62,23 @@
 									<td class="cart-product-sub-total"><span class="cart-sub-discounted-price">${{ $cart->product->discounted_price }}</span></td>
 
 									<td class="cart-product-grand-total"><span class="cart-grand-total-price">@php
-											// Tính toán giá cuối cùng của sản phẩm
 											$finalPrice = $cart->quantity * $cart->product->price;
 
-											// Kiểm tra nếu sản phẩm có giảm giá
 											if ($cart->product->discount > 0) {
-											// Tính toán giảm giá
 											$discountAmount = ($cart->product->discount / 100) * $finalPrice;
-											// Áp dụng giảm giá vào giá cuối cùng
+								
 											$finalPrice -= $discountAmount;
 											}
 
-											// Cộng thêm giá cuối cùng vào tổng số tiền
 											$totalPrice += $finalPrice;
 											@endphp
 											${{ number_format($finalPrice, 2) }}</span></td>
 								</tr>
 								@endforeach
-							</tbody><!-- /tbody -->
-						</table><!-- /table -->
+							</tbody>
+						</table>
 					</div>
-				</div><!-- /.shopping-cart-table -->
+				</div>
 				<div class="col-md-4 col-sm-12 cart-shopping-total">
 					<table class="table">
 						<thead>
@@ -96,7 +92,7 @@
 									</div>
 								</th>
 							</tr>
-						</thead><!-- /thead -->
+						</thead>
 						<tbody>
 							<tr>
 								<td>
@@ -106,8 +102,8 @@
 									</div>
 								</td>
 							</tr>
-						</tbody><!-- /tbody -->
-					</table><!-- /table -->
+						</tbody>
+					</table>
 				</div><!-- /.cart-shopping-total -->
 			</div><!-- /.shopping-cart -->
 		</div> 

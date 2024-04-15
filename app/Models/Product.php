@@ -101,4 +101,19 @@ class Product extends Model
         
         return $this->update(['deleted_at' => Carbon::now()]);
     }
+
+    public function subtractQuantity($product_id, $quantityToSubtract)
+    {
+
+        $currentQuantity = DB::table($this->table)->where('id', $product_id)->value('quantity');
+
+        if ($currentQuantity >= $quantityToSubtract) {
+            $newQuantity = $currentQuantity - $quantityToSubtract;
+            DB::table($this->table)->where('id', $product_id)->update(['quantity' => $newQuantity]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
