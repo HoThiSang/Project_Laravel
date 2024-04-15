@@ -24,6 +24,7 @@
                         <th>User ID</th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     <tr>
                         <td><?php echo $order->order_date; ?></td>
