@@ -55,7 +55,7 @@ Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkou
 Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
 Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin')->middleware('isAdmin');
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
-Route::get('/view-order}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
+Route::get('/view-order', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 Route::get('user-profile}', [UserController::class, 'index'])->name('user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
@@ -73,6 +73,8 @@ Route::post('/add-to-wishlist', [WishlistController::class, 'add'])->name('addTo
 Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
 
 Route::post('/send-mail-to', [UserSendMailController::class, 'sendEmail'])->name('sendEmail');
+
+Route::get('/delete-order/{id}', [ChechoutController::class, 'destroy'])->name('delete-order');
 
 Auth::routes();
 
@@ -151,6 +153,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+        
 });
 
 

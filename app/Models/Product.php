@@ -36,7 +36,7 @@ class Product extends Model
 
     public function getAllProduct()
     {
-        //  $products = DB::table('products')->get();
+ 
         $products = DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->join('categories', 'products.category_id', '=', 'categories.id')
