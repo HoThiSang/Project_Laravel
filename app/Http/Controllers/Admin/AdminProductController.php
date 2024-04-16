@@ -33,6 +33,7 @@ class AdminProductController extends Controller
         $productAll = $this->products->getAllProduct();
         //   dd($productAll);
         return view('admin/products/admin-product', compact('productAll'));
+      
     }
 
     /**
@@ -244,5 +245,33 @@ class AdminProductController extends Controller
 
    
     }
+
+    public function sortByPriceDesc()
+    {
+        $productAll = Product::with('images')->orderBy('price', 'desc')->get();
+        return view('admin.products.admin-product', compact('productAll'));
+    }
+
+    public function sortByQuantityDesc()
+    {
+
+        $productAll = Product::with('images')->orderBy('quantity', 'desc')->get();
+        return view('admin.products.admin-product', compact('productAll'));
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        $productAll = Product::where('product_name', 'like', "%$keyword%")->with('images')->get();
+
+        if ($productAll->isEmpty()) {
+            return redirect()->back()->with('error', 'No products found.');
+        }
+
+        return view('admin.products.admin-product', compact('productAll'));
+    }
+
+
+
 
 }

@@ -55,7 +55,7 @@ Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkou
 Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
 Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin')->middleware('isAdmin');
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
-Route::get('/view-order}', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
+Route::get('/view-order', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
 Route::get('user-profile}', [UserController::class, 'index'])->name('user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
@@ -73,6 +73,8 @@ Route::post('/add-to-wishlist', [WishlistController::class, 'add'])->name('addTo
 Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
 
 Route::post('/send-mail-to', [UserSendMailController::class, 'sendEmail'])->name('sendEmail');
+
+Route::get('/delete-order/{id}', [ChechoutController::class, 'destroy'])->name('delete-order');
 
 Auth::routes();
 
@@ -98,11 +100,24 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::delete('/admin-orders-delete/{id}', [AdminOrderController::class, 'OrderDelete'])->name('admin-orders-delete');
 
+        Route::post('order-change-status/{id}', [AdminOrderController::class, 'changeStatus'])->name('order-change-status');
+
+        Route::patch('/orders/{id}', [AdminOrderController::class, 'OrderUpdate'])->name('orders-update');
+
+        Route::get('/orders/{id}/edit', [AdminOrderController::class, 'OrderEdit'])->name('orders-edit');
+
         Route::get('/admin-wish-lists', [AdminWishListController::class, 'showWishLists'])->name('admin-wish-lists');
 
         Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
 
         Route::get('/admin-product-delete/{id}', [AdminProductController::class, 'destroy'])->name('admin-product-delete');
+
+        // web.php
+        Route::get('/admin-products-sortByPrice', [AdminProductController::class, 'sortByPriceDesc'])->name('admin-products-sortByPrice');
+
+        Route::get('/admin-products-sortByQuantity', [AdminProductController::class, 'sortByQuantityDesc'])->name('admin-products-sortByQuantity');
+
+        Route::post('/admin-products-search', [AdminProductController::class, 'search'])->name('admin-products-search');
 
 
         // Admin category 
@@ -138,6 +153,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+        
 });
 
 

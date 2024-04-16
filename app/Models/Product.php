@@ -17,13 +17,14 @@ class Product extends Model
      *
      * @var array
      */
+
+    
     protected $fillable = [
 
         'name', 'description', 'price', 'deleted_at',
     ];
 
- 
-
+    
     public function getFilter($filter)
     {
         $products = DB::table($this->table)
@@ -35,7 +36,7 @@ class Product extends Model
 
     public function getAllProduct()
     {
-        //  $products = DB::table('products')->get();
+ 
         $products = DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->join('categories', 'products.category_id', '=', 'categories.id')
@@ -101,7 +102,6 @@ class Product extends Model
         
         return $this->update(['deleted_at' => Carbon::now()]);
     }
-
     public function subtractQuantity($product_id, $quantityToSubtract)
     {
 
@@ -116,4 +116,13 @@ class Product extends Model
         }
     }
 
+    public function getAllProductSortedByPriceDesc()
+    {
+        return $this->orderBy('price', 'desc')->get();
+    }
+
+    public function getAllProductSortedByQuantityDesc()
+    {
+        return $this->orderBy('quantity', 'desc')->get();
+    }
 }
