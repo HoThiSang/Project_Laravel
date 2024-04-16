@@ -1,5 +1,18 @@
 @extends('layouts.master')
 @section('content')
+
+    <style>
+        button:hover .fa-heart {
+            color: red;
+        }
+
+        .fill-heart {
+            color: red !important;
+        }
+        </style>
+    @if (session()->has('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
     <div class="body-content outer-top-xs">
         <div class='container'>
             <div class='row'>
@@ -155,24 +168,24 @@
 
                         </div>
                         <!--
-                        <div class="clearfix filters-container">
-                            <div class="text-right">
-                                <div class="pagination-container">
-                                    <ul class="list-inline list-unstyled">
-                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
-                                 
+                            <div class="clearfix filters-container">
+                                <div class="text-right">
+                                    <div class="pagination-container">
+                                        <ul class="list-inline list-unstyled">
+                                            <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                            <li><a href="#">1</a></li>
+                                            <li class="active"><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                        </ul>
+                                     
+                                    </div>
+                                  
                                 </div>
-                              
-                            </div>
-                         
+                             
 
-                        </div> -->
+                            </div> -->
                         <!-- /.filters-container -->
 
                     </div>
