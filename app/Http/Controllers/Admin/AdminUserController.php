@@ -28,9 +28,7 @@ class AdminUserController extends Controller
      */
     public function index(Request $request)
     {
-        //  $statement = $this->users->statementUser("DELETE FROM users ");
-        //   $builder = $this->users->learningQueryBuilder();
-        //   dd($builder);
+       
         $filters = [];
         $keyword = null;
         if (!empty($request->status)) {
@@ -54,7 +52,6 @@ class AdminUserController extends Controller
             $keyword = $request->keyword;
         }
 
-        // sap xep :
         $sortBy = $request->input('sort-by');
         $sortType = $request->input('sort-type') ? $request->input('sort-type') : 'asc';
         $allowSort = ['asc', 'desc'];
@@ -75,7 +72,7 @@ class AdminUserController extends Controller
         ];
         $userAll = $this->users->getAllUsers($sortType, $keyword);
         return view('admin/user/admin-user', compact('userAll'));
-        //   dd($userAll);
+
     }
 
     /**
@@ -130,7 +127,7 @@ class AdminUserController extends Controller
         if (isset($role_id)) {
             $user->role_id = $role_id;
         } else {
-            $user->role_id = 1; // Gán giá trị mặc định là 1
+            $user->role_id = 1;
         }
 
         $user->image_name = $request->input('image_name');
@@ -208,7 +205,7 @@ class AdminUserController extends Controller
         if (isset($role_id)) {
             $user->role_id = $role_id;
         } else {
-            $user->role_id = 1; // Gán giá trị mặc định là 1
+            $user->role_id = 1; 
         }
 
         $user->image_name = $request->input('image_name');
@@ -240,14 +237,11 @@ class AdminUserController extends Controller
         $user = User::find($id);
 
         if ($user) {
-            // Xóa tất cả các bản ghi trong bảng carts liên quan đến người dùng
             $user->carts()->delete();
             $user->orders()->delete();
-        
-            // Xóa người dùng
             $user->delete();
         
-            return redirect()->route('admin-user')->with('status', 'Deleted successfully');
+            return redirect()->route('admin-user')->with('success', 'Deleted successfully');
         } else {
             return redirect()->route('admin-user')->with('error', 'Không tìm thấy người dùng');
         }

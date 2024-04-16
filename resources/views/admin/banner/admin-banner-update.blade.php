@@ -96,3 +96,69 @@
 
         <div class="content-backdrop fade"></div>
     @endsection
+    
+@section('js')
+<script>
+    let file = null;
+    var loadFile = function(event) {
+
+        for (let i = 0; i <= event.target.files.length - 1; i++) {
+
+            const fsize = event.target.files.item(i).size;
+            const filee = Math.round((fsize / 1024));
+            // The size of the file.
+            if (filee > 4096) {
+                alert("File too Big, please select a file less than 4mb");
+            } else {
+                var output = document.getElementById('output');
+                file = event;
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src) // free memory
+                }
+            }
+        }
+    };
+
+
+
+    async function uploadImg() {
+        const cloud_name = '{{ env("CLOUDINARY_NAME") }}';
+        const upload_preset = '{{ env("CLOUDINARY_UPLOAD_PRESET") }}';
+        const api_key = '{{ env("CLOUDINARY_API_KEY") }}';
+        const api_secret = '{{ env("CLOUDINARY_API_SECRET") }}';
+
+        let url = '';
+
+        const formData = new FormData();
+        formData.append("file", file.target.files[0]);
+        formData.append("upload_preset", upload_preset);
+        formData.append("api_key", api_key);
+        formData.append("api_secret", api_secret);
+        const options = {
+            method: "POST",
+            body: formData,
+        };
+
+        if (file) {
+            await fetch(
+                    `https://api.cloudinary.com/v1_1/${cloud_name}/upload/`,
+                    options
+                )
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    url = data.secure_url
+
+                })
+                .catch((err) => console.log(err));
+            //    console.log(url);
+            return url
+        }
+
+        return;
+
+    }
+</script>
+
+

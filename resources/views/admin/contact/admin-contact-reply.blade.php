@@ -3,7 +3,12 @@
 
 <style>
     .custom-textarea {
-        height: 500px;
+        height: 200px;
+        width: 95%;
+    }
+
+    .custom-button {
+        width: 95%;
     }
 
     h4 {
@@ -25,14 +30,15 @@
             <div class="row ">
                 <label style="color: coral" for="user_name" class="form-label">Message reply</label>
                 <span></span>
-                <div class=" col mb-3">
-                    <textarea type="text" class="form-control custom-textarea" style="width:95%" name="message" value="" placeholder="Write the content you want to send to customers!!"></textarea>
+                <div class="col mb-3">
+                    <textarea type="text" class="form-control custom-textarea" name="message" value="" placeholder="Write the content you want to send to customers!!"></textarea>
                     @error('message')
                     <span style="color: red;">{{$message}}</span>
                     @enderror
                 </div>
-                <button type="submit" style="width:95%" class="btn btn-primary">Send message</button>
+              
             </div>
+            <button type="submit" class="btn btn-primary custom-button">Send message</button>
             <div class="row">
 
             </div>

@@ -95,3 +95,30 @@
 
         <div class="content-backdrop fade"></div>
     @endsection
+
+    @section('js')
+<script>
+    let file = null;
+    var loadFile = function(event) {
+
+        for (let i = 0; i <= event.target.files.length - 1; i++) {
+
+            const fsize = event.target.files.item(i).size;
+            const filee = Math.round((fsize / 1024));
+            // The size of the file.
+            if (filee > 4096) {
+                alert("File too Big, please select a file less than 4mb");
+            } else {
+                var output = document.getElementById('output');
+                file = event;
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src) // free memory
+                }
+            }
+        }
+    };
+
+</script>
+
+@endsection

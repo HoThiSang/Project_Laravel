@@ -138,6 +138,6 @@ class AdminCategoryController extends Controller
     {
         $keyword = $request->input('category_name');
         $categoryFind = $this->categories->searchByKeyWord($keyword);
-        return view('admin/categories/admin-categories', compact('categoryFind'));
+        return view('admin/categories/admin-category-search', compact('categoryFind'));
     }
 }

@@ -49,10 +49,24 @@ class Categories extends Model
         return $this->update(['deleted_at' => Carbon::now()]);
     }
 
+    // public function searchByKeyWord($keyword)
+    // {
+    //     return  DB::table($this->table)->where('category_name', 'LIKE', '%' . $keyword . '%')-> whereNull('deleted_at')
+    //         ->orWhere('deleted_at', '>', now())->get();
+    // }
+
     public function searchByKeyWord($keyword)
     {
-        return  DB::table($this->table)->where('category_name', 'LIKE', '%' . $keyword . '%')-> whereNull('deleted_at')
-            ->orWhere('deleted_at', '>', now())->get();
+        return DB::table($this->table)
+            ->where(function ($query) use ($keyword) {
+                $query->where('category_name', 'LIKE', '%' . $keyword . '%')
+                    ->whereNull('deleted_at');
+            })
+            ->orWhere(function ($query) use ($keyword) {
+                $query->where('category_name', $keyword)
+                    ->whereNull('deleted_at');
+            })
+            ->get();
     }
 
     public function updateCategory($id, $data)

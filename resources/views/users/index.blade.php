@@ -102,11 +102,11 @@
                                                                 alt="">
                                                         </a>
                                                     </div>
-                                                    <!-- /.image -->
+                            
 
                                                     <div class="tag new"><span>new</span></div>
                                                 </div>
-                                                <!-- /.product-image -->
+                                    
 
                                                 <div class="product-info text-left">
                                                     <h3 class="name"><a
@@ -123,7 +123,7 @@
                                                             class="price-before-discount">{{ $product->discounted_price }}</span>
                                                     </div>
                                                 </div>
-                                                <!-- /.product-info -->
+                                      
                                                 <div class="cart clearfix animate-effect">
                                                     <div class="action">
                                                         <ul class="list-unstyled">
@@ -169,25 +169,33 @@
                                                                     <i class="fa fa-signal" aria-hidden="true"></i>
                                                                 </a>
                                                             </li>
+                                                            <li class="lnk wishlist"> <a data-toggle="tooltip"
+                                                                    class="add-to-cart" href="#"
+                                                                    title="Wishlist"> <i class="icon fa fa-heart"></i>
+                                                                </a> </li>
+                                                            <li class="lnk"> <a data-toggle="tooltip"
+                                                                    class="add-to-cart" href="detail.html"
+                                                                    title="Compare"> <i class="fa fa-signal"
+                                                                        aria-hidden="true"></i> </a> </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <!-- /.cart -->
+                                             
                                             </div>
-                                            <!-- /.product -->
+                                      
 
                                         </div>
-                                        <!-- /.products -->
+                                 
                                     </div>
-                                    <!-- /.item -->
+                              
                                 @endforeach
-                                <!-- /.item -->
+                          
                             </div>
-                            <!-- /.home-owl-carousel -->
+                    
                         </div>
-                        <!-- /.product-slider -->
+                   
                     </div>
-                    <!-- /.tab-pane -->
+                
 
                     <div class="tab-pane" id="smartphone">
                         <div class="product-slider">
@@ -198,11 +206,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p5.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                       
 
                                                 <div class="tag sale"><span>sale</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                                       
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -210,10 +218,10 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                                       
 
                                             </div>
-                                            <!-- /.product-info -->
+                                       
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -232,16 +240,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                         
                                             </div>
-                                            <!-- /.cart -->
+                                          
                                         </div>
-                                        <!-- /.product -->
+                        
 
                                     </div>
-                                    <!-- /.products -->
+                         
                                 </div>
-                                <!-- /.item -->
+                    
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -249,11 +257,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p6.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                         
 
                                                 <div class="tag new"><span>new</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                          
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -261,7 +269,7 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+
 
                                             </div>
                                             <!-- /.product-info -->
@@ -283,16 +291,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                      
                                             </div>
-                                            <!-- /.cart -->
+                               
                                         </div>
-                                        <!-- /.product -->
+                               
 
                                     </div>
-                                    <!-- /.products -->
+                       
                                 </div>
-                                <!-- /.item -->
+                   
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -300,11 +308,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p7.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                  
 
                                                 <div class="tag sale"><span>sale</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                       
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -312,10 +320,10 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                        
 
                                             </div>
-                                            <!-- /.product-info -->
+                          
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -334,16 +342,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                 
                                             </div>
-                                            <!-- /.cart -->
+                             
                                         </div>
-                                        <!-- /.product -->
+                         
 
                                     </div>
-                                    <!-- /.products -->
+                    
                                 </div>
-                                <!-- /.item -->
+                       
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -351,11 +359,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p8.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                              
 
                                                 <div class="tag new"><span>new</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                                     
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -363,9 +371,9 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                                     
                                             </div>
-                                            <!-- /.product-info -->
+                                  
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -384,16 +392,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                    
                                             </div>
-                                            <!-- /.cart -->
+                                  
                                         </div>
-                                        <!-- /.product -->
+                                
 
                                     </div>
-                                    <!-- /.products -->
+                                 
                                 </div>
-                                <!-- /.item -->
+                    
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -401,11 +409,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p9.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                
 
                                                 <div class="tag hot"><span>hot</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                      
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -413,10 +421,10 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                                     
 
                                             </div>
-                                            <!-- /.product-info -->
+                        
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -428,23 +436,23 @@
                                                                 cart</button>
                                                         </li>
                                                         <li class="lnk wishlist"> <a class="add-to-cart"
-                                                                href="detail.html" title="Wishlist"> <i
+                                                                href="#" title="Wishlist"> <i
                                                                     class="icon fa fa-heart"></i> </a> </li>
                                                         <li class="lnk"> <a class="add-to-cart" href="detail.html"
                                                                 title="Compare"> <i class="fa fa-signal"
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                  
                                             </div>
-                                            <!-- /.cart -->
+                               
                                         </div>
-                                        <!-- /.product -->
+                                  
 
                                     </div>
-                                    <!-- /.products -->
+                               
                                 </div>
-                                <!-- /.item -->
+                              
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -1069,7 +1077,7 @@
                     </div>
                 </div>
             </div>
-
+<!-- Discount of product -->
             <section class="section featured-product wow fadeInUp">
                 <h3 class="section-title">Promotional products</h3>
 
@@ -1258,7 +1266,6 @@
                                     <div class="image"> <a href="blog.html"><img src="assets\images\blog-post\post1.jpg"
                                                 alt=""></a> </div>
                                 </div>
-                                <!-- /.blog-post-image -->
 
                                 <div class="blog-post-info text-left">
                                     <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla
@@ -1274,6 +1281,7 @@
                     </div>
                 </div>
             </section>
+            <!-- Sản phẩm giảm giá  -->
             <section class="section wow fadeInUp new-arriavls">
                 <h3 class="section-title">Recomendation </h3>
                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
