@@ -131,8 +131,6 @@
                                             </div>
                                         </div>
                                         <div class="quantity-container info-container">
-
-
                                             <div class="row">
                                                 <div class="col-sm-2">
                                                     <div class="cart-quantity">
@@ -145,71 +143,43 @@
                                                                             class="icon fa fa-sort-desc decrement-btn"></i></span>
                                                                 </div>
                                                             </div>
-                                                        </div> --}}
-                                            </div>
-                                            <input type="hidden" name="id" value="{{ $product->id }}">
-                                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                            <input type="hidden" name="price" value="{{ $product->price }}">
-                                            <div class="col-sm-7">
-                                                <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO
-                                                    CART</button>
-                                            </div>
                                                             <input type="text" name="quantity" class="qty-input"
                                                                 value="1">
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                {{-- <div class="col-sm-2">
-                                                        <span class="label">Qty :</span>
-                                                    </div>
-                                                    <div class="col-sm-2">
-                                                        <label for="Quantity">Quantity</label>
-                                                        <div class="input-group text-center mb-3" style="width:130px;">
-                                                            <button class="input-group-text decrement-btn">-</button>
-                                                            <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
-                                                            <button class="input-group-text increment-btn">+</button>
-                                                        </div>
-                                                    </div> --}}
-                                                <form action="{{ route('addtocart', ['id' => $product->id]) }}"
-                                                    method="post">
-                                                    @csrf
-                                                    <div class="col-sm-3">
+                                                <div class="col-sm-4">
+                                                    <form action="{{ route('addtocart', ['id' => $product->id]) }}" method="post">
+                                                        @csrf
                                                         <input type="hidden" name="id" value="{{ $product->id }}">
                                                         <input type="hidden" name="use_id" value="1">
                                                         <input type="hidden" name="price" value="{{ $product->price }}">
-                                                        <button type="submit" class="btn btn-primary"><i
-                                                                class="fa fa-shopping-cart inner-right-vs"></i> ADD TO
-                                                            CART</button>
-                                                    </div>
-                                                </form>
-
-                                                <form action="{{ route('addToWishlist', ['id' => $product->id]) }}" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $product->id }}">
-                                                    <input type="hidden" name="use_id" value="1">
-                                                    @php
-                                                        $wishlist_item = App\Models\WishList::where('product_id', $product->id)
-                                                            ->where('user_id', auth()->user()->id)
-                                                            ->first();
-                                                    @endphp
-                                                    @if ($wishlist_item)
-                                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-                                                            <i class="fa-solid fa-heart fill-heart"></i>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART
                                                         </button>
-                                                    @else
-                                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-                                                            <i class="fa-solid fa-heart"></i>
-                                                        </button>
-                                                    @endif
-                                                </form>
-
-                                                {{-- <div class="col-sm-2 wishlist">
-                                                    <button type="submit" class=""><i
-                                                            class="fa-regular fa-heart wishlist"></i> 
-                                                        </button>
-                                                </div> --}}
-
+                                                    </form>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <form action="{{ route('addToWishlist', ['id' => $product->id]) }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                                        <input type="hidden" name="use_id" value="1">
+                                                        @php
+                                                            $wishlist_item = App\Models\WishList::where('product_id', $product->id)
+                                                                ->where('user_id', auth()->user()->id)
+                                                                ->first();
+                                                        @endphp
+                                                        @if ($wishlist_item)
+                                                            <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                                <i class="fa-solid fa-heart fill-heart"></i>
+                                                            </button>
+                                                        @else
+                                                            <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                                <i class="fa-solid fa-heart"></i>
+                                                            </button>
+                                                        @endif
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
