@@ -28,9 +28,13 @@
             opacity: 0.7;
         }
 
-        .btn-primary:hover .fa-heart {
-        color: red;
-    }
+        button:hover .fa-heart {
+            color: red;
+        }
+
+        .fill-heart {
+            color: red !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -111,7 +115,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="favorite-button m-t-10">
-                                                        
+
 
 
                                                         <a class="btn btn-primary" data-toggle="tooltip"
@@ -173,22 +177,31 @@
                                                     <div class="col-sm-3">
                                                         <input type="hidden" name="id" value="{{ $product->id }}">
                                                         <input type="hidden" name="use_id" value="1">
-                                                        <input type="hidden" name="price"
-                                                            value="{{ $product->price }}">
+                                                        <input type="hidden" name="price" value="{{ $product->price }}">
                                                         <button type="submit" class="btn btn-primary"><i
                                                                 class="fa fa-shopping-cart inner-right-vs"></i> ADD TO
                                                             CART</button>
                                                     </div>
                                                 </form>
 
-                                                <form action="{{ route('addToWishlist', ['id' => $product->id]) }}"
-                                                    method="post">
+                                                <form action="{{ route('addToWishlist', ['id' => $product->id]) }}" method="post">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
-                                                        <input type="hidden" name="use_id" value="1">
-                                                <button class="" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-                                                    <i class="fa fa-heart"></i>
-                                                </button>
+                                                    <input type="hidden" name="use_id" value="1">
+                                                    @php
+                                                        $wishlist_item = App\Models\WishList::where('product_id', $product->id)
+                                                            ->where('user_id', auth()->user()->id)
+                                                            ->first();
+                                                    @endphp
+                                                    @if ($wishlist_item)
+                                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                            <i class="fa-solid fa-heart fill-heart"></i>
+                                                        </button>
+                                                    @else
+                                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                            <i class="fa-solid fa-heart"></i>
+                                                        </button>
+                                                    @endif
                                                 </form>
 
                                                 {{-- <div class="col-sm-2 wishlist">
