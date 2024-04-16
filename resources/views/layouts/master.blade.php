@@ -165,18 +165,17 @@
                         <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                             <div class="nav-outer">
                                 <ul class="nav navbar-nav">
-                                    <li class="active dropdown yamm-fw"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                                    <li class="dropdown yamm mega-menu"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About us</a>
+                                    <li class="active dropdown yamm-fw"> <a href="{{route('homepage') }}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
+                                    
 
-                                    </li>
-                                    <li class="dropdown mega-menu">
-                                        <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Sale</a>
+                                    
+                                    
 
-                                    </li>
+                                    
                                     <li class="dropdown hidden-sm"> <a href="{{ route('categories') }}">Products</a> </li>
 
 
-                                    <li class="dropdown"> <a href="">Service</a> </li>
+                                    
                                     <li class="dropdown"> <a href="{{ route('contact-page') }}">Contact us</a> </li>
                                     <li class="dropdown"> <a href="{{ route('view-orders') }}">Order purchased</a> </li>
 
