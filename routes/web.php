@@ -100,11 +100,24 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::delete('/admin-orders-delete/{id}', [AdminOrderController::class, 'OrderDelete'])->name('admin-orders-delete');
 
+        Route::post('order-change-status/{id}', [AdminOrderController::class, 'changeStatus'])->name('order-change-status');
+
+        Route::patch('/orders/{id}', [AdminOrderController::class, 'OrderUpdate'])->name('orders-update');
+
+        Route::get('/orders/{id}/edit', [AdminOrderController::class, 'OrderEdit'])->name('orders-edit');
+
         Route::get('/admin-wish-lists', [AdminWishListController::class, 'showWishLists'])->name('admin-wish-lists');
 
         Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
 
         Route::get('/admin-product-delete/{id}', [AdminProductController::class, 'destroy'])->name('admin-product-delete');
+
+        // web.php
+        Route::get('/admin-products-sortByPrice', [AdminProductController::class, 'sortByPriceDesc'])->name('admin-products-sortByPrice');
+
+        Route::get('/admin-products-sortByQuantity', [AdminProductController::class, 'sortByQuantityDesc'])->name('admin-products-sortByQuantity');
+
+        Route::post('/admin-products-search', [AdminProductController::class, 'search'])->name('admin-products-search');
 
 
         // Admin category 

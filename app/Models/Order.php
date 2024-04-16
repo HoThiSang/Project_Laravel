@@ -1,11 +1,17 @@
 <?php
 
+
 namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Support\Carbon;
+
 
 class Order extends Model
 {
@@ -19,6 +25,23 @@ class Order extends Model
     {
         return DB::table($this->table)->insertGetId($data);
     }
+
+  
+
+
+    use SoftDeletes;
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+    protected $fillable = [
+        'username', 'address', 'phone_number', 'payment_method'
+    ];
+
 
     public function deleteOrderById($id)
     {
@@ -43,4 +66,5 @@ class Order extends Model
             ->select('orders.id','orders.phone_number','orders.phone_number', 'orders.order_status','orders.order_total',  'orders.payment_method','orders.created_at','users.username', 'users.phone')
             ->get();
     }
+
 }
