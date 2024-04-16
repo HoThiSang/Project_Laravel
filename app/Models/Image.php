@@ -36,4 +36,9 @@ class Image extends Model
             ->where('product_id', $product_id)
             ->update($data);
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }
