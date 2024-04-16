@@ -119,36 +119,50 @@
                                                         <div class="cart clearfix animate-effect">
                                                             <div class="action">
                                                                 <ul class="list-unstyled">
-                                                                    <li class="add-cart-button btn-group">
-                                                                        <form id="addToCartForm"
-                                                                            action="{{ route('addtocart', ['id' => $productMakeUp->id]) }}"
-                                                                            method="POST" style="display: none;">
+                                                                    <li class="add-cart-button">
+                                                                        <form id="addToCartForm" action="{{ route('addtocart', ['id' => $productMakeUp->id]) }}" method="POST">
                                                                             @csrf
-                                                                            <input type="hidden" name="id"
-                                                                                value="{{ $productMakeUp->id }}">
-                                                                            <input type="hidden" name="user_id"
-                                                                                value="{{ Auth::id() }}">
-                                                                            <input type="hidden" name="price"
-                                                                                value="{{ $productMakeUp->price }}">
+                                                                            <input type="hidden" name="id" value="{{ $productMakeUp->id }}">
+                                                                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                                            <input type="hidden" name="price" value="{{ $productMakeUp->price }}">
+                                                                            @php
+                                                                                $cart_item = App\Models\Cart::where('product_id', $productMakeUp->id)
+                                                                                    ->where('user_id', auth()->user()->id)
+                                                                                    ->first();
+                                                                            @endphp
+                                                                            <button type="submit" class="btn btn-primary icon">
+                                                                                <i class="fa fa-shopping-cart"></i>
+                                                                            </button>
                                                                         </form>
-
-                                                                        <a href="{{ route('addtocart', ['id' => $productMakeUp->id]) }}"
-                                                                            onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();"
-                                                                            class="btn btn-primary icon">
-                                                                            <i class="fa fa-shopping-cart"></i>
+                                                                    </li>
+                                                        
+                                                                    <li class="wishlist-button">
+                                                                        <form action="{{ route('addToWishlist', ['id' => $productMakeUp->id]) }}" method="post">
+                                                                            @csrf
+                                                                            <input type="hidden" name="id" value="{{ $productMakeUp->id }}">
+                                                                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                                            @php
+                                                                                $wishlist_item = App\Models\WishList::where('product_id', $productMakeUp->id)
+                                                                                    ->where('user_id', auth()->user()->id)
+                                                                                    ->first();
+                                                                            @endphp
+                                                                            <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                                                @if ($wishlist_item)
+                                                                                    <i class="fa-solid fa-heart fill-heart"></i>
+                                                                                @else
+                                                                                    <i class="fa-solid fa-heart"></i>
+                                                                                @endif
+                                                                            </button>
+                                                                        </form>
+                                                                    </li>
+                                                        
+                                                                    <li class="lnk">
+                                                                        <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare">
+                                                                            <i class="fa fa-signal" aria-hidden="true"></i>
                                                                         </a>
                                                                     </li>
-                                                                    <li class="lnk wishlist"> <a data-toggle="tooltip"
-                                                                            class="add-to-cart" href="detail.html"
-                                                                            title="Wishlist"> <i
-                                                                                class="icon fa fa-heart"></i> </a> </li>
-                                                                    <li class="lnk"> <a data-toggle="tooltip"
-                                                                            class="add-to-cart" href="detail.html"
-                                                                            title="Compare"> <i class="fa fa-signal"
-                                                                                aria-hidden="true"></i> </a> </li>
                                                                 </ul>
                                                             </div>
-
                                                         </div>
 
                                                     </div>

@@ -18,9 +18,9 @@ class Order extends Model
     use HasFactory;
     protected $table = 'orders';
 
-    protected $fillable = [
-        'deleted_at',
-    ];
+    // protected $fillable = [
+    //     'deleted_at',
+    // ];
     public function creatNewOrder($data)
     {
         return DB::table($this->table)->insertGetId($data);
@@ -39,7 +39,7 @@ class Order extends Model
 
 
     protected $fillable = [
-        'username', 'address', 'phone_number', 'payment_method'
+        'username', 'address', 'phone_number', 'payment_method', 'deleted_at'
     ];
 
 
