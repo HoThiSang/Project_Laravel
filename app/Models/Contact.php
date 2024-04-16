@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Contact extends Model
 {
     use HasFactory;
-    protected $table = 'contact';
+    protected $table = 'contacts';
 
     public function getAllContact()
     {

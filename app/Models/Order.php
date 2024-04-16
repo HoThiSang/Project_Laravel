@@ -18,16 +18,11 @@ class Order extends Model
     use HasFactory;
     protected $table = 'orders';
 
-    // protected $fillable = [
-    //     'deleted_at',
-    // ];
+   
     public function creatNewOrder($data)
     {
-        return DB::table($this->table)->insertGetId($data);
+        return DB::table($this->table)->insertGetId($data); 
     }
-
-  
-
 
     use SoftDeletes;
 
@@ -39,7 +34,7 @@ class Order extends Model
 
 
     protected $fillable = [
-        'username', 'address', 'phone_number', 'payment_method', 'deleted_at'
+        'username', 'address', 'phone_number', 'payment_method','deleted_at'
     ];
 
 

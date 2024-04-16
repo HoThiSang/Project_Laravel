@@ -94,12 +94,12 @@ class AdminProductController extends Controller
                         $imageSuccess = $this->image->createImageByProductId($dataImage);
 
                         if ($imageSuccess) {
-                            return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
+                            return redirect()->route('product-index')->with('success', 'Product added successfully');
                         } else {
-                            return redirect()->route('admin.product-index')->with('error', 'Failed to add Image');
+                            return redirect()->route('product-index')->with('error', 'Failed to add Image');
                         }
                     } else {
-                        return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
+                        return redirect()->route('product-index')->with('error', 'Failed to add product');
                     }
                 } else {
                     return redirect()->back()->with('error', 'Missing image fields');
@@ -208,17 +208,17 @@ class AdminProductController extends Controller
 
 
                         if ($successCount == count($request->file('images'))) {
-                            return redirect()->route('admin.product-index')->with('success', 'All images added successfully');
+                            return redirect()->route('product-index')->with('success', 'All images added successfully');
                         } else {
-                            return redirect()->route('admin.product-index')->with('error', 'Some images failed to add');
+                            return redirect()->route('product-index')->with('error', 'Some images failed to add');
                         }
                         if ($imageSuccess) {
-                            return redirect()->route('admin.product-index')->with('success', 'Product added successfully');
+                            return redirect()->route('product-index')->with('success', 'Product added successfully');
                         } else {
-                            return redirect()->route('admin.product-index')->with('error', 'Failed to add Image');
+                            return redirect()->route('product-index')->with('error', 'Failed to add Image');
                         }
                     } else {
-                        return redirect()->route('admin.product-index')->with('error', 'Failed to add product');
+                        return redirect()->route('product-index')->with('error', 'Failed to add product');
                     }
                 } else {
                     return redirect()->back()->with('error', 'Missing image fields');
