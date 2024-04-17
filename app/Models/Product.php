@@ -125,7 +125,7 @@ class Product extends Model
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->groupBy('products.id')
             ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
-            ->orderBy('quantity', 'desc') // Sắp xếp theo giá giảm dần
+            ->orderBy('quantity', 'desc') 
             ->get();
 
         return $products;
@@ -152,24 +152,7 @@ class Product extends Model
 
     }
 
-    // public function getAllProductBySugest() 
-    // {
-    //     return DB::table('products')
-    //     ->join('images', 'products.id', '=', 'images.product_id')
-    //     ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discounted_price')
-    //     ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
-    //     ->where('quantity', '<', 40)
-    //     ->get();
-    // }
-//     public function getAllProductBySugest()
-// {
-//     return DB::table('products')
-//         ->join('images', 'products.id', '=', 'images.product_id')
-//         ->groupBy('products.id', 'products.product_name', 'products.price', 'products.price', 'products.discounted_price')
-//         ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price - products.discounted_price) as discounted'))
-//         ->where('quantity', '<', 40)
-//         ->get();
-// }
+
 public function getAllProductBySugest()
 {
     return DB::table('products')
@@ -188,7 +171,7 @@ public function getAllProductBySugest()
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->groupBy('products.id')
             ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
-            ->orderBy('products.price', 'desc') // Sắp xếp theo giá giảm dần
+            ->orderBy('products.price', 'desc') 
             ->get();
 
         return $products;
@@ -199,11 +182,20 @@ public function getAllProductBySugest()
         $products = DB::table('products')
         ->join('images', 'products.id', '=', 'images.product_id')
         ->join('categories', 'products.category_id', '=', 'categories.id')
-        ->where('products.product_name', 'like', "%$keyword%") // Điều kiện tìm kiếm sản phẩm theo tên
+        ->where('products.product_name', 'like', "%$keyword%") 
         ->groupBy('products.id')
         ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
         ->get();
         return $products;
     }
+
+    public function getProductByIDs($id) 
+ {
+    return DB::table('products')
+        ->where('products.id', $id)
+        ->select('products.*', DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
+        ->first();
+}
+
 
 }

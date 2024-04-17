@@ -118,15 +118,19 @@
                                 @enderror
                             </div>
                             <!-- <div class=""> -->
-                            @foreach ($imageAll as $image)
-                            <div>
-                                <!-- <p>ID: {{ $image->id }}</p>
-                                <p>Image Name: {{ $image->image_name }}</p> -->
-                                <img src="{{ asset('/images/' . $image->image_url) }}" alt="{{ $image->image_name }}">
-                            </div>
-                            @endforeach
-
-                            <!-- </div> -->
+                         
+                                <div class="row mb-3">
+                                    @foreach ($imageAll as $image)
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="{{ asset('/images/' . $image->image_url) }}" alt="{{ $image->image_name }}" width="150px" height="150px">
+                                            <div class="caption">
+                                                <!-- Bạn có thể thêm nội dung bổ sung ở đây -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>                     
                             <input type="file" class="form-control" id="images" name="images[]" multiple onchange="loadFile(event)">
                             <small class="text-muted">Select one or more images to upload (max: 4MB per image)</small>
                             @error('images')

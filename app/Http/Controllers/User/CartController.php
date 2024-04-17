@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     protected $carts;
+    protected $product;
     public function __construct()
     {
         $this->carts = new Cart();
+        $this->product = new Product();
     }
     /**
      * Display a listing of the resource.
@@ -57,14 +59,15 @@ class CartController extends Controller
                 $existing_cart_item->save();
                 return redirect()->back()->with('success', 'Sản phẩm đã được cập nhật trong giỏ hàng.');
             } else {
-                $product = Product::find($product_id);
+                $product = $this->product->getProductByIDs( $product_id );
 
                 if ($product) {
                     $cart_item = new Cart();
                     $cart_item->product_id = $product_id;
                     $cart_item->quantity = $quantity;
                     $cart_item->user_id =  $user_id ;
-                    $cart_item->price = $product->price;
+                    $cart_item->price = $product->discounted_price;
+                    $cart_item->unit_price = $product->price;
                     $cart_item->save();
                     return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
                 } else {
@@ -81,8 +84,7 @@ class CartController extends Controller
         $check = 'error';
         if (Auth()->check()) {
             $user_id = Auth::id();
-
-            $carts = Cart::where('user_id', $user_id)->get();
+            $carts = $this->carts->getAllCarts($user_id);
             $check = 'success';
 
             return view('users.shopping-cart', compact('carts', 'check'));
