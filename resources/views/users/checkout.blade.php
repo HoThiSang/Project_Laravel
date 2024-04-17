@@ -66,7 +66,9 @@
         </div>
       </div>
     </div>
-
+    @php
+    $totalPrice = 0;
+    @endphp
 
     <h4 class="checkout-heading text-center mt-4">Order information</h4>
     <div class="form-container">
@@ -83,7 +85,8 @@
         <div class="form-group col-md-3">
           <label for="total-price">Total price</label>
         </div>
-        <?php $total = 0 ; $total_quantity = 0 ?>
+        <?php $total = 0;
+        $total_quantity = 0 ?>
         @foreach($carts as $item)
         <div class="form-group col-md-3">
           <label for="product">{{ $item->product_name }}</label>
@@ -95,25 +98,29 @@
           <label for="unit-price">X{{ $item->price }}</label>
         </div>
         <div class="form-group col-md-3">
-          <label for="total-price">{{ $item->cart_price }}</label>
-          <?php $total += $item->cart_price*1000 *2;
-            $total_quantity +=$item->quantity ;
-           ?>
-        </div>
+          <label for="total-price">{{ $item->price }}</label>
         
-    
+          @php
+          
+          $finalPrice = $item->quantity * $item->price;
+          $totalPrice += $finalPrice;
+
+          @endphp
+        </div>
+
+
         <input type="hidden" value="{{ $item->product_id }}">
-      
+
         @endforeach
       </div>
     </div>
-    <input type="hidden" name="totalPrice" value="<?php echo $total ?>">
+    <input type="hidden" name="totalPrice" value="<?php echo number_format($totalPrice, 2) ?>">
     <div class="form-container">
       <div class="form-group col-md-12 text-right">
         <hr style="border-width: 2px; border-color: #C4C4C4; margin-top: 10px;">
         <div class="form-inline" style="display: flex; justify-content: space-between; align-items: center;">
           <h4 style="margin: 0;">Total of payment</h4>
-          <label for="">{{$total }}</label>
+          <label for=""><?php echo number_format($totalPrice, 2) ?></label>
           <input type="hidden" name="total_price" value="{{ number_format($total,2) }}">
         </div>
         <hr style="border-width: 2px; border-color: #C4C4C4; margin-top: 10px;">

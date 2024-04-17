@@ -77,4 +77,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+     public function getUserById($id)
+    {
+        return DB::table($this->table)
+            ->where('id', $id)
+            ->get();
+    }
+
 }
