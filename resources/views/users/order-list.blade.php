@@ -37,7 +37,7 @@
 
 
                 <td>{{ $order->created_at }}</td>
-                <td>{{ $order->order_total }}</td>
+                <td>{{ number_format(intval($order->order_total), 0, '', '') }}</td>
                 <td>
                     <!-- <button type="button" class="btn btn-success" style="text-decoration: none; color:#000;"><i class="fa-solid fa-eye"></i></button>
                     <button type="button" class="btn btn-info" style="text-decoration: none; color:#000; margin-left: 5px;"><i class="fa-solid fa-pencil"></i></button> -->

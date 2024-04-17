@@ -45,5 +45,16 @@ class Cart extends Model
         $cart = DB::table('carts')->where('user_id', $user_id)->get();
         return $cart;
     }
-
+    public function getAllCarts($user_id)
+    {
+        return DB::table('carts')
+            ->groupBy('carts.id', 'products.product_name', 'carts.price', 'products.discount')
+            ->select('carts.*', 'products.product_name',  DB::raw('MAX(images.image_url) as image_url'))
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->where('carts.user_id', $user_id)
+            ->get();
+    }
+    
+    
 }

@@ -106,6 +106,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('/orders/{id}/edit', [AdminOrderController::class, 'OrderEdit'])->name('orders-edit');
 
+        Route::post('/admin-order-search', [AdminOrderController::class, 'searchOrder'])->name('admin-order-search');
+
         Route::get('/admin-wish-lists', [AdminWishListController::class, 'showWishLists'])->name('admin-wish-lists');
 
         Route::post('/admin-product-update/{id}', [AdminProductController::class, 'update'])->name('admin-product-update');
