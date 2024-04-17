@@ -30,20 +30,7 @@
                      </form>
                  </div>
 
-
-
              </div>
-             @if (session('success'))
-                 <div class="alert alert-success">
-                     {{ session('success') }}
-                 </div>
-             @endif
-
-             @if (session('error'))
-                 <div class="alert alert-danger">
-                     {{ session('error') }}
-                 </div>
-             @endif
 
              <!-- Basic Bootstrap Table -->
              <div class="card">
@@ -87,7 +74,8 @@
                                      </td>
                                      <td>
                                          @if ($user->address)
-                                             {{ $user->address }}
+                                    
+                                             {{ Str::limit($user->address, 18) }}
                                          @else
                                              -
                                          @endif
@@ -150,4 +138,15 @@
 
          <div class="content-backdrop fade"></div>
      </div>
+     @if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+    @endif
+
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
  @endsection

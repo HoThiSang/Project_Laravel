@@ -29,18 +29,7 @@
 
              </div>
              <!-- Basic Bootstrap Table -->
-             @if (session('success'))
-                 <div class="alert alert-success">
-                     {{ session('success') }}
-                 </div>
-             @endif
-
-             @if (session('error'))
-                 <div class="alert alert-danger">
-                     {{ session('error') }}
-                 </div>
-             @endif
-
+            
              <div class="card">
                  <div style="margin:15px;"><a href="{{ route('get-view-add-new') }}" class="btn btn-primary">Create new</a>
                  </div>
@@ -80,7 +69,7 @@
                                                      <i class="fa-solid fa-eye" style="padding-right: 5px;"></i> Detail
                                                  </a>
                                                  <a class="dropdown-item"
-                                                     href="{{ route('admin-get-update', ['id' => $product->id]) }}">
+                                                     href="{{ route('admin-getview-update', ['id' => $product->id]) }}">
                                                      <i class="fa-solid fa-pen" style="padding-right: 5px;"></i> Edit
                                                  </a>
                                                  <a class="dropdown-item"
@@ -104,6 +93,16 @@
 
          </div>
          <!-- / Content -->
+         @if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+    @endif
 
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
          <div class="content-backdrop fade"></div>
      @endsection

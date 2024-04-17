@@ -123,7 +123,7 @@
                                                             class="price-before-discount">{{ $product->discounted_price }}</span>
                                                     </div>
                                                 </div>
-                                      
+                                                @auth
                                                 <div class="cart clearfix animate-effect">
                                                     <div class="action">
                                                         <ul class="list-unstyled">
@@ -169,18 +169,11 @@
                                                                     <i class="fa fa-signal" aria-hidden="true"></i>
                                                                 </a>
                                                             </li>
-                                                            <li class="lnk wishlist"> <a data-toggle="tooltip"
-                                                                    class="add-to-cart" href="#"
-                                                                    title="Wishlist"> <i class="icon fa fa-heart"></i>
-                                                                </a> </li>
-                                                            <li class="lnk"> <a data-toggle="tooltip"
-                                                                    class="add-to-cart" href="detail.html"
-                                                                    title="Compare"> <i class="fa fa-signal"
-                                                                        aria-hidden="true"></i> </a> </li>
+                                                           
                                                         </ul>
                                                     </div>
                                                 </div>
-                                             
+                                                @endauth
                                             </div>
                                       
 
@@ -1103,6 +1096,7 @@
                                                 class="price-before-discount">{{ $productdiscount->price }}</span> </div>
 
                                     </div>
+                                    @auth
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
                                             <ul class="list-unstyled">
@@ -1151,6 +1145,7 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    @endauth
                                 </div>
 
                             </div>
@@ -1307,6 +1302,7 @@
 
                                     </div>
                                     <!-- /.product-info -->
+                                    @auth
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
                                             <ul class="list-unstyled">
@@ -1355,6 +1351,7 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    @endauth
                                 </div>
 
                             </div>

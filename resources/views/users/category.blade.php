@@ -115,7 +115,7 @@
 
 
                                                         </div>
-
+                                                        @auth
                                                         <div class="cart clearfix animate-effect">
                                                             <div class="action">
                                                                 <ul class="list-unstyled">
@@ -164,7 +164,7 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-
+                                                        @endauth
                                                     </div>
 
 

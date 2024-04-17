@@ -148,6 +148,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @auth
                                                 <div class="col-sm-4">
                                                     <form action="{{ route('addtocart', ['id' => $product->id]) }}" method="post">
                                                         @csrf
@@ -180,6 +181,7 @@
                                                         @endif
                                                     </form>
                                                 </div>
+                                                @endauth
                                             </div>
                                         </div>
                                     @endif

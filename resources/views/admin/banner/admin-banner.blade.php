@@ -26,18 +26,7 @@
 
          </div>
          <!-- Basic Bootstrap Table -->
-         @if(session('success'))
-         <div class="alert alert-success">
-             {{ session('success') }}
-         </div>
-         @endif
-
-         @if(session('error'))
-         <div class="alert alert-danger">
-             {{ session('error') }}
-         </div>
-         @endif
-
+   
          <div class="card">
             <h5 class="card-header">Banner</h5>
              <div style="margin:15px;"><a href="{{route('add-banner')}}" class="btn btn-primary">Create new</a></div>
@@ -97,5 +86,15 @@
 
      <div class="content-backdrop fade"></div>
 
+     @if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+    @endif
 
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
      @endsection

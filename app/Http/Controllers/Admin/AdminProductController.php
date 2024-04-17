@@ -146,7 +146,7 @@ class AdminProductController extends Controller
         $category_id = $productDetail->category_id;
         $categoryAll = $this->categories->getAllCategories();
         $category = $this->categories->getCategoryById($category_id);
-        // dd($imageAll);
+     
         return view('admin/products/admin-product-update', compact('productDetail', 'imageAll', 'category', 'categoryAll'));
     }
 
@@ -198,7 +198,7 @@ class AdminProductController extends Controller
                                 'updated_at' => now()
                             ];
                             $images = $this->image->updateImage($product_id, $imageData);
-                            dd($images);
+                    
                             if ($imageData) {
                                 $successCount++;
                             }
@@ -240,10 +240,10 @@ class AdminProductController extends Controller
 
         if (!empty($id)) {
             $product = $this->products->deleteProductById($id);
-            dd($product);
+            return redirect()->route('product-index')->with('success', 'Product deleted successfully');
         }
+        return redirect()->back()->with('error', 'Product deleted fields');
 
-   
     }
 
     public function sortByPriceDesc()
