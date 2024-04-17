@@ -55,8 +55,8 @@
                                      <td>{{ $product->discounted_price }}</td>
                                      <td>{{ $product->quantity }}</td>
                                      <td>
-                                 <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
-                             </td>
+                                        <img src="{{ asset('images/' . $product->image_url) }}" alt="" class="img-fluid" height="150" width="100">
+                                    </td>
                                      <td>
                                          <div class="dropdown">
                                              <button type="button" class="btn p-10 dropdown-toggle hide-arrow"
@@ -81,8 +81,6 @@
                                      </td>
                                  </tr>
                              @endforeach
-
-
                          </tbody>
                      </table>
                  </div>

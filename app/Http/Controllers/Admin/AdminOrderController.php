@@ -60,4 +60,18 @@ class AdminOrderController extends Controller
         $order->save();
         return redirect()->route('admin-order')->with('success', 'Order status changed successfully');
     }
+
+    public function searchOrder(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $orders = Order::query()
+            ->whereHas('user', function ($query) use ($searchTerm) {
+                $query->where('username', 'like', "%$searchTerm%");
+            })
+            ->orWhere('address', 'like', "%$searchTerm%")
+            ->get();
+
+        return view('admin.orders.admin-order', compact('orders'));
+    }
+
 }

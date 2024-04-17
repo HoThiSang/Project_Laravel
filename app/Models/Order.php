@@ -16,8 +16,8 @@ use Illuminate\Support\Carbon;
 class Order extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $table = 'orders';
-
 
     public function creatNewOrder($data)
     {
