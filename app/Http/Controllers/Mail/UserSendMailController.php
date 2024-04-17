@@ -11,14 +11,15 @@ use App\Models\Contact;
 use App\Mail\ContactFormEmail;
 use  Illuminate\Mail\PendingMail;
 use App\Mail\AdminReplyMail;
+use Illuminate\Support\Facades\Auth;
 
 class UserSendMailController extends Controller
 {
-    protected $contact;
+    protected $contacts;
 
     public function __construct()
     {
-        $this->contact = new Contact();
+        $this->contacts = new Contact();
     }
     public function sendEmail(Request $request)
     {
@@ -43,14 +44,16 @@ class UserSendMailController extends Controller
         if (Mail::failures()) {
             return redirect()->back()->with('error', 'Gửi email thất bại.');
         }
-        $this->contact->creatNewContact($data);
+        $this->contacts->creatNewContact($data);
         return redirect()->back()->with('success', 'The email has been successfully sent to the system');
     }
 
     public function replyEmail(Request $request, $id)
     {
+        if(Auth()->user()){
+     
         if ($request->isMethod('post')) {
-            $cart = $this->contact->getContactById($id);
+            $cart = $this->contacts->getContactById($id);
             if (!empty($cart)) {
                 $request->validate([
                     'message' => 'required',
@@ -65,6 +68,7 @@ class UserSendMailController extends Controller
                 ];
                 $cartdata= [
                     'status' => 'Contacted',
+                    'user_id' => Auth()->user()->id,
                     'updated_at' => now()
                 ];
                 Mail::to($cart->email)->send(new AdminReplyMail($dataSend));
@@ -72,10 +76,11 @@ class UserSendMailController extends Controller
                 if (Mail::failures()) {
                     return redirect()->back()->with('error', 'Gửi email thất bại.');
                 }
-                $this->contact->updateContact($id, $cartdata);
+                $this->contacts->updateContact($id, $cartdata);
                 
                 return redirect()->route('admin-contact')->with('success', 'The email has been successfully sent to the system');
             }
         }
+    }
     }
 }

@@ -32,7 +32,7 @@ class ProductRequest extends FormRequest
             'ingredient' => 'required',
             'description' => 'required',
             'category_id' => 'required|integer',
-            'image' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'file|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
 
 
         ];

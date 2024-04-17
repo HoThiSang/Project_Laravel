@@ -12,36 +12,21 @@
              <div class="col-2">
                  <a href="?sort-by" class="btn btn-primary mx-1">Soft by name</a>
              </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Soft by DOB</a>
-             </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Primary link</a>
-             </div>
-             <div class="col-2">
-                 <form action="" class="position-relative" method="post">
-                     @csrf
-                     <input type="text" class="form-control pl-5" placeholder="Search..." style="width: 300px; padding-left: 35px;">
-                     <i class="fas fa-search position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%);"></i>
-                 </form>
-             </div>
+             <div class="col-4">
+                     <form action="{{ route('admin-products-search') }}" method="post">
+                         @csrf
+                         <div class="input-group">
+                             <input type="text" name="keyword" class="form-control" placeholder="Search by product name">
+                             <button type="submit" class="btn btn-primary">Search</button>
+                         </div>
+                     </form>
+                 </div>
 
 
 
          </div>
          <!-- Basic Bootstrap Table -->
-         @if(session('success'))
-         <div class="alert alert-success">
-             {{ session('success') }}
-         </div>
-         @endif
-
-         @if(session('error'))
-         <div class="alert alert-danger">
-             {{ session('error') }}
-         </div>
-         @endif
-
+   
          <div class="card">
             <h5 class="card-header">Banner</h5>
              <div style="margin:15px;"><a href="{{route('add-banner')}}" class="btn btn-primary">Create new</a></div>
@@ -101,5 +86,15 @@
 
      <div class="content-backdrop fade"></div>
 
+     @if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+    @endif
 
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
      @endsection

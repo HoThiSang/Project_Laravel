@@ -13,21 +13,15 @@
              <div class="col-2">
                  <a href="?sort-by" class="btn btn-primary mx-1">Soft name</a>
              </div>
-
-             <div class="col-2">
-                 <form action="{{ route('admin-category-research') }}" class="position-relative" method="post">
+             <div class="col-4">
+                 <form action="{{ route('admin-category-research') }}" method="post">
                      @csrf
-                     <input type="text" class="form-control pl-5" name="key-search" placeholder="Search..." style="width: 300px; padding-left: 35px;">
-                     <button type="submit" class="position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%); border: none; background: none;">
-                         <i class="fas fa-search"></i>
-                     </button>
+                     <div class="input-group">
+                         <input type="text" name="key-search" class="form-control" placeholder="Search by product name">
+                         <button type="submit" class="btn btn-primary">Search</button>
+                     </div>
                  </form>
              </div>
-
-
-
-
-
          </div>
 
 

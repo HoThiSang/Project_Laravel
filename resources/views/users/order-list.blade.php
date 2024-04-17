@@ -39,8 +39,8 @@
                 <td>{{ $order->created_at }}</td>
                 <td>{{ $order->order_total }}</td>
                 <td>
-                    <button type="button" class="btn btn-success" style="text-decoration: none; color:#000;"><i class="fa-solid fa-eye"></i></button>
-                    <button type="button" class="btn btn-info" style="text-decoration: none; color:#000; margin-left: 5px;"><i class="fa-solid fa-pencil"></i></button>
+                    <!-- <button type="button" class="btn btn-success" style="text-decoration: none; color:#000;"><i class="fa-solid fa-eye"></i></button>
+                    <button type="button" class="btn btn-info" style="text-decoration: none; color:#000; margin-left: 5px;"><i class="fa-solid fa-pencil"></i></button> -->
                     <button type="button" class="btn btn-danger" style="margin-left: 5px;" onclick="return confirm('Do you want to delete?')"><a href="{{ route('delete-order', ['id'=>$order->id]) }}"><i class="fa-solid fa-trash"></i></a></button>
                 </td>
             </tr>

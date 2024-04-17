@@ -6,7 +6,7 @@
          <!-- Content -->
 
          <div class="container-xxl flex-grow-1 container-p-y">
-             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Users Tables</h4>
              <div class="row mb-4">
                  <div class="col-2">
                      <a href="?sort-by" class="btn btn-primary mx-1">Soft by date</a>
@@ -30,9 +30,8 @@
                      </form>
                  </div>
 
-
-
              </div>
+
              <!-- Basic Bootstrap Table -->
              <div class="card">
                  <h5 class="card-header">Users</h5>
@@ -75,7 +74,8 @@
                                      </td>
                                      <td>
                                          @if ($user->address)
-                                             {{ $user->address }}
+                                    
+                                             {{ Str::limit($user->address, 18) }}
                                          @else
                                              -
                                          @endif
@@ -138,4 +138,15 @@
 
          <div class="content-backdrop fade"></div>
      </div>
+     @if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+    @endif
+
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
  @endsection

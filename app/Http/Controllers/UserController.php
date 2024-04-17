@@ -21,7 +21,6 @@ class UserController extends Controller
     public function updateUser(Request $request, $id)
     {
       
-
         if ($request->isMethod('post')) {
 
             $request->validate([
