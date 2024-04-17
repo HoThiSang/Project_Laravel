@@ -18,13 +18,13 @@ class Product extends Model
      * @var array
      */
 
-    
+
     protected $fillable = [
 
         'name', 'description', 'price', 'deleted_at',
     ];
 
-    
+
     public function getFilter($filter)
     {
         $products = DB::table($this->table)
@@ -36,11 +36,10 @@ class Product extends Model
 
     public function getAllProduct()
     {
- 
         $products = DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->join('categories', 'products.category_id', '=', 'categories.id')
-            ->groupBy('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price',  'products.quantity')
+            ->groupBy('products.id')
             ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
             ->whereNull('products.deleted_at')
             ->get();
@@ -101,7 +100,7 @@ class Product extends Model
      */
     public function softDelete()
     {
-        
+
         return $this->update(['deleted_at' => Carbon::now()]);
     }
     
@@ -118,15 +117,18 @@ class Product extends Model
             return false;
         }
     }
-
-    public function getAllProductSortedByPriceDesc()
-    {
-        return $this->orderBy('price', 'desc')->get();
-    }
-
+   
     public function getAllProductSortedByQuantityDesc()
     {
-        return $this->orderBy('quantity', 'desc')->get();
+        $products = DB::table('products')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->groupBy('products.id')
+            ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
+            ->orderBy('quantity', 'desc') // Sắp xếp theo giá giảm dần
+            ->get();
+
+        return $products;
     }
 
     public function getAllProducts() 
@@ -178,4 +180,30 @@ public function getAllProductBySugest()
         ->where('quantity', '<', 40)
         ->get();
 }
+
+    public function getAllProductSortedByPriceDesc()
+    {
+        $products = DB::table('products')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->groupBy('products.id')
+            ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
+            ->orderBy('products.price', 'desc') // Sắp xếp theo giá giảm dần
+            ->get();
+
+        return $products;
+    }
+
+    public function search($keyword)
+    {
+        $products = DB::table('products')
+        ->join('images', 'products.id', '=', 'images.product_id')
+        ->join('categories', 'products.category_id', '=', 'categories.id')
+        ->where('products.product_name', 'like', "%$keyword%") // Điều kiện tìm kiếm sản phẩm theo tên
+        ->groupBy('products.id')
+        ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
+        ->get();
+        return $products;
+    }
+
 }
