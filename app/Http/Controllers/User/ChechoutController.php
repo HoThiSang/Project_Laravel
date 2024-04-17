@@ -33,13 +33,13 @@ class ChechoutController extends Controller
         if (Auth()->check()) {
             $user_id = Auth()->user()->id;
             $user = User::find($user_id);
-            // $cartAll = Cart::all();
-            // dd($cartAll);
-            // Lấy các carts dựa trên user_id
-            $carts = Cart::select('products.product_name', 'carts.price as cart_price', 'carts.quantity', 'products.price', 'products.id as product_id')
-                ->join('products', 'carts.product_id', '=', 'products.id')
-                ->where('carts.user_id', $user_id) // Điều kiện lấy carts của user hiện tại
-                ->get();
+        
+            // $carts = Cart::select('products.product_name', 'carts.price as cart_price', 'carts.quantity', 'products.price', 'products.id as product_id')
+            //     ->join('products', 'carts.product_id', '=', 'products.id')
+            //     ->where('carts.user_id', $user_id) // Điều kiện lấy carts của user hiện tại
+            //     ->get();
+            $cart = new Cart();
+            $carts = $cart->getAllCarts($user_id);
 
             return view('users/checkout', compact('carts', 'user'));
         }
@@ -71,7 +71,6 @@ class ChechoutController extends Controller
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (auth()->check()) {
 
-
                         error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                         date_default_timezone_set('Asia/Ho_Chi_Minh');
 
@@ -84,7 +83,7 @@ class ChechoutController extends Controller
 
                         $vnp_OrderInfo = "Noi dung thanh toan";
                         $vnp_OrderType = "billpayment";
-                        $vnp_Amount = $request->totalPrice * 100;
+                        $vnp_Amount = $request->totalPrice * 10000;
                         $vnp_Locale = "vn";
                         $vnp_BankCode = "NCB";
                         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
