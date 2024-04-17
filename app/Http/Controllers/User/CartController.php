@@ -44,43 +44,47 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth()->check()) {
+            $product_id = $request->input('id');
+            $quantity = 1;
+            $user_id = Auth()->user()->id;
 
-        $product_id = $request->input('id');
-        $quantity = 1;
-        $user_id = Auth::check() ? Auth::id() : null;
-
-        $existing_cart_item = Cart::where('product_id', $product_id)
-            ->where('user_id', $user_id)
-            ->first();
-
-        if ($existing_cart_item) {
-            $existing_cart_item->quantity = $existing_cart_item->quantity + 1;
-            $existing_cart_item->save();
-            return redirect()->back()->with('success', 'Sản phẩm đã được cập nhật trong giỏ hàng.');
-        } else {
-            $product = Product::find($product_id);
-
-            if ($product) {
-                $cart_item = new Cart();
-                $cart_item->product_id = $product_id;
-                $cart_item->quantity = $quantity;
-                $cart_item->user_id = $user_id;
-                $cart_item->price = $product->price;
-                $cart_item->save();
-                return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
+            $existing_cart_item = Cart::where('product_id', $product_id)
+                ->where('user_id', $user_id)
+                ->first();
+            if ($existing_cart_item) {
+                $existing_cart_item->quantity = $existing_cart_item->quantity + 1;
+                $existing_cart_item->save();
+                return redirect()->back()->with('success', 'Sản phẩm đã được cập nhật trong giỏ hàng.');
             } else {
-                return redirect()->back()->with('error', 'Không tìm thấy thông tin sản phẩm.');
+                $product = Product::find($product_id);
+
+                if ($product) {
+                    $cart_item = new Cart();
+                    $cart_item->product_id = $product_id;
+                    $cart_item->quantity = $quantity;
+                    $cart_item->user_id =  $user_id ;
+                    $cart_item->price = $product->price;
+                    $cart_item->save();
+                    return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
+                } else {
+                    return redirect()->back()->with('error', 'Không tìm thấy thông tin sản phẩm.');
+                }
             }
+        }else{
+            return redirect()->back()->with('error', 'Not found user');
         }
     }
 
     public function showCart()
     {
-        $check= 'error';
+        $check = 'error';
         if (Auth()->check()) {
-            $user_id = Auth::check() ? Auth::id() : null;        
-            $carts = Cart::with('product.images')->where('user_id', $user_id)->get();
-            $check= 'success';
+            $user_id = Auth::id();
+
+            $carts = Cart::where('user_id', $user_id)->get();
+            $check = 'success';
+
             return view('users.shopping-cart', compact('carts', 'check'));
         }
         return view('users.shopping-cart', compact('check'));

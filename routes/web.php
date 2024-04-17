@@ -68,7 +68,7 @@ Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtoc
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-Route::post('/add-to-wishlist', [WishlistController::class, 'add'])->name('addToWishlist');
+Route::post('/add-to-wishlist/{id}', [WishlistController::class, 'add'])->name('addToWishlist');
 //
 Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
 
@@ -94,7 +94,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/admin-user', [AdminUserController::class, 'index'])->name('user-index');
 
 
-        Route::get('/admin-product-update/{id}', [AdminProductController::class, 'edit'])->name('admin-get-update');
+        Route::get('/admin-product-update/{id}', [AdminProductController::class, 'edit'])->name('admin-getview-update');
 
         Route::get('/admin-order', [AdminOrderController::class, 'showOrder'])->name('admin-order');
 
@@ -150,10 +150,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('edit-user/{id}', [AdminUserController::class, 'edit'])->name('edit-user');
         Route::post('update-user/{id}', [AdminUserController::class, 'update'])->name('update-user');
         Route::get('delete-user/{id}', [AdminUserController::class, 'destroy'])->name('delete-user');
+
+        
+        Route::get('/admin-whislist-delete/{id}', [AdminWishListController::class, 'destroy'])->name('admin-whislist-destroy'); // display view create
+
 });
 
 Route::middleware(['auth'])->group(function () {
         
 });
-
-

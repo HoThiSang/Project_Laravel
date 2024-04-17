@@ -1,6 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
+    <style>
+        button:hover .fa-heart {
+            color: red;
+        }
+
+        .fill-heart {
+            color: red !important;
+        }
+        </style>
     <div class="container" style="display: flex; justify-content: center; align-items: center; ">
         <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder ">
 
@@ -93,11 +102,11 @@
                                                                 alt="">
                                                         </a>
                                                     </div>
-                                                    <!-- /.image -->
+                            
 
                                                     <div class="tag new"><span>new</span></div>
                                                 </div>
-                                                <!-- /.product-image -->
+                                    
 
                                                 <div class="product-info text-left">
                                                     <h3 class="name"><a
@@ -114,57 +123,72 @@
                                                             class="price-before-discount">{{ $product->discounted_price }}</span>
                                                     </div>
                                                 </div>
-                                                <!-- /.product-info -->
+                                                @auth
                                                 <div class="cart clearfix animate-effect">
                                                     <div class="action">
                                                         <ul class="list-unstyled">
-                                                            <li class="add-cart-button btn-group">
-                                                                <form id="addToCartForm"
-                                                                    action="{{ route('addtocart', ['id' => $product->id]) }}"
-                                                                    method="POST" style="display: none;">
+                                                            <li class="add-cart-button">
+                                                                <form id="addToCartForm" action="{{ route('addtocart', ['id' => $product->id]) }}" method="POST">
                                                                     @csrf
-                                                                    <input type="hidden" name="id"
-                                                                        value="{{ $product->id }}">
-                                                                    <input type="hidden" name="user_id"
-                                                                        value="{{ Auth::id() }}">
-                                                                    <input type="hidden" name="price"
-                                                                        value="{{ $product->price }}">
+                                                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                                                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                                    <input type="hidden" name="price" value="{{ $product->price }}">
+                                                                    @php
+                                                                        $cart_item = App\Models\Cart::where('product_id', $product->id)
+                                                                            ->where('user_id', auth()->user()->id)
+                                                                            ->first();
+                                                                    @endphp
+                                                                    <button type="submit" class="btn btn-primary icon">
+                                                                        <i class="fa fa-shopping-cart"></i>
+                                                                    </button>
                                                                 </form>
-
-                                                                <a href="{{ route('addtocart', ['id' => $product->id]) }}"
-                                                                    onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();"
-                                                                    class="btn btn-primary icon">
-                                                                    <i class="fa fa-shopping-cart"></i>
+                                                            </li>
+                                                
+                                                            <li class="wishlist-button">
+                                                                <form action="{{ route('addToWishlist', ['id' => $product->id]) }}" method="post">
+                                                                    @csrf
+                                                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                                                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                                    @php
+                                                                        $wishlist_item = App\Models\WishList::where('product_id', $product->id)
+                                                                            ->where('user_id', auth()->user()->id)
+                                                                            ->first();
+                                                                    @endphp
+                                                                    <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                                        @if ($wishlist_item)
+                                                                            <i class="fa-solid fa-heart fill-heart"></i>
+                                                                        @else
+                                                                            <i class="fa-solid fa-heart"></i>
+                                                                        @endif
+                                                                    </button>
+                                                                </form>
+                                                            </li>
+                                                
+                                                            <li class="lnk">
+                                                                <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare">
+                                                                    <i class="fa fa-signal" aria-hidden="true"></i>
                                                                 </a>
                                                             </li>
-                                                            <li class="lnk wishlist"> <a data-toggle="tooltip"
-                                                                    class="add-to-cart" href="detail.html"
-                                                                    title="Wishlist"> <i class="icon fa fa-heart"></i>
-                                                                </a> </li>
-                                                            <li class="lnk"> <a data-toggle="tooltip"
-                                                                    class="add-to-cart" href="detail.html"
-                                                                    title="Compare"> <i class="fa fa-signal"
-                                                                        aria-hidden="true"></i> </a> </li>
+                                                           
                                                         </ul>
                                                     </div>
-                                                    <!-- /.action -->
                                                 </div>
-                                                <!-- /.cart -->
+                                                @endauth
                                             </div>
-                                            <!-- /.product -->
+                                      
 
                                         </div>
-                                        <!-- /.products -->
+                                 
                                     </div>
-                                    <!-- /.item -->
+                              
                                 @endforeach
-                                <!-- /.item -->
+                          
                             </div>
-                            <!-- /.home-owl-carousel -->
+                    
                         </div>
-                        <!-- /.product-slider -->
+                   
                     </div>
-                    <!-- /.tab-pane -->
+                
 
                     <div class="tab-pane" id="smartphone">
                         <div class="product-slider">
@@ -175,11 +199,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p5.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                       
 
                                                 <div class="tag sale"><span>sale</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                                       
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -187,10 +211,10 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                                       
 
                                             </div>
-                                            <!-- /.product-info -->
+                                       
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -209,16 +233,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                         
                                             </div>
-                                            <!-- /.cart -->
+                                          
                                         </div>
-                                        <!-- /.product -->
+                        
 
                                     </div>
-                                    <!-- /.products -->
+                         
                                 </div>
-                                <!-- /.item -->
+                    
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -226,11 +250,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p6.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                         
 
                                                 <div class="tag new"><span>new</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                          
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -238,7 +262,7 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+
 
                                             </div>
                                             <!-- /.product-info -->
@@ -260,16 +284,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                      
                                             </div>
-                                            <!-- /.cart -->
+                               
                                         </div>
-                                        <!-- /.product -->
+                               
 
                                     </div>
-                                    <!-- /.products -->
+                       
                                 </div>
-                                <!-- /.item -->
+                   
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -277,11 +301,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p7.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                  
 
                                                 <div class="tag sale"><span>sale</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                       
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -289,10 +313,10 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                        
 
                                             </div>
-                                            <!-- /.product-info -->
+                          
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -311,16 +335,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                 
                                             </div>
-                                            <!-- /.cart -->
+                             
                                         </div>
-                                        <!-- /.product -->
+                         
 
                                     </div>
-                                    <!-- /.products -->
+                    
                                 </div>
-                                <!-- /.item -->
+                       
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -328,11 +352,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p8.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                              
 
                                                 <div class="tag new"><span>new</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                                     
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -340,9 +364,9 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                                     
                                             </div>
-                                            <!-- /.product-info -->
+                                  
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -361,16 +385,16 @@
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                    
                                             </div>
-                                            <!-- /.cart -->
+                                  
                                         </div>
-                                        <!-- /.product -->
+                                
 
                                     </div>
-                                    <!-- /.products -->
+                                 
                                 </div>
-                                <!-- /.item -->
+                    
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -378,11 +402,11 @@
                                             <div class="product-image">
                                                 <div class="image"> <a href="detail.html"><img
                                                             src="assets\images\products\p9.jpg" alt=""></a> </div>
-                                                <!-- /.image -->
+                                
 
                                                 <div class="tag hot"><span>hot</span></div>
                                             </div>
-                                            <!-- /.product-image -->
+                      
 
                                             <div class="product-info text-left">
                                                 <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
@@ -390,10 +414,10 @@
                                                 <div class="description"></div>
                                                 <div class="product-price"> <span class="price"> $450.99 </span> <span
                                                         class="price-before-discount">$ 800</span> </div>
-                                                <!-- /.product-price -->
+                                     
 
                                             </div>
-                                            <!-- /.product-info -->
+                        
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
@@ -405,23 +429,23 @@
                                                                 cart</button>
                                                         </li>
                                                         <li class="lnk wishlist"> <a class="add-to-cart"
-                                                                href="detail.html" title="Wishlist"> <i
+                                                                href="#" title="Wishlist"> <i
                                                                     class="icon fa fa-heart"></i> </a> </li>
                                                         <li class="lnk"> <a class="add-to-cart" href="detail.html"
                                                                 title="Compare"> <i class="fa fa-signal"
                                                                     aria-hidden="true"></i> </a> </li>
                                                     </ul>
                                                 </div>
-                                                <!-- /.action -->
+                                  
                                             </div>
-                                            <!-- /.cart -->
+                               
                                         </div>
-                                        <!-- /.product -->
+                                  
 
                                     </div>
-                                    <!-- /.products -->
+                               
                                 </div>
-                                <!-- /.item -->
+                              
 
                                 <div class="item item-carousel">
                                     <div class="products">
@@ -1046,7 +1070,7 @@
                     </div>
                 </div>
             </div>
-
+<!-- Discount of product -->
             <section class="section featured-product wow fadeInUp">
                 <h3 class="section-title">Promotional products</h3>
 
@@ -1072,37 +1096,56 @@
                                                 class="price-before-discount">{{ $productdiscount->price }}</span> </div>
 
                                     </div>
+                                    @auth
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
                                             <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <form id="addToCartForm"
-                                                        action="{{ route('addtocart', ['id' => $productdiscount->id]) }}"
-                                                        method="POST" style="display: none;">
+                                                <li class="add-cart-button">
+                                                    <form id="addToCartForm" action="{{ route('addtocart', ['id' => $productdiscount->id]) }}" method="POST">
                                                         @csrf
-                                                        <input type="hidden" name="id"
-                                                            value="{{ $productdiscount->id }}">
-                                                        <input type="hidden" name="user_id"
-                                                            value="{{ Auth::id() }}">
-                                                        <input type="hidden" name="price"
-                                                            value="{{ $productdiscount->price }}">
+                                                        <input type="hidden" name="id" value="{{ $productdiscount->id }}">
+                                                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                        <input type="hidden" name="price" value="{{ $productdiscount->price }}">
+                                                        @php
+                                                            $cart_item = App\Models\Cart::where('product_id', $productdiscount->id)
+                                                                ->where('user_id', auth()->user()->id)
+                                                                ->first();
+                                                        @endphp
+                                                        <button type="submit" class="btn btn-primary icon">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </button>
                                                     </form>
-
-                                                    <a href="{{ route('addtocart', ['id' => $productdiscount->id]) }}"
-                                                        onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();"
-                                                        class="btn btn-primary icon">
-                                                        <i class="fa fa-shopping-cart"></i>
+                                                </li>
+                                    
+                                                <li class="wishlist-button">
+                                                    <form action="{{ route('addToWishlist', ['id' => $productdiscount->id]) }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $productdiscount->id }}">
+                                                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                        @php
+                                                            $wishlist_item = App\Models\WishList::where('product_id', $productdiscount->id)
+                                                                ->where('user_id', auth()->user()->id)
+                                                                ->first();
+                                                        @endphp
+                                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                            @if ($wishlist_item)
+                                                                <i class="fa-solid fa-heart fill-heart"></i>
+                                                            @else
+                                                                <i class="fa-solid fa-heart"></i>
+                                                            @endif
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                    
+                                                <li class="lnk">
+                                                    <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare">
+                                                        <i class="fa fa-signal" aria-hidden="true"></i>
                                                     </a>
                                                 </li>
-                                                <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart"
-                                                        href="detail.html" title="Wishlist"> <i
-                                                            class="icon fa fa-heart"></i> </a> </li>
-                                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
-                                                        href="detail.html" title="Compare"> <i class="fa fa-signal"
-                                                            aria-hidden="true"></i> </a> </li>
                                             </ul>
                                         </div>
                                     </div>
+                                    @endauth
                                 </div>
 
                             </div>
@@ -1218,7 +1261,6 @@
                                     <div class="image"> <a href="blog.html"><img src="assets\images\blog-post\post1.jpg"
                                                 alt=""></a> </div>
                                 </div>
-                                <!-- /.blog-post-image -->
 
                                 <div class="blog-post-info text-left">
                                     <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla
@@ -1234,6 +1276,7 @@
                     </div>
                 </div>
             </section>
+            <!-- Sản phẩm giảm giá  -->
             <section class="section wow fadeInUp new-arriavls">
                 <h3 class="section-title">Recomendation </h3>
                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
@@ -1259,26 +1302,56 @@
 
                                     </div>
                                     <!-- /.product-info -->
+                                    @auth
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
                                             <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <form id="addToCartForm" action="{{ route('addtocart', ['id' => $productsSuggested->id]) }}" method="POST" style="display: none;">
-                                                            @csrf
-                                                            <input type="hidden" name="id" value="{{ $productsSuggested->id }}">
-                                                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                                            <input type="hidden" name="price" value="{{ $productsSuggested->price }}">
+                                                <li class="add-cart-button">
+                                                    <form id="addToCartForm" action="{{ route('addtocart', ['id' => $productsSuggested->id]) }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $productsSuggested->id }}">
+                                                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                        <input type="hidden" name="price" value="{{ $productsSuggested->price }}">
+                                                        @php
+                                                            $cart_item = App\Models\Cart::where('product_id', $productsSuggested->id)
+                                                                ->where('user_id', auth()->user()->id)
+                                                                ->first();
+                                                        @endphp
+                                                        <button type="submit" class="btn btn-primary icon">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </button>
                                                     </form>
-
-                                                    <a href="{{ route('addtocart', ['id' => $productsSuggested->id]) }}"  onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();" class="btn btn-primary icon">
-                                                        <i class="fa fa-shopping-cart"></i>
+                                                </li>
+                                    
+                                                <li class="wishlist-button">
+                                                    <form action="{{ route('addToWishlist', ['id' => $productsSuggested->id]) }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $productsSuggested->id }}">
+                                                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                        @php
+                                                            $wishlist_item = App\Models\WishList::where('product_id', $productsSuggested->id)
+                                                                ->where('user_id', auth()->user()->id)
+                                                                ->first();
+                                                        @endphp
+                                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                            @if ($wishlist_item)
+                                                                <i class="fa-solid fa-heart fill-heart"></i>
+                                                            @else
+                                                                <i class="fa-solid fa-heart"></i>
+                                                            @endif
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                    
+                                                <li class="lnk">
+                                                    <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare">
+                                                        <i class="fa fa-signal" aria-hidden="true"></i>
                                                     </a>
                                                 </li>
-                                                <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                             </ul>
                                         </div>
                                     </div>
+                                    @endauth
                                 </div>
 
                             </div>

@@ -23,9 +23,9 @@ class Cart extends Model
         parent::boot();
 
         // Đăng ký sự kiện 'creating' để tự động đặt user_id thành 1 trước khi tạo mới một bản ghi
-        static::creating(function ($cart) {
-            $cart->user_id = 1;
-        });
+        // static::creating(function ($cart) {
+        //     $cart->user_id = 1;
+        // });
     }
 
     public function product()

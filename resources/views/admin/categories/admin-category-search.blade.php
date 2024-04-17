@@ -1,11 +1,9 @@
- <!-- Content wrapper -->
-
- @extends('layouts.admin')
+@extends('layouts.admin')
  @section('content')
  <div class="content-wrapper">
-     <!-- Content -->
+     
      <div class="container-xxl flex-grow-1 container-p-y">
-         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Produts</h4>
+     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Produts</h4>
          <div class="row mb-4">
              <div class="col-2">
                  <a href="?sort-by" class="btn btn-primary mx-1">Soft by date</a>
@@ -13,24 +11,16 @@
              <div class="col-2">
                  <a href="?sort-by" class="btn btn-primary mx-1">Soft name</a>
              </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Soft by DOB</a>
-             </div>
-             <div class="col-2">
-                 <a href="?sort-by" class="btn btn-primary mx-1">Primary link</a>
-             </div>
-             <div class="col-2">
-                 <form action="" class="position-relative" method="post">
+             <div class="col-4">
+                 <form action="{{ route('admin-category-research') }}" method="post">
                      @csrf
-                     <input type="text" class="form-control pl-5" name="key-search" placeholder="Search..." style="width: 300px; padding-left: 35px;">
-                     <i class="fas fa-search position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%);"></i>
+                     <div class="input-group">
+                         <input type="text" name="key-search" class="form-control" placeholder="Search by product name">
+                         <button type="submit" class="btn btn-primary">Search</button>
+                     </div>
                  </form>
              </div>
-
-
-
          </div>
-
 
          <div class="card">
              <div style="margin:15px;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create new</button></div>
@@ -45,7 +35,7 @@
                          </tr>
                      </thead>
                      <tbody class="table-border-bottom-0">
-                         @foreach($categoriesAll as $category)
+                         @foreach($categoryFind as $category)
 
                          <tr>
                              <td><strong>{{ $category->id }}</strong></td>

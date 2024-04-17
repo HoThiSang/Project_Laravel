@@ -11,34 +11,20 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     protected $categories;
+    protected $products;
+
     public function __construct()
     {
         $this->categories = new Categories();
+        $this->products = new Product();
     }
 
     public function index()
     {
-        //  $products = DB::table('products')->join('images', 'products.id', '=', 'images.product_id')->get();
-        $products = DB::table('products')
-            ->join('images', 'products.id', '=', 'images.product_id')
-            ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discounted_price')
-            ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
-            ->get();
-
-        $productsWithDiscount = DB::table('products')
-            ->join('images', 'products.id', '=', 'images.product_id')
-            ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discounted_price')
-            ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
-            ->where('discount', '>', 0)
-            ->get();
-
-        $productsSuggesteds  = DB::table('products')
-            ->join('images', 'products.id', '=', 'images.product_id')
-            ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discounted_price')
-            ->select('products.id', 'products.product_name', 'products.price', 'products.discounted_price', DB::raw('MAX(images.image_url) as image_url'))
-            ->where('quantity', '<', 60)
-            ->get();
-// dd($products);
+      
+        $products = $this->products->getAllProducts();
+        $productsWithDiscount  = $this->products->getAllProductByDiscount();
+        $productsSuggesteds = $this->products->getAllProductBySugest();
         return  view('users/index', compact('products', 'productsWithDiscount', 'productsSuggesteds'));
     }
 

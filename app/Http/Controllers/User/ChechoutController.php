@@ -252,7 +252,8 @@ class ChechoutController extends Controller
         $check = "error";
         if (auth()->check()) {
             $user_id = auth()->user()->id;
-            $orderAll = $this->orders->getAllOrder();
+            // dd( $user_id);
+            $orderAll = $this->orders->getAllOrder($user_id);
 
             $check = "success";
             return view('users/order-list', compact('orderAll', 'check'));

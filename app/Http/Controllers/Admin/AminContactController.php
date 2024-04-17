@@ -17,7 +17,6 @@ class AminContactController extends Controller
     public function index()
     {
         $contactAll = $this->contact->getAllContact();
-        // dd($contactAll);
         return view('admin/contact/admin-contact', compact('contactAll'));
     }
 
