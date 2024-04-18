@@ -83,7 +83,7 @@ class ChechoutController extends Controller
 
                         $vnp_OrderInfo = "Noi dung thanh toan";
                         $vnp_OrderType = "billpayment";
-                        $vnp_Amount = $request->totalPrice * 10000;
+                        $vnp_Amount = $request->totalPrice * 100000;
                         $vnp_Locale = "vn";
                         $vnp_BankCode = "NCB";
                         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
