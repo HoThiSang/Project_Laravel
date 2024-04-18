@@ -11,12 +11,7 @@
                 <div class="col-2">
                     <a href="?sort-by" class="btn btn-primary mx-1">Soft by name</a>
                 </div>
-                <div class="col-2">
-                    <a href="?sort-by" class="btn btn-primary mx-1">Soft by DOB</a>
-                </div>
-                <div class="col-2">
-                    <a href="?sort-by" class="btn btn-primary mx-1">Primary link</a>
-                </div>
+               
                 <div class="col-4">
                     <form action="{{ route('admin-order-search') }}" method="post">
                         @csrf
@@ -29,7 +24,7 @@
 
             </div>
             <!-- Basic Bootstrap Table -->
-            @if (session('success'))
+            <!-- @if (session('success'))
                  <div class="alert alert-success">
                      {{ session('success') }}
                  </div>
@@ -39,16 +34,16 @@
                  <div class="alert alert-danger">
                      {{ session('error') }}
                  </div>
-             @endif
+             @endif -->
 
             <div class="card">
                 <h5 class="card-header">Table Order</h5>
                 <div class="table-responsive text-nowrap">
-                    @if (session('success'))
+                    <!-- @if (session('success'))
                         <div class="alert alert-success mt-3" role="alert">
                             {{ session('success') }}
                         </div>
-                    @endif
+                    @endif -->
                     <table class="table">
                         <thead>
                             <tr>
@@ -150,4 +145,15 @@
         <!-- / Content -->
         <div class="content-backdrop fade"></div>
     </div>
+    @if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+    @endif
+
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
 @endsection

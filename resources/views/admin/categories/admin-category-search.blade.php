@@ -3,7 +3,7 @@
  <div class="content-wrapper">
      
      <div class="container-xxl flex-grow-1 container-p-y">
-     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Produts</h4>
+     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Categories</h4>
          <div class="row mb-4">
              <div class="col-2">
                  <a href="?sort-by" class="btn btn-primary mx-1">Soft by date</a>

@@ -46,7 +46,7 @@ class WishlistController extends Controller
     
                 if ($existing_wishlist_item) {
                     $existing_wishlist_item->delete();
-                    return redirect()->back()->with('success', 'Sản phẩm đã được xóa khỏi danh sách yêu thích.');
+                    return redirect()->back()->with('success', 'The product has been removed from the favorites list.');
                 } else {
                 $product = Product::find($product_id);
     
@@ -56,9 +56,9 @@ class WishlistController extends Controller
                     $wishlist_item->user_id = $user_id;
                     
                     $wishlist_item->save();
-                    return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào danh sách yêu thích.');
+                    return redirect()->back()->with('success', 'The product has been added to your favorites list.');
                 } else {
-                    return redirect()->back()->with('error', 'Không tìm thấy thông tin sản phẩm.');
+                    return redirect()->back()->with('error', 'No product information found.');
                 }
             }
         }

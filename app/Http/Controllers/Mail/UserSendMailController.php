@@ -23,6 +23,9 @@ class UserSendMailController extends Controller
     }
     public function sendEmail(Request $request)
     {
+        if(Auth()->check()){
+
+     
         $request->validate([
             'user_name' => 'required',
             'email' => 'required|email|',
@@ -42,10 +45,12 @@ class UserSendMailController extends Controller
         Mail::to(getenv('MAIL_USERNAME'))->send(new UserSendMail($data));
 
         if (Mail::failures()) {
-            return redirect()->back()->with('error', 'Gửi email thất bại.');
+            return redirect()->back()->with('error', 'Send the email is failed !');
         }
         $this->contacts->creatNewContact($data);
         return redirect()->back()->with('success', 'The email has been successfully sent to the system');
+    }
+        return redirect()->route('login');
     }
 
     public function replyEmail(Request $request, $id)
@@ -74,7 +79,7 @@ class UserSendMailController extends Controller
                 Mail::to($cart->email)->send(new AdminReplyMail($dataSend));
                
                 if (Mail::failures()) {
-                    return redirect()->back()->with('error', 'Gửi email thất bại.');
+                    return redirect()->back()->with('error', 'Email sending failed');
                 }
                 $this->contacts->updateContact($id, $cartdata);
                 

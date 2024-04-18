@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Slide;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -143,10 +142,10 @@ class AdminUserController extends Controller
         
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            // $file->move('images/', $filename);
+          
             $user->image_name = $filename;
             $user->image_url = $uploadedFileUrl;
-            $user->publicId = $filename;
+            $user->publicId = $publicId;
 
             
         }
@@ -162,9 +161,9 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -222,17 +221,21 @@ class AdminUserController extends Controller
         $user->image_name = $request->input('image_name');
 
         if ($request->hasFile('image_url')) {
-            $oldImage = 'images/' . $user->image_url;
-            if (File::exists($oldImage)) {
-                File::delete($oldImage);
-            }
+      
             $file = $request->file('image_url');
+            $uploadedFileUrl = Cloudinary::upload($request->file('image_url')->getRealPath(), [
+                'folder' => 'upload_image'
+            ])->getSecurePath();
+            $publicId = Cloudinary::getPublicId();
+        
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('images/', $filename);
-            $user->image_url = $filename;
+          
+            $user->image_name = $filename;
+            $user->image_url = $uploadedFileUrl;
+            $user->publicId = $publicId;
         }
-
+    
         $user->update();
         return redirect()->route('admin-user')->with('success', 'Updated successfully');
     }
@@ -253,7 +256,56 @@ class AdminUserController extends Controller
             $user->delete();
             return redirect()->route('admin-user')->with('success', 'Deleted successfully');
         } else {
-            return redirect()->route('admin-user')->with('error', 'Không tìm thấy người dùng');
+            return redirect()->route('admin-user')->with('error', 'User not found');
         }
+    }
+
+    public function updateAdmin(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+            'phone' => 'required',
+            'role_id' => 'integer',
+            'username' => 'required',
+            'date_of_birth' => 'date',
+            'address' => 'string',
+            'image_name' => 'string',
+            'image_url' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = User::find($id);
+        $user->username = $request->input('username');
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->date_of_birth = $request->input('date_of_birth');
+        $user->address = $request->input('address');
+        $user->role_id = $request->input('role_id');
+
+        $user->image_name = $request->input('image_name');
+
+        if ($request->hasFile('image_url')) {
+            
+            $file = $request->file('image_url');
+            $uploadedFileUrl = Cloudinary::upload($request->file('image_url')->getRealPath(), [
+                'folder' => 'upload_image'
+            ])->getSecurePath();
+            $publicId = Cloudinary::getPublicId();
+        
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+          
+            $user->image_name = $filename;
+            $user->image_url = $uploadedFileUrl;
+            $user->publicId = $publicId;
+        }
+    
+        $user->update();
+        return redirect()->route('admin-user')->with('success', 'Updated successfully');
     }
 }

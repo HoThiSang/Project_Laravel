@@ -38,7 +38,7 @@
 								@foreach($carts as $cart)
 								<tr>
 									<td class="romove-item">
-										<a href="{{ route('cart.remove', $cart->id) }}" title="Remove" class="icon"><i class="fa fa-trash-o"></i></a>
+										<a href="{{ route('cart-remove', $cart->product_id) }}" title="Remove" class="icon"><i class="fa fa-trash-o"></i></a>
 									</td>
 
 									<td class="cart-image">

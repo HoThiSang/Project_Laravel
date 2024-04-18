@@ -3,7 +3,7 @@
     <div class="content-wrapper">
         <!-- Content -->
         <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Update banner</h4>
             <form action="{{ route('update-banner', ['id' => $banner->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
 
@@ -11,7 +11,7 @@
                     <div class="col-xl">
                         <div class="card mb-4">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Edit banner</h5>
+                                <h5 class="mb-0">Update banner</h5>
                                 <small class="text-muted float-end">l</small>
                             </div>
                             <div class="card-body">
@@ -60,8 +60,8 @@
                                     <label class="form-label" for="ingredient">Image Name</label>
                                     <div class="input-group input-group-merge">
                                         <span id="image_name" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                        <textarea id="image_name" class="form-control" name="image_name" value="{{ $banner->image_name }}" placeholder=""
-                                            aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                        <textarea id="image_name" class="form-control" name="image_name" value="" placeholder=""
+                                            aria-label="" aria-describedby="basic-icon-default-message2">{{ $banner->image_name }}</textarea>
 
                                     </div>
                                     @error('image_name')
