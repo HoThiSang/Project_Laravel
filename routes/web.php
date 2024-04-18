@@ -83,6 +83,15 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/dashboard', function () {
                 return view('admin.dashboard');
         });
+
+        
+
+        Route::get('admin-profile', [UserController::class, 'adminProfile'])->name('admin-profile');
+        Route::post('admin-profile/{id}', [UserController::class, 'updateUser'])->name('update-admin-profile');
+
+        
+
+
         Route::get('/admin-product', [AdminProductController::class, 'index'])->name('product-index');
 
         Route::get('/admin-product-detail/{id}', [AdminProductController::class, 'show'])->name('product-detail');
