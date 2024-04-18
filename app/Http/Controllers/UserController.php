@@ -18,37 +18,41 @@ class UserController extends Controller
         return view('users.user-profile', compact('user'));
     }
 
+    public function adminProfile()
+    {
+        $user_id = Auth::user()->id;
+
+        $user = DB::table('users')->where('id', $user_id)->first();
+        return view('admin.admin-profile', compact('user'));
+    }
+
     public function updateUser(Request $request, $id)
     {
-      
-        if ($request->isMethod('post')) {
 
-            $request->validate([
-                'username' => 'required',
-                'email' => 'required|email',
-                'phone' => 'required|digits:10',
-                'address' => 'required',
-            ]);
-          
-            $user = new User();
-   
-            $user->username = $request->username;
-            $user->email = $request->email;
-            $user->phone = $request->phone;
-            $user->address = $request->address;
-            $user->password = $request->password;
-            $user->date_of_birth = $request->date;
-            $user->role_id = $request->role_id;;
-            $user->updated_at = now();
-            $user->save();
-    
-            if ($user) {
-            
-                return redirect()->back()->with('message', 'Updated your information successfully !');
-            } else {
-                return redirect()->back()->with('error', 'Update your information failed !');
-            }
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10',
+            'address' => 'required',
+        ]);
+
+        // Lấy thông tin người dùng từ cơ sở dữ liệu
+        $user = User::find($id);
+
+        // Kiểm tra nếu không tìm thấy người dùng
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found');
         }
-        return redirect()->back()->with('error', 'Not found user with id '. $id);
+
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->date_of_birth = $request->date_of_birth;
+        $user->role_id = $request->role_id;
+        $user->updated_at = now();
+        $user->save();
+        return redirect()->back()->with('message', 'Updated your information successfully!');
     }
+    
 }
