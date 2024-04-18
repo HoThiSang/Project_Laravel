@@ -34,19 +34,30 @@ class Product extends Model
         return $products;
     }
 
+    // public function getAllProduct()
+    // {
+    //     $products = DB::table('products')
+    //         ->join('images', 'products.id', '=', 'images.product_id')
+    //         ->join('categories', 'products.category_id', '=', 'categories.id')
+    //         ->groupBy('products.id')
+    //         ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
+    //         ->whereNull('products.deleted_at')
+    //         ->get();
+
+    //     return $products;
+    // }
     public function getAllProduct()
     {
         $products = DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->join('categories', 'products.category_id', '=', 'categories.id')
-            ->groupBy('products.id')
-            ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
             ->whereNull('products.deleted_at')
+            ->groupBy('products.id', 'products.product_name', 'products.category_id', 'products.price', 'products.discounted_price', 'products.quantity')
+            ->select('products.id', 'products.product_name', 'products.category_id', 'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
             ->get();
-
+    
         return $products;
     }
-
     
     protected static function booted()
     {

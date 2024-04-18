@@ -6,12 +6,15 @@
         color: red;
     }
 
-    .fill-heart {
-        color: red !important;
-    }
-</style>
-<div class="container" style="display: flex; justify-content: center; align-items: center; ">
-    <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder ">
+        .fill-heart {
+            color: red !important;
+        }
+        </style>
+           @if (session()->has('success'))
+           <div class="alert alert-success">{{ session('success') }}</div>
+       @endif 
+    <div class="container" style="display: flex; justify-content: center; align-items: center; ">
+        <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder ">
 
         <div id="hero">
             <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">

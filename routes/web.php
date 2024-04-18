@@ -22,6 +22,7 @@ use App\Http\Controllers\Mail\UserSendMailController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AminContactController;
 use App\Http\Controllers\Admin\AdminBannerController;
+use App\Http\Controllers\User\SearchProductController;
 use App\Models\Banner;
 
 /*
@@ -170,3 +171,5 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
         
 });
+
+Route::post('search_products', [HomeController::class,'search'])->name('search_products'); // display

@@ -31,7 +31,7 @@ class AdminProductController extends Controller
     public function index()
     {
         $productAll = $this->products->getAllProduct();
-
+        
         return view('admin/products/admin-product', compact('productAll'));
     }
 
