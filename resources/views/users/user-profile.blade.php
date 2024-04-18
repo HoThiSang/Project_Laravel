@@ -42,13 +42,16 @@
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 <div class="side-menu animate-dropdown outer-bottom-xs">
                     <div class="head">
-                        <img src="{{ $user->image_url }}" style="height: 200px; width: 220px; border: 1px solid gray;" alt="">
-
+                        <div class="text-center">
+                            @if ($user->image_url)
+                            <img src="{{ $user->image_url }}" alt="user-avatar" class="d-block rounded mx-auto" id="uploadedAvatar" height="150px" width="150px" />
+                            @else
+                            <img src="https://down-vn.img.susercontent.com/file/cdf9af013aa652eb0596cb252b1101d4_tn" alt="user-avatar" class="d-block rounded mx-auto" id="uploadedAvatar" height="150px" width="150px" />
+                            @endif
+                        </div>
                         <p class="text-center">{{ $user->username }}</p>
-
                     </div>
                     @include('components.nav')
-
                 </div>
 
                 <div class="sidebar-module-container">
@@ -75,7 +78,12 @@
                                         <div class="">
                                             <div class="d-flex align-items-start align-items-sm-center gap-4">
                                                 <div>
+                                                    @if ($user->image_url)
                                                     <img src="{{  $user->image_url }}" alt="user-avatar" class="d-block rounded" id="uploadedAvatar" height="150px" width="150px" />
+                                                    @else
+                                                    <img src="https://down-vn.img.susercontent.com/file/cdf9af013aa652eb0596cb252b1101d4_tn" alt="user-avatar" class="d-block rounded" id="uploadedAvatar" height="150px" width="150px" />
+                                                    @endif
+                                                    
                                                 </div>
 
                                                 <div class="button-wrapper">
