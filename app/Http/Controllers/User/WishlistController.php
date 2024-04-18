@@ -23,9 +23,13 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        $user_id = Auth()->user()->id;
-        $wishlist = $this->wish_lists->getAllWishList($user_id);
-        return view('users/wishlist', compact('wishlist'));
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $wishlist = $this->wish_lists->getAllWishList($user_id);
+            return view('users.wishlist', compact('wishlist'));
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     public function add(Request $request)

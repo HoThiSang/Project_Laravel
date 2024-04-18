@@ -111,14 +111,15 @@
 
                         <!-- ============================================================= SEARCH AREA ============================================================= -->
                         <div class="search-area">
-                            <form>
+                            <form action="{{route('search_products') }}" method="POST">
+                                @csrf
                                 <div class="control-group">
                                     <ul class="categories-filter animate-dropdown">
                                         <li class="dropdown">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                                         </li>
                                     </ul>
-                                    <input class="search-field" placeholder="Search here...">
+                                    <input class="search-field" name="keyword_submitted" placeholder="Search here...">
                                     <a class="search-button" href="#"></a>
                                 </div>
                             </form>
@@ -385,6 +386,8 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
     @yield('js')
 </body>
 
