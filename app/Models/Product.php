@@ -130,39 +130,35 @@ class Product extends Model
 
         return $products;
     }
-
     public function getAllProducts() 
     {
-      return  DB::table('products')
-        ->join('images', 'products.id', '=', 'images.product_id')
-        ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discount')
-        ->select('products.id', 'products.product_name', 'products.price', 'products.discount', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
-        ->get();
-
+        return  DB::table('products')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discount')
+            ->select('products.id', 'products.product_name', 'products.price', 'products.discount', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
+            ->get();
     }
-
+    
     public function getAllProductByDiscount() 
     {
         return   DB::table('products')
-        ->join('images', 'products.id', '=', 'images.product_id')
-        ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discount')
-        ->select('products.id', 'products.product_name', 'products.price', 'products.discount', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
-        ->where('discount', '>', 0)
-        ->get();
-
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discount')
+            ->select('products.id', 'products.product_name', 'products.price', 'products.discount', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
+            ->where('products.discount', '>', 0) // Thêm 'products.' trước discount
+            ->get();
     }
-
-
-public function getAllProductBySugest()
-{
-    return DB::table('products')
-        ->join('images', 'products.id', '=', 'images.product_id')
-        ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discount')
-        ->select('products.id', 'products.product_name', 'products.price', 'products.discount',
-         DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
-        ->where('quantity', '<', 40)
-        ->get();
-}
+    
+    public function getAllProductBySugest()
+    {
+        return DB::table('products')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->groupBy('products.id', 'products.product_name', 'products.price', 'products.discount')
+            ->select('products.id', 'products.product_name', 'products.price', 'products.discount', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
+            ->where('products.quantity', '<', 40) // Thêm 'products.' trước quantity
+            ->get();
+    }
+    
 
     public function getAllProductSortedByPriceDesc()
     {
