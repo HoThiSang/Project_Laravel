@@ -122,7 +122,7 @@
                                     @enderror
                                 </div>
 
-                                <input type="hiden" class="role_id" id="role_id" value="1">
+                                <input type="hidden" class="role_id" id="role_id" value="1">
 
                                 <div class="mb-3">
                                     <input type="hidden" id="imageUrl" name="url" value="">

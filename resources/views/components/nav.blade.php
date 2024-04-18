@@ -10,7 +10,7 @@
         </li>
 
         <li class="dropdown menu-item">
-            <a href="" class="dropdown-toggle" data-toggle="">
+            <a href="{{ route('') }}" class="dropdown-toggle" data-toggle="">
                 <span class="icon-with-text">
                     <i class="fa-solid fa-cart-shopping" style="color: #157ED2;"></i>
                     Purchased order

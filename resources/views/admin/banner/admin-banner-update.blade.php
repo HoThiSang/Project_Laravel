@@ -73,7 +73,7 @@
                                     <input type="hidden" id="imageUrl" name="url" value="">
                                     <input id="image" type="file" accept="image/*" name="image_url"
                                         onchange="loadFile(event)">
-                                    <img src="{{ asset('images/' . $banner->image_url) }}" alt="" class="img-fluid"
+                                    <img src="{{ $banner->image_url }}" alt="" class="img-fluid"
                                         height="150" width="100">
                                 </div>
                                 @error('image')

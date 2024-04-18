@@ -71,6 +71,7 @@
         <div class="text-center">
             Don't have an account? <a href="registration">Create account</a>
         </div>
+        
     </div>
 </div>
 @endsection
