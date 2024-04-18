@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Categories;
 use Illuminate\Http\Request;
@@ -12,11 +13,13 @@ class HomeController extends Controller
 {
     protected $categories;
     protected $products;
+    protected $banner;
 
     public function __construct()
     {
         $this->categories = new Categories();
         $this->products = new Product();
+        $this->banner = new Banner();
     }
 
     public function index()
@@ -25,7 +28,9 @@ class HomeController extends Controller
         $products = $this->products->getAllProducts();
         $productsWithDiscount  = $this->products->getAllProductByDiscount();
         $productsSuggesteds = $this->products->getAllProductBySugest();
-        return  view('users/index', compact('products', 'productsWithDiscount', 'productsSuggesteds'));
+        $bannerAll = $this->banner->getAllBanner();
+        // dd($products);
+        return  view('users/index', compact('products', 'productsWithDiscount', 'productsSuggesteds', 'bannerAll'));
     }
 
     public function getDetail(string $id)
