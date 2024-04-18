@@ -42,7 +42,7 @@
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 <div class="side-menu animate-dropdown outer-bottom-xs">
                     <div class="head">
-                        <img src="{{ '/images/'. $user->image_url }}" style="height: 200px; width: 220px; border: 1px solid gray;" alt="">
+                        <img src="{{ $user->image_url }}" style="height: 200px; width: 220px; border: 1px solid gray;" alt="">
 
                         <p class="text-center">{{ $user->username }}</p>
 
@@ -75,7 +75,7 @@
                                         <div class="">
                                             <div class="d-flex align-items-start align-items-sm-center gap-4">
                                                 <div>
-                                                    <img src="{{ '/images/'. $user->image_url }}" alt="user-avatar" class="d-block rounded" id="uploadedAvatar" height="150px" width="150px" />
+                                                    <img src="{{  $user->image_url }}" alt="user-avatar" class="d-block rounded" id="uploadedAvatar" height="150px" width="150px" />
                                                 </div>
 
                                                 <div class="button-wrapper">

@@ -8,6 +8,8 @@ use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use App\Models\Slide;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class AdminBannerController extends Controller
 {
@@ -54,14 +56,30 @@ class AdminBannerController extends Controller
         $banner->title = $request->input('title');
         $banner->content = $request->input('content');
         $banner->image_name = $request->input('image_name');
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        //     dd($uploadedFileUrl);
+        // } else {
+        //     // Xử lý khi không có tệp hình ảnh được gửi lên
+        //     return back()->with('error', 'Vui lòng chọn một tệp hình ảnh để tải lên.');
+        // }
         if ($request->hasFile('image_url')) {
+            
             $file = $request->file('image_url');
+            $uploadedFileUrl = Cloudinary::upload($request->file('image_url')->getRealPath(), [
+                'folder' => 'upload_image'
+            ])->getSecurePath();
+            $publicId = Cloudinary::getPublicId();
             $extension = $file->getClientOriginalName();
             $filename = time() . '_' . $extension;
-            $file->move('images/', $filename);
-            $banner->image_url = $filename;
+            // $file->move('images/', $filename);
+            $banner->image_url = $uploadedFileUrl;
+            $banner->image_name = $filename;
+            $banner->publicId = $publicId;
         }
         $banner->save();
+      
         return redirect()->route('admin-banner')->with('success', 'Banner added successfully');
     }
 
