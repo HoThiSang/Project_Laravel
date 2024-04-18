@@ -60,6 +60,7 @@
                          </thead>
                          <tbody class="table-border-bottom-0">
                              @foreach ($userAll as $user)
+                             @if($user->role_id==1)
                                  <tr>
                                      <td><strong>{{ $user->id }}</strong></td>
                                      <td>{{ $user->username }}</td>
@@ -122,12 +123,12 @@
                                          </div>
                                      </td>
                                  </tr>
+                                @endif
                              @endforeach
                          </tbody>
                      </table>
                  </div>
              </div>
-             <!--/ Basic Bootstrap Table -->
 
              <hr class="my-5" />
 

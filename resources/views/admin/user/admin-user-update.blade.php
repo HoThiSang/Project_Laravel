@@ -113,8 +113,8 @@
                                     <div class="input-group input-group-merge">
                                         <span id="address" class="input-group-text"><i
                                                 class="bx bx-comment"></i></span>
-                                        <textarea id="address" name="address" value="{{ $user->address }}" class="form-control" placeholder="Address"
-                                            aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"></textarea>
+                                        <textarea id="address" name="address" value="" class="form-control" placeholder="Address"
+                                            aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2">{{ $user->address }}</textarea>
 
                                     </div>
                                     @error('address')
@@ -128,7 +128,7 @@
                                     <input type="hidden" id="imageUrl" name="url" value="">
                                     <input id="image" type="file" accept="image/*" name="image_url"
                                         onchange="loadFile(event)">
-                                        <img src="{{ asset('images/' . $user->image_url) }}" alt="" class="img-fluid"
+                                        <img src="{{  $user->image_url }}" alt="" class="img-fluid"
                                         height="150" width="100">
                                 </div>
                                 @error('image')

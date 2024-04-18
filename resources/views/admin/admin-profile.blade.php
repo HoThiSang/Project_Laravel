@@ -1,13 +1,17 @@
 <!-- admin-profile.blade.php -->
 @extends('layouts.admin')
 @section('content')
+<div class="content-wrapper">
+         <!-- Content -->
+         <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card mb-4">
         <h5 class="card-header">Profile Details</h5>
         <!-- Account -->
         <div class="card-body">
             <!-- Hiển thị ảnh đại diện -->
+            <form id="formAccountSettings" method="post" enctype="multipart/form-data" action="{{ route('update-admin-profile', ['id' => $user->id]) }}">
             <div>
-                <img src="https://down-vn.img.susercontent.com/file/cdf9af013aa652eb0596cb252b1101d4_tn" alt="user-avatar"
+                <img src="{{ $user->image_url }}" alt="user-avatar"
                     class="d-block rounded" id="uploadedAvatar" height="150px" width="150px" />
             </div>
 
@@ -29,7 +33,7 @@
         <div class="card-body">
             <!-- Form cập nhật thông tin người dùng -->
 
-            <form id="formAccountSettings" method="post" action="{{ route('update-admin-profile', ['id' => $user->id]) }}">
+          
                 <div class="row">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <input type="hidden" name="role_id" value="{{ $user->role_id }}">
@@ -72,7 +76,16 @@
                             <span style="color: red;">{{ $message }}</span>
                         @enderror
                     </div>
+                    
+                    <div class="mb-3">
+                               
+                                <input id="image_url" type="file" accept="image/*" name="image_url" onchange="loadFile(event)">
 
+                        </div>
+                        <div class="mb-3">
+                        <img style="width: 200px; height: 200px; list-style-type: none; border:none" id="output" />
+
+                        </div>
 
                 </div>
                 @csrf
@@ -84,6 +97,8 @@
         </div>
         <!-- /Account -->
     </div>
+         </div>
+</div>
    
         @if (session('message'))
         <script>
@@ -97,4 +112,30 @@
         </script>
         @endif
    
+@endsection
+
+@section('js')
+<script>
+    let file = null;
+    var loadFile = function(event) {
+
+        for (let i = 0; i <= event.target.files.length - 1; i++) {
+
+            const fsize = event.target.files.item(i).size;
+            const filee = Math.round((fsize / 1024));
+            // The size of the file.
+            if (filee > 4096) {
+                alert("File too Big, please select a file less than 4mb");
+            } else {
+                var output = document.getElementById('output');
+                file = event;
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src) // free memory
+                }
+            }
+        }
+    };
+</script>
+
 @endsection

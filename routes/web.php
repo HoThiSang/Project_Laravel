@@ -51,31 +51,32 @@ Route::get('/logout', [CustomAuthController::class, 'logout']);
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/filter', [ProductsController::class, 'filterByCategory'])->name('filterByCategory');
 Route::get('/detail/{id}', [ProductsController::class, 'getDetail'])->name('getDetail');
-Route::get('/checkout', [ChechoutController::class, 'index'])->name('checkout');
-Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkoutPost');
-Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
-Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin')->middleware('isAdmin');
 Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
-Route::get('/view-order', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
-Route::get('user-profile}', [UserController::class, 'index'])->name('user-profile');
-Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
-Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
+// Route::get('/checkout', [ChechoutController::class, 'index'])->name('checkout');
+// Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkoutPost');
+// Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
+// Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin')->middleware('isAdmin');
+// Route::get('/get-detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
+// Route::get('/view-order', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
+// Route::get('user-profile}', [UserController::class, 'index'])->name('user-profile');
+// Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
+// Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
 
 
-Route::post('/add-to-cart/{id}', [CartController::class, 'store'])->name('addtocart');
+// Route::post('/add-to-cart/{id}', [CartController::class, 'store'])->name('addtocart');
 
-Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtocart');
+// Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtocart');
 
-Route::get('/cart-remove/{id}', [CartController::class, 'removeFromCart'])->name('cart-remove');
+// Route::get('/cart-remove/{id}', [CartController::class, 'removeFromCart'])->name('cart-remove');
 
-Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-Route::post('/add-to-wishlist/{id}', [WishlistController::class, 'add'])->name('addToWishlist');
-//
-Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
+// Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+// Route::post('/add-to-wishlist/{id}', [WishlistController::class, 'add'])->name('addToWishlist');
+// //
+// Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
 
-Route::post('/send-mail-to', [UserSendMailController::class, 'sendEmail'])->name('sendEmail');
+// Route::post('/send-mail-to', [UserSendMailController::class, 'sendEmail'])->name('sendEmail');
 
-Route::get('/delete-order/{id}', [ChechoutController::class, 'destroy'])->name('delete-order');
+// Route::get('/delete-order/{id}', [ChechoutController::class, 'destroy'])->name('delete-order');
 
 Auth::routes();
 
@@ -85,12 +86,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
                 return view('admin.dashboard');
         })->name('admin-page');
 
-        
+
 
         Route::get('admin-profile', [UserController::class, 'adminProfile'])->name('admin-profile');
-        Route::post('admin-profile/{id}', [UserController::class, 'updateUser'])->name('update-admin-profile');
+        Route::post('admin-profile/{id}', [AdminUserController::class, 'updateAdmin'])->name('update-admin-profile');
 
-        
+
 
 
         Route::get('/admin-product', [AdminProductController::class, 'index'])->name('product-index');
@@ -163,13 +164,38 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('update-user/{id}', [AdminUserController::class, 'update'])->name('update-user');
         Route::get('delete-user/{id}', [AdminUserController::class, 'destroy'])->name('delete-user');
 
-        
+
         Route::get('/admin-whislist-delete/{id}', [AdminWishListController::class, 'destroy'])->name('admin-whislist-destroy'); // display view create
 
 });
 
 Route::middleware(['auth'])->group(function () {
-        
+        Route::get('/checkout', [ChechoutController::class, 'index'])->name('checkout');
+        Route::post('/checkout', [ChechoutController::class, 'checkout'])->name('checkoutPost');
+        Route::get('/is-checkout-success', [ChechoutController::class, 'isCheckout'])->name('isCheckoutSuccess');
+        Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin')->middleware('isAdmin');
+      
+        Route::get('/view-order', [ChechoutController::class, 'getAllOrder'])->name('view-orders');
+        Route::get('user-profile}', [UserController::class, 'index'])->name('user-profile');
+        Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
+        Route::post('user-profile/{id}', [UserController::class, 'updateUser'])->name('update-user-profile');
+
+
+        Route::post('/add-to-cart/{id}', [CartController::class, 'store'])->name('addtocart');
+
+        Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtocart');
+
+        Route::get('/cart-remove/{id}', [CartController::class, 'removeFromCart'])->name('cart-remove');
+
+        Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+        Route::post('/add-to-wishlist/{id}', [WishlistController::class, 'add'])->name('addToWishlist');
+        //
+      
+        Route::post('/send-mail-to', [UserSendMailController::class, 'sendEmail'])->name('sendEmail');
+
+        Route::get('/delete-order/{id}', [ChechoutController::class, 'destroy'])->name('delete-order');
 });
 
-Route::post('search_products', [HomeController::class,'search'])->name('search_products'); // display
+Route::post('search_products', [HomeController::class, 'search'])->name('search_products'); // display
+Route::get('/contact-page', [ContactController::class, 'index'])->name('contact-page');
+

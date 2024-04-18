@@ -60,8 +60,8 @@
                                     <label class="form-label" for="ingredient">Image Name</label>
                                     <div class="input-group input-group-merge">
                                         <span id="image_name" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                        <textarea id="image_name" class="form-control" name="image_name" value="{{ $banner->image_name }}" placeholder=""
-                                            aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                        <textarea id="image_name" class="form-control" name="image_name" value="" placeholder=""
+                                            aria-label="" aria-describedby="basic-icon-default-message2">{{ $banner->image_name }}</textarea>
 
                                     </div>
                                     @error('image_name')
