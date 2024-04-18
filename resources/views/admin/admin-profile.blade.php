@@ -84,13 +84,17 @@
         </div>
         <!-- /Account -->
     </div>
-    <script>
+   
         @if (session('message'))
+        <script>
             alert("{{ session('message') }}");
+            </script>
         @endif
 
         @if (session('error'))
+        <script>
             alert("{{ session('error') }}");
+        </script>
         @endif
-    </script>
+   
 @endsection

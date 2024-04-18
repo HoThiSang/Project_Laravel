@@ -4,7 +4,7 @@
         <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Users Tables</h4>
             <form action="{{ route('create-new-user') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (session('status'))
@@ -80,7 +80,7 @@
 
 
 
-                                <button type="submit" class=" btn btn-primary">Create new</button>
+                                <button type="submit" class=" btn btn-primary">Create</button>
 
                             </div>
                         </div>

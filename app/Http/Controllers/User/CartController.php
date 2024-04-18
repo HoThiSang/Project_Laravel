@@ -57,7 +57,7 @@ class CartController extends Controller
             if ($existing_cart_item) {
                 $existing_cart_item->quantity = $existing_cart_item->quantity + 1;
                 $existing_cart_item->save();
-                return redirect()->back()->with('success', 'Sản phẩm đã được cập nhật trong giỏ hàng.');
+                return redirect()->back()->with('success', 'The product has been added to the cart.');
             } else {
                 $product = $this->product->getProductByIDs( $product_id );
 
@@ -69,9 +69,9 @@ class CartController extends Controller
                     $cart_item->price = $product->discounted_price;
                     $cart_item->unit_price = $product->price;
                     $cart_item->save();
-                    return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
+                    return redirect()->back()->with('success', 'The product has been added to cart.');
                 } else {
-                    return redirect()->back()->with('error', 'Không tìm thấy thông tin sản phẩm.');
+                    return redirect()->back()->with('error', 'No product information found.');
                 }
             }
         }else{
@@ -94,11 +94,13 @@ class CartController extends Controller
 
     public function removeFromCart($id)
     {
-
+      
         $cartItem = Cart::where('product_id', $id)->first();
+    
         if ($cartItem) {
 
-            $cartItem->delete();
+           $carst= $cartItem->delete();
+          
 
             return redirect()->route('showtocart')->with('success', 'Product removed from cart successfully.');
         } else {

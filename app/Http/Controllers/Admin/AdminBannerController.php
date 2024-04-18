@@ -129,15 +129,17 @@ class AdminBannerController extends Controller
         $banner->content = $request->input('content');
         $banner->image_name = $request->input('image_name');
         if ($request->hasFile('image_url')) {
-            $oldImage = 'images/' . $banner->image_url;
-            if (File::exists($oldImage)) {
-                File::delete($oldImage);
-            }
+            
             $file = $request->file('image_url');
+            $uploadedFileUrl = Cloudinary::upload($request->file('image_url')->getRealPath(), [
+                'folder' => 'upload_image'
+            ])->getSecurePath();
+            $publicId = Cloudinary::getPublicId();
             $extension = $file->getClientOriginalName();
             $filename = time() . '_' . $extension;
-            $file->move('images/', $filename);
-            $banner->image_url = $filename;
+            $banner->image_url = $uploadedFileUrl;
+            $banner->image_name = $filename;
+            $banner->publicId = $publicId;
         }
         $banner->update();
         return redirect()->route('admin-banner')->with('success', 'Update successfully');

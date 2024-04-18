@@ -74,7 +74,7 @@ class UserSendMailController extends Controller
                 Mail::to($cart->email)->send(new AdminReplyMail($dataSend));
                
                 if (Mail::failures()) {
-                    return redirect()->back()->with('error', 'Gửi email thất bại.');
+                    return redirect()->back()->with('error', 'Email sending failed');
                 }
                 $this->contacts->updateContact($id, $cartdata);
                 

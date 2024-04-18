@@ -227,20 +227,20 @@ class ChechoutController extends Controller
                         $order_item =   $this->order_item->creatNewOrderItem($orderItemData);
                     }
                     Cart::truncate();
-                    $success = 'Giao dịch thành công!';
+                    $success = 'Successful transaction!';
                     return view('users/checkout-success', compact('order', 'success'));
                 } else {
-                    $error = 'Đã xảy ra lỗi khi lưu đơn hàng.';
+                    $error = 'An error occurred while saving the order.';
                     return view('users/checkout-failed', compact('error'));
                 }
             } else {
 
-                $error = 'Giao dịch không thành công.';
+                $error = 'Transaction failed.';
                 return view('users/checkout-failed', compact('error'));
             }
         } else {
 
-            $error = 'Chữ ký không hợp lệ.';
+            $error = 'Invalid signature.';
             return view('users/checkout-failed', compact('error'));
         }
     }

@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Slide;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -143,10 +142,10 @@ class AdminUserController extends Controller
         
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            // $file->move('images/', $filename);
+          
             $user->image_name = $filename;
             $user->image_url = $uploadedFileUrl;
-            $user->publicId = $filename;
+            $user->publicId = $publicId;
 
             
         }
@@ -162,10 +161,14 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     $user_id = Auth::user()->id;
+
+    //     $user = DB::table('users')->where('id', $user_id)->first();
+
+    //     return view('', compact('user'));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -222,15 +225,27 @@ class AdminUserController extends Controller
         $user->image_name = $request->input('image_name');
 
         if ($request->hasFile('image_url')) {
-            $oldImage = 'images/' . $user->image_url;
-            if (File::exists($oldImage)) {
-                File::delete($oldImage);
-            }
+            // $oldImage = 'images/' . $user->image_url;
+            // if (File::exists($oldImage)) {
+            //     File::delete($oldImage);
+            // }
+            // $file = $request->file('image_url');
+            // $extension = $file->getClientOriginalExtension();
+            // $filename = time() . '.' . $extension;
+            // $file->move('images/', $filename);
+            // $user->image_url = $filename;
             $file = $request->file('image_url');
+            $uploadedFileUrl = Cloudinary::upload($request->file('image_url')->getRealPath(), [
+                'folder' => 'upload_image'
+            ])->getSecurePath();
+            $publicId = Cloudinary::getPublicId();
+        
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('images/', $filename);
-            $user->image_url = $filename;
+          
+            $user->image_name = $filename;
+            $user->image_url = $uploadedFileUrl;
+            $user->publicId = $publicId;
         }
 
         $user->update();
@@ -253,7 +268,7 @@ class AdminUserController extends Controller
             $user->delete();
             return redirect()->route('admin-user')->with('success', 'Deleted successfully');
         } else {
-            return redirect()->route('admin-user')->with('error', 'Không tìm thấy người dùng');
+            return redirect()->route('admin-user')->with('error', 'User not found');
         }
     }
 }

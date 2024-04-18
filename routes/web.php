@@ -66,7 +66,7 @@ Route::post('/add-to-cart/{id}', [CartController::class, 'store'])->name('addtoc
 
 Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('showtocart');
 
-Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/cart-remove/{id}', [CartController::class, 'removeFromCart'])->name('cart-remove');
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 Route::post('/add-to-wishlist/{id}', [WishlistController::class, 'add'])->name('addToWishlist');
@@ -83,7 +83,7 @@ Auth::routes();
 Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/dashboard', function () {
                 return view('admin.dashboard');
-        });
+        })->name('admin-page');
 
         
 

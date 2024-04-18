@@ -4,7 +4,7 @@
         <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Users Table</h4>
             <form action="{{ route('update-user', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (session('status'))
@@ -68,7 +68,7 @@
                                     <label class="form-label" for="password">Password</label>
                                     <div class="input-group input-group-merge">
                                         <span id="password" class="input-group-text"><i class="bx bx-phone"></i></span>
-                                        <input type="password" id="password" name="password" value="{{ $user->password }}"
+                                        <input type="hidden" id="password" name="password" value="{{ $user->password }}"
                                             class="form-control phone-mask" placeholder="Password"
                                             aria-describedby="password" />
                                     </div>
@@ -80,7 +80,7 @@
 
 
 
-                                <button type="submit" class=" btn btn-primary">Create new</button>
+                                <button type="submit" class=" btn btn-primary">Update user</button>
 
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                                     @enderror
                                 </div>
 
-                                <input type="hiden" class="role_id" id="role_id" value="1">
+                                <input type="hidden" class="role_id" id="role_id" value="1">
 
                                 <div class="mb-3">
                                     <input type="hidden" id="imageUrl" name="url" value="">
