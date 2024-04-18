@@ -12,9 +12,11 @@ class ProductsController extends Controller
 
     protected $products;
     const _PER_PAGE = 3;
+ 
     public function __construct()
     {
         $this->products = new Product();
+        
     }
 
 

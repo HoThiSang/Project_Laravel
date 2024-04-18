@@ -6,9 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\Banner;
+
 
 class CategoryController extends Controller
 {
+
+    protected $banner;
+
+    public function __construct()
+    {
+        $this->banner = new Banner();
+    }
+
     public function index(Request $request)
     {
         $softBy = $request->input('sort-by');
@@ -36,7 +46,7 @@ class CategoryController extends Controller
                 ->get();
             Session::flash('message', 'no');
         }
-
-        return view('users/category', compact('products', 'title'));
+        $bannerAll = $this->banner->getAllBanner();
+        return view('users/category', compact('products', 'title', 'bannerAll'));
     }
 }

@@ -38,7 +38,7 @@
                              <th>Title</th>
                              <th>Content</th>
                              <th>Image_url</th>
-                             <th>Image_name</th>
+                             <!-- <th>Image_name</th> -->
                              <th>Action</th>
                          </tr>
                      </thead>
@@ -47,10 +47,10 @@
                          <tr>
                              <td><strong>{{ $banner->id }}</strong></td>
                              <td>{{ Str::limit($banner->title, 20) }}</td>
-                             <td>{{ $banner->content }}</td>
-                             <td>{{ $banner->image_name }}</td>
+                             <td>{{  Str::limit($banner->content , 50)}}</td>
+                             <!-- <td>{{ $banner->image_name }}</td> -->
                              <td>
-                                 <img src="{{ asset('images/' . $banner->image_url) }}" alt="" class="img-fluid" height="150" width="100">
+                                 <img src="{{ $banner->image_url }}" alt="" class="img-fluid" height="150" width="100">
                              </td>
                              
 
