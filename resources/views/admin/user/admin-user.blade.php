@@ -87,7 +87,7 @@
                                                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom"
                                                      data-bs-placement="top" class="avatar avatar-xs pull-up"
                                                      title="Lilian Fuller">
-                                                     <img src="{{ asset('images/' . $user->image_url) }}" alt="Avatar"
+                                                     <img src="{{ $user->image_url}}" alt="Avatar"
                                                          class="rounded-circle" />
                                                  </li>
                                              </ul>

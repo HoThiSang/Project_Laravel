@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Slide;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 
 
@@ -134,10 +136,19 @@ class AdminUserController extends Controller
 
         if ($request->hasFile('image_url')) {
             $file = $request->file('image_url');
+            $uploadedFileUrl = Cloudinary::upload($request->file('image_url')->getRealPath(), [
+                'folder' => 'upload_image'
+            ])->getSecurePath();
+            $publicId = Cloudinary::getPublicId();
+        
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('images/', $filename);
-            $user->image_url = $filename;
+            // $file->move('images/', $filename);
+            $user->image_name = $filename;
+            $user->image_url = $uploadedFileUrl;
+            $user->publicId = $filename;
+
+            
         }
 
         $user->save();
@@ -240,7 +251,6 @@ class AdminUserController extends Controller
             $user->carts()->delete();
             $user->orders()->delete();
             $user->delete();
-        
             return redirect()->route('admin-user')->with('success', 'Deleted successfully');
         } else {
             return redirect()->route('admin-user')->with('error', 'Không tìm thấy người dùng');

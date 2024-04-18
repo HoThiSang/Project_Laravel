@@ -17,7 +17,7 @@
             <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
                 @foreach($bannerAll as $banner)
-                <div class="item" style="background-image: url(/images/<?php echo  $banner->image_url ?>)">
+                <div class="item" style="background-image: url(<?php echo  $banner->image_url ?>)">
                     <div class="container-fluid">
                         <div class="caption bg-color vertical-center text-left">
                             <div class="slider-header fadeInDown-1">{{ $banner->title }}</div>
