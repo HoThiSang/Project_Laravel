@@ -63,4 +63,9 @@ class Order extends Model
             ->select('orders.id', 'orders.phone_number', 'orders.order_status', 'orders.order_total', 'orders.payment_method', 'orders.created_at', 'users.username', 'users.phone')
             ->get();
     }
+
+    public function countOrders()
+    {
+        return $this->count();
+    }
 }

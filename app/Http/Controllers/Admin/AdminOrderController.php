@@ -11,6 +11,7 @@ class AdminOrderController extends Controller
     public function showOrder()
     {
         $orders = Order::all();
+        
         return view('admin/orders/admin-order', compact('orders'));
     }
     public function OrderDelete($id)
@@ -72,6 +73,14 @@ class AdminOrderController extends Controller
             ->get();
 
         return view('admin.orders.admin-order', compact('orders'));
+    }
+
+
+    public function countOrders()
+    {
+        $order = new Order();
+        $orderCount = $order->countOrders();
+        return $orderCount;
     }
 
 }

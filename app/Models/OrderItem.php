@@ -15,4 +15,10 @@ class OrderItem extends Model
     {
         return DB::table($this->table)->insert($data);
     }
+
+
+    public static function calculateRevenueInMonth($month)
+    {
+        return static::whereMonth('created_at', $month)->sum(DB::raw('quantity * unit_price'));
+    }
 }
