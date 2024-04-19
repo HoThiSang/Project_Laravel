@@ -43,4 +43,5 @@ class Contact extends Model
             return false; 
         }
     }
+    
 }

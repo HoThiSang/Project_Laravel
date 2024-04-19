@@ -55,10 +55,10 @@ class Product extends Model
             ->groupBy('products.id', 'products.product_name', 'products.category_id', 'products.price', 'products.discounted_price', 'products.quantity')
             ->select('products.id', 'products.product_name', 'products.category_id', 'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
             ->get();
-    
+
         return $products;
     }
-    
+
     protected static function booted()
     {
         static::addGlobalScope('id', function ($builder) {
@@ -114,7 +114,7 @@ class Product extends Model
 
         return $this->update(['deleted_at' => Carbon::now()]);
     }
-    
+
     public function subtractQuantity($product_id, $quantityToSubtract)
     {
 
@@ -128,7 +128,7 @@ class Product extends Model
             return false;
         }
     }
-   
+
     public function getAllProductSortedByQuantityDesc()
     {
         $products = DB::table('products')
@@ -136,12 +136,12 @@ class Product extends Model
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->groupBy('products.id')
             ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
-            ->orderBy('quantity', 'desc') 
+            ->orderBy('quantity', 'desc')
             ->get();
 
         return $products;
     }
-    public function getAllProducts() 
+    public function getAllProducts()
     {
         return  DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
@@ -149,8 +149,8 @@ class Product extends Model
             ->select('products.id', 'products.product_name', 'products.price', 'products.discount', DB::raw('MAX(images.image_url) as image_url'), DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
             ->get();
     }
-    
-    public function getAllProductByDiscount() 
+
+    public function getAllProductByDiscount()
     {
         return   DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
@@ -159,7 +159,7 @@ class Product extends Model
             ->where('products.discount', '>', 0) // Thêm 'products.' trước discount
             ->get();
     }
-    
+
     public function getAllProductBySugest()
     {
         return DB::table('products')
@@ -169,7 +169,7 @@ class Product extends Model
             ->where('products.quantity', '<', 40) // Thêm 'products.' trước quantity
             ->get();
     }
-    
+
 
     public function getAllProductSortedByPriceDesc()
     {
@@ -179,7 +179,7 @@ class Product extends Model
             ->whereNull('products.deleted_at')
             ->groupBy('products.id')
             ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
-            ->orderBy('products.price', 'desc') 
+            ->orderBy('products.price', 'desc')
             ->get();
 
         return $products;
@@ -188,23 +188,26 @@ class Product extends Model
     public function search($keyword)
     {
         $products = DB::table('products')
-        ->join('images', 'products.id', '=', 'images.product_id')
-        ->join('categories', 'products.category_id', '=', 'categories.id')
-        ->whereNull('products.deleted_at')
-        ->where('products.product_name', 'like', "%$keyword%") 
-        ->groupBy('products.id')
-        ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
-        ->get();
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->whereNull('products.deleted_at')
+            ->where('products.product_name', 'like', "%$keyword%")
+            ->groupBy('products.id')
+            ->select('products.id', 'products.product_name', 'products.category_id',  'products.price', 'products.discounted_price', 'products.quantity', DB::raw('MAX(images.image_url) as image_url'))
+            ->get();
         return $products;
     }
 
-    public function getProductByIDs($id) 
- {
-    return DB::table('products')
-        ->where('products.id', $id)
-        ->select('products.*', DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
-        ->first();
-}
+    public function getProductByIDs($id)
+    {
+        return DB::table('products')
+            ->where('products.id', $id)
+            ->select('products.*', DB::raw('(products.price * (1 - products.discount/100)) as discounted_price'))
+            ->first();
+    }
 
-
+    public function countProduct()
+    {
+        return $this->count();
+    }
 }

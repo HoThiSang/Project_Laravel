@@ -85,4 +85,9 @@ class User extends Authenticatable
             ->get();
     }
 
+    public function countUser()
+    {
+        return $this->count();
+    }
+
 }

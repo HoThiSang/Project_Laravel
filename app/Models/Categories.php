@@ -75,4 +75,9 @@ class Categories extends Model
             ->where('id', $id)
             ->update($data);
     }
+
+    public function countCategory()
+    {
+        return $this->count();
+    }
 }
